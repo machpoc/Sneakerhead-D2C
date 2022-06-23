@@ -13,4 +13,210 @@ a {
 
 * {
   box-sizing: border-box;
+  
+}
+
+
+
+.product-container{
+width:min-content;
+border: 1px solid black;
+}
+
+
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 1px;
+  margin-top: -22px;
+  color: rgb(4, 4, 4);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: -3rem;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  margin-left: -4rem;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+/* .prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+} */
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
+
+/* .carousal-item{
+  width: 100%;
+} */
+
+
+
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 200px;
+}
+
+.box1 {
+  background-color: #e8ecdc;
+  height: 50vh;
+  width: 100%;
+}
+
+.box4 {
+  background-color: #086c44;
+  height: 50vh;
+}
+
+.box5 {
+  background-color: #e8ecdc;
+  height: 50vh;
+}
+
+.designDiv {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.TextBoxContainer {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+}
+.textContainer {
+  margin: 5%;
+}
+
+.textTitle {
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.textDescription {
+  color: grey;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.svg {
+  height: 100%;
+  width: 100%;
+}
+.button {
+  border-radius: 20px;
+  margin-top: 25px;
+  background: white;
+  border: 1px solid green;
+  width: 25%;
+  height: 5vh;
+}
+.image1 {
+  left: 0;
+  top: 35%;
+  object-fit: contain;
+  position: absolute;
+  width: 35vw;
+  top: 25%;
+  bottom: 25%;
+}
+
+.image2 {
+  left: 0;
+  top: 35%;
+  object-fit: contain;
+  position: absolute;
+  width: 25vw;
+  top: 10%;
+  bottom: 20%;
+  left: 20%;
+}
+
+.image3 {
+  left: 0;
+  top: 35%;
+  object-fit: contain;
+  position: absolute;
+  width: 40vw;
+  top: 0%;
+  left: 18.5%;
+  right: 0%;
 }
