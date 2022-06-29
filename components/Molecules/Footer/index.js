@@ -3,68 +3,63 @@ import Grid, { Item } from '../../Atoms/Grid';
 
 const Footer = () => {
     return (
-<Grid columns={5} rows={1} >
-<Item display="flex" paddingTop="5rem"   paddingBottom="5rem">
-    <h4>Footer1</h4>
+<Grid columns={5} rows={1} justifyItems="center" bgColor="#C1C3C4" >
+<Item paddingTop="1rem"   paddingBottom="5rem" >
+    <h5>MY ACCOUNT</h5>
     <ul style={{  padding: 0,
     listStyleType: "none"}}>
     <li>
-        content1
+        My Account
+    </li>
+    <li>
+        Order History
+    </li>
+    <li>
+        Wish lists
     </li>
     <li>
         content1
     </li>
-    <li>
-        content1
-    </li>
-    <li>
-        content1
-    </li>
-    <li>
-        content1
-    </li>
-    <li>
-        content1
-    </li>
+   
 </ul>
 </Item>
-<Item display="flex" paddingTop="5rem"   paddingBottom="5rem">
-<h4>Footer1</h4>
+<Item  paddingTop="1rem" paddingBottom="5rem">
+<h5>SNEAKERHEAD</h5>
 <ul style={{  padding: 0,
     listStyleType: "none"}}>
     <li>
-        content1
+        About Us
     </li>
     <li>
-        content1
+        Careers
     </li>
     <li>
-        content1
+        News & Events
     </li>
     <li>
-        content1
+        Sitemap
     </li>
     <li>
-        content1
+        Blog
     </li>
 
 </ul>
 </Item>
-<Item display="flex" paddingTop="5rem"   paddingBottom="5rem">
-<h4>Footer1</h4>
+<Item  paddingTop="1rem"    paddingBottom="5rem">
+<h5>CUSTOMER SERVICE</h5>
 <ul style={{  padding: 0,
     listStyleType: "none"}}>
     <li>
-        content1
+    FAQS
     </li>
     <li>
-        content1
+    Track Order
     </li>
     <li>
-        content1
+    Return Request
     </li>
     <li>
-        content1
+    Return Status
     </li>
 </ul>
 </Item>

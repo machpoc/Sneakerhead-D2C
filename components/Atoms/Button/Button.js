@@ -60,7 +60,7 @@ fill
                     bg: fill?`${hoverBg}`:"#ffffff"
                   }}
                   _pressed={{
-                    bg: "green.500"
+                    bg: fill?`#d31423c7`:"#f7f7f7"
                   }}
                 >
 

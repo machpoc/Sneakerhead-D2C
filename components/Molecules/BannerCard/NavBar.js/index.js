@@ -35,7 +35,7 @@ const Navbar = () => {
       fontWeight:"600",
       width:"100%",
       fontFamily: "Arial, Helvetica",
-      padding:"20px"
+      padding:"11px"
       }
    
       const BookButton={
@@ -100,7 +100,7 @@ const Navbar = () => {
     </Item>
     <Item >
     <ul style={NavUl}>
-  <li style={NavLi}><a href="#home" style={NavLink}>Glasses</a></li>
+  <li style={NavLi}><a href="/test" style={NavLink}>Glasses</a></li>
   <li style={NavLi}><a href="#news" style={NavLink}>Contact lenses</a></li>
   <li style={NavLi}><a href="#contact" style={NavLink}>Eye health</a></li>
   <li style={NavLi}><a href="#about" style={NavLink}>Offers</a></li>

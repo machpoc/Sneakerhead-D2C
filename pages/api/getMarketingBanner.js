@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default function api(req, res) {
 
-    axios('https://cdn.contentful.com/spaces/5cibvzbrcpra/environments/master/entries?access_token=WBzq4l0Y8VZ1HCyOx5Q97DeZl-96kwTuig7vMQTZsRk&content_type=marketingBanner')
+    axios(`https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE}/environments/master/entries?access_token=${process.env.CONTENTFUL_TOKEN}&content_type=marketingBanners`)
     .then(resp => resp.data)
     .then(data => {
 
@@ -10,21 +10,21 @@ export default function api(req, res) {
 
      {     
         
-        title1: data.items[0].fields.title1,
+        title1: data.items[2].fields.title,
 
-          description1: data.items[0].fields.description1,
+          description1: data.items[2].fields.description,
 
-          title2: data.items[0].fields.title2,
+          title2: data.items[1].fields.title,
 
-          description2: data.items[0].fields.description2,
+          description2: data.items[1].fields.description,
 
-          title3: data.items[0].fields.title3,
+          title3: data.items[0].fields.title,
 
-          description3: data.items[0].fields.description3,
+          description3: data.items[0].fields.description,
 
-          title4: data.items[0].fields.title4,
+          title4: data.items[0].fields.title,
 
-          description4: data.items[0].fields.description4
+          description4: data.items[0].fields.description
 
            
    } 

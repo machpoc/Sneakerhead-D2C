@@ -2,7 +2,8 @@ import axios from 'axios'
 
 export default function api(req, res) {
 
-     
+ 
+ 
   axios(`https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE}/environments/master/entries?access_token=${process.env.CONTENTFUL_TOKEN}&content_type=heroBanner`)
   .then(resp => resp.data)
   .then(data => {

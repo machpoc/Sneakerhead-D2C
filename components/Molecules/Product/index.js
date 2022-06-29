@@ -15,9 +15,7 @@ const Product=({productImage,productName,
     return(
             
         <>
-
-        <Box >
-        <Box maxW="150" rounded="lg"  marginBottom={props.marginBottom} marginRight={props.marginRight} overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
+        <Box maxW="180"   minH={100} rounded="lg"  marginBottom={props.marginBottom} marginRight={props.marginRight} marginLeft={props.marginLeft} overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
         borderColor: "white",
         backgroundColor: "white"
       }} _web={{
@@ -32,11 +30,8 @@ const Product=({productImage,productName,
               <Image source={{
               uri: `${productImage}`
             }} alt="image" />
-            </AspectRatio> */}
-
-
-            
-            <img src={productImage}/>
+            </AspectRatio> */}            
+            <img src={productImage} height={125} width={180}/>
           </Box>
           <Stack p="4" space={3}>
             <Stack space={2}>
@@ -54,7 +49,7 @@ const Product=({productImage,productName,
               </Text>
             </Stack>
            
-            <HStack alignItems="center" space={4} justifyContent="space-between">
+            <HStack  alignItems="center" space={4} justifyContent="space-between">
               <HStack alignItems="center">
                 <Text color="coolGray.600" _dark={{
                 color: "black.200"
@@ -65,7 +60,7 @@ const Product=({productImage,productName,
             </HStack>
           </Stack>
         </Box>
-      </Box>
+   
 
 </>
                 

@@ -220,3 +220,30 @@ img {vertical-align: middle;}
   left: 18.5%;
   right: 0%;
 }
+
+
+
+
+
+
+
+
+svg {
+  /* display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0; */
+}
+.wavecontainer {
+  /* display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: middle;
+  overflow: hidden; */
+margin-bottom: -.3rem;
+margin-top: -7rem;
+
+}
+
+

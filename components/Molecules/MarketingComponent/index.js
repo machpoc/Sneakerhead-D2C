@@ -18,7 +18,7 @@ const MarketingComponent = (
 
     return (
 
-        <Grid columns={4} rows={1} >
+        <Grid columns={3} rows={1} >
 <Item colEnd={2} display="flex" >
 <Icon size="4xl" viewBox="0 0 870 873">
         <G fillRule="nonzero" stroke="none" strokeWidth={1} fill="none">
@@ -30,10 +30,10 @@ const MarketingComponent = (
         </G>
       </Icon>
 </Item>
-         <Item colStart={2} colEnd={4}>
+         <Item colStart={2} colEnd={4} >
                 <p style={{fontSize:"1.5rem",fontWeight:"700"}}>{heading}</p>
                 <p style={{fontSize:"1rem"}}>{description}</p>
-                <a color="#D31424" href="/home">Click</a>
+                <a style={{color:"#D31424",fontWeight:700,textDecoration:"underline"}} href="/home">Find More</a>
             </Item>
           
         </Grid>

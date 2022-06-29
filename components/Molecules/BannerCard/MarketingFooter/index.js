@@ -7,11 +7,9 @@ const MarketingFooter = ({productImage,productName,
   }) => {
     return ( 
 
-            
-        <>
+  
 
-        <Box >
-        <Box maxW="200" rounded="lg"  marginBottom={props.marginBottom} marginRight={props.marginRight} overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
+        <Box maxW="320" rounded="lg"  marginBottom={props.marginBottom} marginRight={props.marginRight} overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
         borderColor: "white",
         backgroundColor: "white"
       }} _web={{
@@ -31,7 +29,7 @@ const MarketingFooter = ({productImage,productName,
 
 
             
-            <img src={productImage}/>
+            <img height= {220} width= {320} src={productImage}/>
           </Box>
           <Stack p="8" space={3}>
             <Stack space={2}>
@@ -40,29 +38,26 @@ const MarketingFooter = ({productImage,productName,
             }} fontWeight="500">
                {productName}
               </Heading>
-              <Text fontSize="xs" _light={{
-              color: "black.500"
+              <Text fontSize="s" _light={{
+              color: "black"
             }} _dark={{
-              color: "black.400"
-            }} fontWeight="500" ml="-0.5" mt="-1">
+              color: "black"
+            }} fontWeight="400" >
              {productDescription}
               </Text>
             </Stack>
            
             <HStack alignItems="center" space={2} justifyContent="space-between">
               <HStack alignItems="center">
-                <Text color="coolGray.600" _dark={{
-                color: "black.200"
-              }} fontWeight="800">
+                <Text>
                  {productPrice}
                 </Text>
               </HStack>
             </HStack>
           </Stack>
         </Box>
-      </Box>
+ 
 
-</>
 
      );
 }
