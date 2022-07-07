@@ -5,7 +5,7 @@ const Footer = () => {
     return (
 <Grid columns={5} rows={1} justifyItems="center" bgColor="#C1C3C4" >
 <Item paddingTop="1rem"   paddingBottom="5rem" >
-    <h5>MY ACCOUNT</h5>
+    <span style={{fontWeight:"600"}}>MY ACCOUNT</span>
     <ul style={{  padding: 0,
     listStyleType: "none"}}>
     <li>
@@ -24,9 +24,9 @@ const Footer = () => {
 </ul>
 </Item>
 <Item  paddingTop="1rem" paddingBottom="5rem">
-<h5>SNEAKERHEAD</h5>
+<span style={{fontWeight:"600"}}>Policies</span>
 <ul style={{  padding: 0,
-    listStyleType: "none"}}>
+    listStyleType: "none",fontWeight:'12px',lineHeight:'34.58px',fontWeight:'400'}}>
     <li>
         About Us
     </li>
@@ -46,9 +46,45 @@ const Footer = () => {
 </ul>
 </Item>
 <Item  paddingTop="1rem"    paddingBottom="5rem">
-<h5>CUSTOMER SERVICE</h5>
+<span style={{fontWeight:"600"}}>MY ACCOUNT</span>
 <ul style={{  padding: 0,
-    listStyleType: "none"}}>
+    listStyleType: "none",fontWeight:'12px',lineHeight:'34.58px',fontWeight:'400'}}>
+    <li>
+    FAQS
+    </li>
+    <li>
+    Track Order
+    </li>
+    <li>
+    Return Request
+    </li>
+    <li>
+    Return Status
+    </li>
+</ul>
+</Item>
+<Item  paddingTop="1rem"    paddingBottom="5rem">
+<span style={{fontWeight:"600"}}>Customer service</span>
+<ul style={{  padding: 0,
+    listStyleType: "none",fontWeight:'12px',lineHeight:'34.58px',fontWeight:'400'}}>
+    <li>
+    FAQS
+    </li>
+    <li>
+    Track Order
+    </li>
+    <li>
+    Return Request
+    </li>
+    <li>
+    Return Status
+    </li>
+</ul>
+</Item>
+<Item  paddingTop="1rem"    paddingBottom="5rem">
+<span style={{fontWeight:"600"}}>Follow us</span>
+<ul style={{  padding: 0,
+    listStyleType: "none",fontWeight:'12px',lineHeight:'34.58px',fontWeight:'400'}}>
     <li>
     FAQS
     </li>

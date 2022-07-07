@@ -63,19 +63,22 @@ const products ={
         
     ]
 }
-const Test = () => {
 
-const [data,setData] = useState(products.items.slice(0,4))
+
+const Test = ({data}) => {
+
+console.log("data is in tesdt",data)
+const [productData,setData] = useState(data?data.results.slice(0,4):[])
 const [isDataChanged,setIsDataChanged]=useState(false)
 
-function dataChangeHandler(){
+ function dataChangeHandler(){
 
 if (isDataChanged){
-    setData(products.items.slice(0,4))
+    setData(data.results.slice(0,4))
     setIsDataChanged(!isDataChanged)
 }
 else {
-    setData(products.items.slice(4,8))
+    setData(data.results.slice(4,8))
     setIsDataChanged(!isDataChanged)
 }
 
@@ -85,14 +88,14 @@ else {
   
     <div style={{display:"flex",flexDirection:'row',justifyContent:"center",maxWidth: "1000px", position: "relative", margin: "auto"}}>
 
-   { data.map(item=>{
+   { productData.map(item=>{
     return(
         
        <Product
-        productImage={item.image}
-        productName={item.productName}
-        productDescription="LL SUN RX 02"
-        productPrice="$594"
+        productImage={item.masterData.staged.masterVariant.images[0].url}
+        productName={item.masterData.staged.name.en}
+        productDescription={item.masterData.staged.description.en}
+        productPrice={item.masterData.staged.masterVariant.prices[0].value.centAmount}
         marginRight="2.5rem"
         marginLeft="2.5rem"
         

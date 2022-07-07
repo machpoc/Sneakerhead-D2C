@@ -20,7 +20,15 @@ import styled, { css } from "styled-components";
     margin-bottom:${props=>props.marginBottom};
     margin-top:${props=>props.marginTop};
     justify-items:${props=>props.justifyItems};
-
+    justify-content: ${props=>props.justifyContent};;
+    align-content: ${props=>props.alignContent};;
+    border-radius:${props=>props.borderRadius};
+    border:${props=>props.border};
+    margin:${props=>props.margin};
+    position:relative;
+    
+  background-size: cover;
+  background-position: center center;
     `
 
 
@@ -42,7 +50,8 @@ ${props=>props.display &&  `align-items: center;
   padding-bottom:${props=>props.paddingBottom};
   position:${props=> props.position ? props.position : "unset"};
   margin:${props=>props.margin};
-//   borderRadius:"15px"
+  z-index:2;
+
   
 
 `

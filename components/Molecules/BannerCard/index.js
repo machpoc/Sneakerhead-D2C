@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box, Button, Center } from "native-base";
+import { Box, Button, Center,Text } from "native-base";
 import ButtonComponent from '../../Atoms/Button/Button';
 
 
@@ -20,8 +20,8 @@ const BannerCardComponent = (
 
         <Box>
             <Box marginLeft="4rem">
-                <h1>{heading}</h1>
-                <p>{description}</p>
+            <Text fontSize="30px">{heading}</Text>
+               <Text fontSize="16px">{description}</Text>
                 <ButtonComponent
                 // size="xs"
                 width={100}

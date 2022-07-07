@@ -4,7 +4,7 @@ import { Button } from "native-base";
 
 
 
-const ButtonComponent = (
+const  ButtonComponent = (
 
 
     {
@@ -20,18 +20,20 @@ const ButtonComponent = (
     width,
 height,
 radius,
-fill
+fill,marginTop,
+marginBottom
 }
 
 ) => {
     const myRef = React.useRef({});
     React.useEffect(() => {
       const styleObj = {
-          
+        marginTop: marginTop,
+        marginBottom:marginBottom,
         borderColor:"rgba(211,20,36,1.00)",
         // backGroundColor: fill ? "rgba(211,20,36,1.00)":"transparent",
         borderWidth: 1,
-        borderRadius: 25,
+        borderRadius: '30px',
       }; //@ts-ignore
   
       myRef.current.setNativeProps({

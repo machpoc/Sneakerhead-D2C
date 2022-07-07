@@ -6,14 +6,14 @@ import axios from 'axios'
 
 export default function api(req, res) {
 
-  fetch('', {
-    method: 'POST',
-    headers: {
-        'Authorization': 'Basic c0xKVHJPRk0zMEVKSWhEdHZUclJvNEh3OmJJUjVOSndXcUFhRE52eGpVcVVnbE4tdGhDbFFsMnBn',
-      "Content-Type": "application/json"
+  axios.get('https://api.us-central1.gcp.commercetools.com/onlinestore-poc/products', { headers: { Authorization: "Bearer iJx_BSRXIJ2LqWyjVzpEwiq-Hfddu3DQ" } })
 
-    }
-}).then(resp => console.log("data is",resp)  )
+
+ .then(data => {
+
+
+      return res.json(data.data.results)
+  })
   
 
 }
