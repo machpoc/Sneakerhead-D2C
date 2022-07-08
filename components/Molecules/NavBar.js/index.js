@@ -1,9 +1,9 @@
 import React from 'react';
-import ButtonComponent from '../../../Atoms/Button/Button';
+import ButtonComponent from '../../Atoms/Button/Button';
 
 
 
-import Grid, { Item } from "../../../Atoms/Grid";
+import Grid, { Item } from "../../Atoms/Grid";
 
 
 

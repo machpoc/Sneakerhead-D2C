@@ -1,13 +1,12 @@
 import React from 'react';
 import Grid, { Item } from '../../Atoms/Grid';
-
+import {StyledHeader,StyledList} from './Footer.styled'
 const Footer = () => {
     return (
 <Grid columns={5} rows={1} justifyItems="center" bgColor="#C1C3C4" >
 <Item paddingTop="1rem"   paddingBottom="5rem" >
-    <span style={{fontWeight:"600"}}>MY ACCOUNT</span>
-    <ul style={{  padding: 0,
-    listStyleType: "none"}}>
+   <StyledHeader>MY ACCOUNT</StyledHeader>
+   <StyledList>
     <li>
         My Account
     </li>
@@ -21,13 +20,12 @@ const Footer = () => {
         content1
     </li>
    
-</ul>
+</StyledList>
 </Item>
 <Item  paddingTop="1rem" paddingBottom="5rem">
-<span style={{fontWeight:"600"}}>Policies</span>
-<ul style={{  padding: 0,
-    listStyleType: "none",fontWeight:'12px',lineHeight:'34.58px',fontWeight:'400'}}>
-    <li>
+    <StyledHeader>Policies</StyledHeader>
+<StyledList>
+<li>
         About Us
     </li>
     <li>
@@ -42,62 +40,68 @@ const Footer = () => {
     <li>
         Blog
     </li>
-
-</ul>
+</StyledList>
+ 
 </Item>
 <Item  paddingTop="1rem"    paddingBottom="5rem">
-<span style={{fontWeight:"600"}}>MY ACCOUNT</span>
-<ul style={{  padding: 0,
-    listStyleType: "none",fontWeight:'12px',lineHeight:'34.58px',fontWeight:'400'}}>
-    <li>
-    FAQS
+<StyledHeader>Track Order</StyledHeader>
+<StyledList>
+<li>
+        About Us
     </li>
     <li>
-    Track Order
+        Careers
     </li>
     <li>
-    Return Request
+        News & Events
     </li>
     <li>
-    Return Status
+        Sitemap
     </li>
-</ul>
+    <li>
+        Blog
+    </li>
+</StyledList>
 </Item>
 <Item  paddingTop="1rem"    paddingBottom="5rem">
-<span style={{fontWeight:"600"}}>Customer service</span>
-<ul style={{  padding: 0,
-    listStyleType: "none",fontWeight:'12px',lineHeight:'34.58px',fontWeight:'400'}}>
-    <li>
-    FAQS
+<StyledHeader>Contact Us</StyledHeader>
+<StyledList>
+<li>
+        About Us
     </li>
     <li>
-    Track Order
+        Careers
     </li>
     <li>
-    Return Request
+        News & Events
     </li>
     <li>
-    Return Status
+        Sitemap
     </li>
-</ul>
+    <li>
+        Blog
+    </li>
+</StyledList>
 </Item>
 <Item  paddingTop="1rem"    paddingBottom="5rem">
-<span style={{fontWeight:"600"}}>Follow us</span>
-<ul style={{  padding: 0,
-    listStyleType: "none",fontWeight:'12px',lineHeight:'34.58px',fontWeight:'400'}}>
-    <li>
-    FAQS
+<StyledHeader>Follow us</StyledHeader>
+<StyledList>
+<li>
+        About Us
     </li>
     <li>
-    Track Order
+        Careers
     </li>
     <li>
-    Return Request
+        News & Events
     </li>
     <li>
-    Return Status
+        Sitemap
     </li>
-</ul>
+    <li>
+        Blog
+    </li>
+</StyledList>
 </Item>
 </Grid>
 

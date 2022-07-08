@@ -50,7 +50,7 @@ ${props=>props.display &&  `align-items: center;
   padding-bottom:${props=>props.paddingBottom};
   position:${props=> props.position ? props.position : "unset"};
   margin:${props=>props.margin};
-  z-index:2;
+  z-index:${props=>props.zIndex};
 
   
 

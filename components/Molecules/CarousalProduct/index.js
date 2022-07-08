@@ -6,7 +6,7 @@ import Grid, { Item } from '../../Atoms/Grid'
 import {StyledImage} from './Product.styled'
 const img = require('/public/images/32262551-front-940x529.webp')
 
-const Product=({productImage,productName,
+const CarousalProduct=({productImage,productName,
     productDescription,
     productPrice,
     ...props
@@ -91,4 +91,4 @@ const Product=({productImage,productName,
     )
 }
 
-export default Product
+export default CarousalProduct

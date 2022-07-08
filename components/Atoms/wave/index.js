@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 
 import {StyledRectangleWave} from './wave.styled'
 
@@ -14,12 +14,11 @@ const WaveBanner = () => {
     </> );
 }
 
-const WaveRectangle = () => {
+const WaveRectangle = ({children}) => {
   return ( <>
 
 <StyledRectangleWave>
-
-
+{children}
 </StyledRectangleWave>
   
   </> );
