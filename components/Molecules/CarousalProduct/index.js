@@ -45,14 +45,14 @@ const CarousalProduct=({productImage,productName,
               <Heading size="md" ml="-1"  _dark={{
               color: "black.800"
             }} fontWeight="600">
-               {productName.slice(0,20)}...
+               {productName.slice(0,30)}...
               </Heading>
               <Text fontSize="xs" _light={{
               color: "black.500"
             }} _dark={{
               color: "black.400"
             }} fontWeight="500" ml="-0.5" mt="-1">
-             {productDescription.slice(0,30)}...
+             {productDescription.slice(0,40)}...
               </Text>
             </Stack>
            

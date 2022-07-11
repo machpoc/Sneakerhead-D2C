@@ -72,7 +72,7 @@ console.log(data)
     return (
    
    <>
-
+<Navbar/>
 <HeroBanner columns={12} marginBottom="-8rem"  >
 
 <Item   paddingTop="5rem"    colStart={2} colEnd={6}  >
@@ -92,7 +92,7 @@ console.log(data)
 
 </Item>
 <Item zIndex="-1" rowStart={1} rowEnd={1} colStart={1} colEnd={14} paddingTop="0" paddingBottom="0">
-<div class="wavecontainer" style={{ position: "absolute",bottom:"-64%"}}>
+<div class="wavecontainer" style={{ position: "absolute",bottom:"-41%"}}>
 <svg width="100%" height="700" viewBox="0 0 1024 574" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path opacity="0.15" d="M751.276 436.599C750.952 436.664 -110 584 -110 584V394.92C-110 394.92 750.952 435.951 751.276 435.951C750.952 435.886 -110 272.864 -110 272.864V139.659C-110 139.659 751.34 435.238 751.664 435.433C751.405 435.173 18.8706 -1 18.8706 -1H285.424C285.424 -1 752.247 434.849 752.377 435.109C752.312 434.849 440.535 -1 440.535 -1H582.882C582.882 -1 753.219 434.849 753.155 435.109C753.284 434.849 738.058 -1 738.058 -1H1004.55C1004.55 -1 754.127 435.173 753.867 435.433C754.191 435.238 1134 139.4 1134 139.4V272.605C1134 272.605 754.645 435.886 754.321 435.951C754.645 435.951 1134 394.92 1134 394.92V584C1134 584 754.645 436.664 754.321 436.599" fill="#F4BFC4"/>
 </svg>
@@ -141,7 +141,7 @@ console.log(data)
    Driven by the desire to create a product that gives your feet an incredible experience, and to provide that sensation for every event in your life. Every step is a comfort
    </span>
    </div>
-   <ButtonComponent width={142} bg="#D31424" fill="true" marginTop="32px">HHHH</ButtonComponent>
+   <ButtonComponent width={142} bg="#D31424" fill="true" marginTop="32px">Explore more </ButtonComponent>
    </Item>
 <Item rowStart={1} rowEnd={1}  display="flex " colStart={5} colEnd={12}>
    <img width={350} src="\images\refreshed\Adidas-Shoes-Free-PNG-Image.png"/>
