@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box, Button, Center } from "native-base";
+import { Box, Button, Center,Text } from "native-base";
 import ButtonComponent from '../../Atoms/Button/Button';
 
 
@@ -8,7 +8,9 @@ import ButtonComponent from '../../Atoms/Button/Button';
 const BannerCardComponent = (
     { heading,
         description,
-        buttonName
+        buttonName,
+        buttonBg,
+        hoverBg
     }
 
 ) => {
@@ -17,20 +19,22 @@ const BannerCardComponent = (
     return (
 
         <Box>
-            <Box>
-                <h1>{heading}</h1>
-                <p>{description}</p>
-            </Box>
-            <ButtonComponent
+            <Box marginLeft="4rem">
+            <Text fontSize="30px">{heading}</Text>
+               <Text fontSize="16px">{description}</Text>
+                <ButtonComponent
                 // size="xs"
                 width={100}
                 height={10}
-                bg="#727272"
-                hoverBg="#727245"
+                bg={buttonBg}
+                hoverBg={hoverBg}
+                fill={true}
             >
                 {buttonName}
 
             </ButtonComponent>
+            </Box>
+           
         </Box>
 
     )

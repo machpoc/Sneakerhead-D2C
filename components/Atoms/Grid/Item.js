@@ -1,27 +1,19 @@
 import React from 'react'
+import { StyledItemDiv } from './grid.styled';
 const img = require('/public/images/nextjs-logo.png')
 
 
-function Item({children,colStart,colEnd,rowStart,rowEnd,bgColor,backgroundImage,className}){
+function Item({children,...props}){
 
-    const divStyle = {
-        
-gridColumnStart: colStart? `${colStart}`:"auto",
-gridColumnEnd:colEnd?`${colEnd}`:"auto",
-  gridRowStart: rowStart?`${rowStart}`:"auto",
-  gridRowEnd:rowEnd?`${rowEnd}`:"auto",
-  backgroundColor:`${bgColor}`,
-
-//   borderRadius:"15px"
-
-  
-    };
 
     return(
-        <div className={className} style={divStyle} >
+        <StyledItemDiv {...props}>{children}</StyledItemDiv>
 
-{children}
-        </div>
+
+//         <div className={className} style={divStyle} >
+
+// {children}
+//         </div>
       
     )
 

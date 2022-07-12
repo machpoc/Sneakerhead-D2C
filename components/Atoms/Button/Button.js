@@ -4,7 +4,9 @@ import { Button } from "native-base";
 
 
 
-const ButtonComponent = (
+const  ButtonComponent = (
+
+
     {
         size,
         colorScheme,
@@ -16,15 +18,34 @@ const ButtonComponent = (
         children,
         hoverBg,
     width,
-height }
+height,
+radius,
+fill,marginTop,
+marginBottom
+}
 
 ) => {
-
+    const myRef = React.useRef({});
+    React.useEffect(() => {
+      const styleObj = {
+        marginTop: marginTop,
+        marginBottom:marginBottom,
+        borderColor:"rgba(211,20,36,1.00)",
+        // backGroundColor: fill ? "rgba(211,20,36,1.00)":"transparent",
+        borderWidth: 1,
+        borderRadius: '30px',
+      }; //@ts-ignore
+  
+      myRef.current.setNativeProps({
+        style: styleObj
+      });
+    }, [myRef]);
 
     return (
         <>
 
             <Button
+             ref={myRef}
             width={width}
             height={height}
                 size={size}
@@ -33,12 +54,15 @@ height }
                 variant={variant}
                 isDisabled={isDisabled}
                 isAttached={isAttached}
-                bg={bg}
+                bg={fill?bg:"transparent"}
+                _text={{
+                    color: fill?"#ffffff":"rgba(211,20,36,1.00)"
+                  }}
                 _hover={{
-                    bg: `${hoverBg}`
+                    bg: fill?`${hoverBg}`:"#ffffff"
                   }}
                   _pressed={{
-                    bg: "green.500"
+                    bg: fill?`#d31423c7`:"#f7f7f7"
                   }}
                 >
 
