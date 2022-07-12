@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid, { Item } from '../../Atoms/Grid';
-import {StyledHeader,StyledContent} from './OfferBox.styled'
+import {StyledHeader,StyledContent,StyledSeperator} from './OfferBox.styled'
 const OfferBox = ({header,content}) => {
     return (  <>
    {/* <div style={{display:"flex",alignItems:'center',justifyContent:'center'}}> */}
@@ -12,7 +12,14 @@ const OfferBox = ({header,content}) => {
     {header}
 </StyledHeader>
         </Item>
-        <Item display="flex" colStart={2} colEnd={8}>
+        <Item display="flex" colStart={2} colEnd={3}>
+        <StyledSeperator>
+      <div style={{background:"#D31424",padding:"12px 2px 12px 2px", borderRadius:"30px"}}>
+
+      </div>
+</StyledSeperator>
+        </Item>
+        <Item display="flex" colStart={3} colEnd={9}>
         <StyledContent>
        {content}
 </StyledContent>
