@@ -7,7 +7,7 @@ export const ORG_ID = "1409G6";
 export const algoliaindex = "sneakerhead";
 
 function Welcome() {
-  return <h1>Hello</h1>;
+  return <h1>Hello </h1>;
 }
 
 export default Welcome;
