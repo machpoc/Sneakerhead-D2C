@@ -1,5 +1,5 @@
 export const defaultEndpointProducts =
-  "https://api.us-central1.gcp.commercetools.com/onlinestore-poc/products";
+  "https://api.us-central1.gcp.commercetools.com/onlinestore-poc/product-projections?limit=500";
 export const authEndpoint =
   "https://auth.us-central1.gcp.commercetools.com/oauth/token?grant_type=client_credentials";
 export const defaultEndpointsnipCart =

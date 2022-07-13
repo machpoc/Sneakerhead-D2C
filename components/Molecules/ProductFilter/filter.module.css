@@ -1,0 +1,69 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* opacity: 0.9; */
+}
+
+.popupinner {
+  border-radius: 15px 15px 15px 15px;
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  margin-top: 18%;
+  /* margin-bottom: 0%; */
+  max-width: 312px;
+  min-height: 317px;
+  background-color: white;
+}
+.popupinner .closebtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.modaltitle {
+  color: grey;
+}
+
+.modalcontainer {
+  padding-top: 15px;
+  color: black;
+}
+.modaltextboxdiv {
+  margin-left: -0.5rem;
+  margin-right: 0.5rem;
+}
+.modaltextarea {
+  width: 100%;
+  /* height: 152px; */
+  padding: 0.3rem;
+  margin: 0.5rem;
+}
+/* .modalbuttondiv {
+    margin-left: 500px;
+  } */
+.modalsubmitbutton {
+  border-radius: 6px;
+  border: 1px solid rgb(10, 104, 156);
+  background-color: white;
+  width: 90px;
+  height: 52px;
+  color: rgb(10, 104, 156);
+}
+
+.modalcancelbutton {
+  margin-left: 28px;
+  border-radius: 6px;
+  border: 1px solid rgb(10, 104, 156);
+  background-color: rgb(10, 104, 156);
+  width: 90px;
+  height: 52px;
+  color: white;
+}
