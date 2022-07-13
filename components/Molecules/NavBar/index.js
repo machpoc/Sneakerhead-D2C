@@ -1,6 +1,6 @@
 import React from "react";
 import ButtonComponent from "../../Atoms/Button/Button";
-
+import { useRouter } from "next/router";
 import Grid, { Item } from "../../Atoms/Grid";
 
 const Navbar = () => {
@@ -64,6 +64,7 @@ const Navbar = () => {
     fontWeight: "600",
     fontFamily: "Arial, Helvetica",
   };
+  const router = useRouter();
   return (
     <>
       <Grid
@@ -154,7 +155,14 @@ const Navbar = () => {
               }}
               class="home"
             >
-              <a href="#">Search</a>
+              <a
+                style={{ cursor: "pointer" }}
+                // onClick={() => {
+                //   router.push("/");
+                // }}
+              >
+                Search
+              </a>
             </li>
             <li
               style={{
@@ -266,7 +274,14 @@ const Navbar = () => {
               }}
               class="home"
             >
-              <a href="#">Home</a>
+              <a
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  router.push("/");
+                }}
+              >
+                Home
+              </a>
             </li>
             <li
               style={{
@@ -281,7 +296,14 @@ const Navbar = () => {
               }}
               class="tutorials"
             >
-              <a href="#">Product</a>
+              <a
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  router.push("/products");
+                }}
+              >
+                Product
+              </a>
             </li>
             <li
               style={{
