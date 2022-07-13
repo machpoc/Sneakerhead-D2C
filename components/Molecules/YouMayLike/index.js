@@ -2,7 +2,8 @@ import { AspectRatio, Box, Heading, Stack,HStack, Image,Text } from 'native-base
 import React, { useState } from 'react';
 import Product from '../Product';
 import ProductList from '../productsList';
-// import Product from '../components/Molecules/Product';
+// import Product from '../components/Molecules/Product'
+import SubHeader  from '../SubHeader';
 const products ={
     items:[
         {
@@ -67,7 +68,7 @@ const products ={
 }
 
 
-const Test = ({data}) => {
+const YouMayLike = ({data}) => {
 
 console.log("data is in tesdt",data)
 const [productData,setData] = useState(data?data.results.slice(0,4):[])
@@ -86,7 +87,7 @@ else {
 
 }
     return ( <>
-    
+        <SubHeader color="#D31424">You may also like</SubHeader>
   
     <div style={{display:"flex",flexDirection:'row',justifyContent:"center",maxWidth: "1000px", position: "relative", margin: "auto"}}>
 
@@ -94,6 +95,7 @@ else {
     return(
         
       <>
+  
      <ProductList/>
       </>
     
@@ -108,4 +110,4 @@ else {
     </> );
 }
  
-export default Test;
+export default YouMayLike;

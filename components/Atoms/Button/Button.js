@@ -21,7 +21,7 @@ const  ButtonComponent = (
 height,
 radius,
 fill,marginTop,
-marginBottom
+marginBottom,
 }
 
 ) => {
@@ -35,9 +35,11 @@ marginBottom
         borderWidth: 1,
         borderRadius: '30px',
       }; //@ts-ignore
+      const className="btn-basic"
   
       myRef.current.setNativeProps({
-        style: styleObj
+        style: styleObj,
+        className:className
       });
     }, [myRef]);
 
