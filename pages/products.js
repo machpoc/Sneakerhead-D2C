@@ -26,6 +26,7 @@ const ProductsComponent = (pageIndex, setPageIndex) => {
           ? data.map((item) => {
               return (
                 <ProductList
+                  productId={item.id}
                   key={item.id}
                   productImage={item.masterVariant.images[0].url}
                   productName={item.name.en}
