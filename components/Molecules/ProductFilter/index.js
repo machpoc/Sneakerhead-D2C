@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react/cjs/react.development";
+import React, { useState } from "react";
+
 import classes from "./filter.module.css";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 
