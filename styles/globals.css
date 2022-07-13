@@ -13,19 +13,19 @@ a {
 
 * {
   box-sizing: border-box;
-  
 }
 
-
-
-.product-container{
-width:min-content;
-border: 1px solid black;
+.product-container {
+  width: min-content;
+  border: 1px solid black;
 }
 
-
-.mySlides {display: none}
-img {vertical-align: middle;}
+.mySlides {
+  display: none;
+}
+img {
+  vertical-align: middle;
+}
 
 /* Slideshow container */
 .slideshow-container {
@@ -35,7 +35,8 @@ img {vertical-align: middle;}
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -98,7 +99,8 @@ img {vertical-align: middle;}
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active,
+.dot:hover {
   background-color: #717171;
 }
 
@@ -109,23 +111,26 @@ img {vertical-align: middle;}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+  .prev,
+  .next,
+  .text {
+    font-size: 11px;
+  }
 }
-
-
 
 /* .carousal-item{
   width: 100%;
 } */
-
-
-
 
 .gridContainer {
   display: grid;
@@ -221,13 +226,6 @@ img {vertical-align: middle;}
   right: 0%;
 }
 
-
-
-
-
-
-
-
 svg {
   /* display: inline-block;
   position: absolute;
@@ -241,9 +239,6 @@ svg {
   padding-bottom: 100%;
   vertical-align: middle;
   overflow: hidden; */
-margin-bottom: -.3rem;
-margin-top: -7rem;
-
+  margin-bottom: -0.3rem;
+  margin-top: -7rem;
 }
-
-

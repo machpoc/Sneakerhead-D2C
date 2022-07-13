@@ -1,4 +1,4 @@
-
+import React from "react";
 export const clientid = "vp_89IUVJd7CD_GueiD8hKiP";
 export const clientsecret = "0trKB8Eswff9ijgqyez7CLpQV7Bry8DO";
 export const snipcart_API =
@@ -6,9 +6,8 @@ export const snipcart_API =
 export const ORG_ID = "1409G6";
 export const algoliaindex = "sneakerhead";
 
-
 function Welcome() {
-  return <h1>Hello</h1>;
+  return <h1>Hello </h1>;
 }
 
 export default Welcome;
