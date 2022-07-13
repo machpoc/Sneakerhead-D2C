@@ -6,69 +6,45 @@ import {
   defaultEndpointProducts,
   categoryEndpoint,
 } from "./Property";
-
+import useSWR from "swr";
 import { clientsecret, clientToken, clientid } from "./Cred";
 import ProductList from "../components/Molecules/ProductListComponent";
 import Filter from "../components/Molecules/ProductFilter";
 import Navbar from "../components/Molecules/NavBar/index.js";
 
-export async function getServerSideProps() {
-  const auth_res = await fetch(authEndpoint, {
-    method: "POST",
-    headers: {
-      Accept: "*/*",
-      "Content-Type": "application/x-www-form-urlencoded",
-      Authorization:
-        "Basic " +
-        Buffer.from(clientid + ":" + clientsecret).toString("base64"),
-    },
-  });
-
-  let res_auth = await auth_res.json();
-
-  const clientToken = res_auth.access_token;
-  const res = await fetch(defaultEndpointProducts, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + clientToken,
-    },
-  });
-  const data = await res.json();
-
-  return {
-    props: {
-      data,
-    },
-  };
-}
-
-const Products = ({ data }) => {
-  const [prodsToShow, setprodsToShow] = useState([]);
-  const prodsPerPage = 12;
-  let arrayForHoldingProds = [];
-  if (arrayForHoldingProds.length === 0) {
-    arrayForHoldingProds = prodsToShow;
+const ProductsComponent = (pageIndex, setPageIndex) => {
+  console.log(pageIndex.pageIndex);
+  const { data: data } = useSWR(
+    `/api/getProducts?limit=${pageIndex.pageIndex}`
+  );
+  if (!data) <h1>Loading...</h1>;
+  if (data) {
+    console.log(data);
+    return (
+      <Grid columns={12} gap="30px">
+        {data.length > 0
+          ? data.map((item) => {
+              return (
+                <ProductList
+                  key={item.id}
+                  productImage={item.masterVariant.images[0].url}
+                  productName={item.name.en}
+                  productDescription={item.description.en}
+                  productPrice={item.masterVariant.prices[0].value.centAmount}
+                />
+              );
+            })
+          : ""}
+      </Grid>
+    );
+  } else {
+    return null;
   }
-  const ref = useRef(prodsPerPage);
+};
 
-  const loopWithSlice = (start, end) => {
-    const slicedPosts = data.results.slice(start, end);
-
-    arrayForHoldingProds = arrayForHoldingProds.concat(slicedPosts);
-    // arrayForHoldingPosts.push.apply(arrayForHoldingPosts, slicedPosts);
-
-    setprodsToShow(arrayForHoldingProds);
-  };
-  useEffect(() => {
-    loopWithSlice(0, prodsPerPage);
-  }, []);
-  const handleShowMorePosts = () => {
-    loopWithSlice(ref.current, ref.current + prodsPerPage);
-    ref.current += prodsPerPage;
-  };
-
+const Products = ({}) => {
+  const [pageIndex, setPageIndex] = useState(12);
+  const { data: data } = useSWR(`/api/getProductCount?limit=${pageIndex}`);
   return (
     <Box style={{ position: "relative", width: "100vw" }}>
       <Navbar />
@@ -94,7 +70,7 @@ const Products = ({ data }) => {
               color="black"
               textTransform="uppercase"
             >
-              {data.total} Products
+              {data ? <div>{data.total} Products </div> : ""}
             </Text>
           </Box>
           <Box
@@ -132,21 +108,10 @@ const Products = ({ data }) => {
         alignItem="center"
         style={{ margin: "auto" }}
       >
-        <Grid columns={12} gap="30px">
-          {prodsToShow.length > 0
-            ? prodsToShow.map((item) => {
-                return (
-                  <ProductList
-                    key={item.id}
-                    productImage={item.masterVariant.images[0].url}
-                    productName={item.name.en}
-                    productDescription={item.description.en}
-                    productPrice={item.masterVariant.prices[0].value.centAmount}
-                  />
-                );
-              })
-            : ""}
-        </Grid>
+        <div style={{ display: "none" }}>
+          <ProductsComponent pageIndex={pageIndex + 12} />
+        </div>
+        <ProductsComponent pageIndex={pageIndex} setPageIndex={setPageIndex} />
       </Box>
       <Box alignItems="center" alignContent="center" justifyContent="center">
         <Box
@@ -167,7 +132,7 @@ const Products = ({ data }) => {
             borderRadius={30}
             backgroundColor={"white"}
             onPress={() => {
-              handleShowMorePosts();
+              setPageIndex(pageIndex + 12);
             }}
           >
             <Text color="#D31424">Load More</Text>
@@ -176,6 +141,8 @@ const Products = ({ data }) => {
       </Box>
     </Box>
   );
+  // } else {
+  //   return <div>loading...</div>;
 };
-
+// };
 export default Products;

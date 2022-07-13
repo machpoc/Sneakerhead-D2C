@@ -9,6 +9,6 @@ export default function api(req, res) {
     )
 
     .then((data) => {
-      return res.json(data.data.results);
+      return res.json(data.data);
     });
 }
