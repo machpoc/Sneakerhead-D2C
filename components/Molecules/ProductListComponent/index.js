@@ -14,10 +14,12 @@ import {
 import React, { useState } from "react";
 import Grid, { Item } from "../../Atoms/Grid";
 import { RiHeartLine } from "react-icons/ri";
+import { useRouter } from "next/router";
 
 const img = require("/public/images/32262551-front-940x529.webp");
 
 const ProductList = ({
+  productId,
   productImage,
   productName,
   productDescription,
@@ -26,10 +28,13 @@ const ProductList = ({
 }) => {
   const [buttonstyle, setbuttonstyle] = useState({ display: "none" });
   const [isHovering, setisHovering] = useState(false);
-
+  const router = useRouter();
   return (
     <>
       <div
+        onClick={() => {
+          router.push(`/Products/${productId}`);
+        }}
         onMouseEnter={(e) => {
           setbuttonstyle({ display: "block" });
           setisHovering(true);
@@ -44,6 +49,7 @@ const ProductList = ({
           maxHeight: "312px",
           maxWidth: "209px",
           alignItems: "center",
+          cursor: "pointer",
           gridColumn: "span 3",
           overflow: "hidden",
           border: isHovering ? "1px solid #C1C3C4" : "",
