@@ -9,9 +9,11 @@ import {
   Text,
   Button,
   Pressable,
+  Flex,
 } from "native-base";
 import React, { useState } from "react";
 import Grid, { Item } from "../../Atoms/Grid";
+import { RiHeartLine } from "react-icons/ri";
 
 const img = require("/public/images/32262551-front-940x529.webp");
 
@@ -47,19 +49,10 @@ const ProductList = ({
           border: isHovering ? "1px solid #C1C3C4" : "",
         }}
       >
-        {/*     
-      <Box
-        minW={209}
-        minH={312}
-        bg="primary.200"
-        alignItems="center"
-        rounded="lg"
-        overflow="hidden"
-        borderColor="coolGray.200"
-      > */}
-        <Box alignItems="center" mt={5}>
+        <Flex pl="1" pr="1" direction="row" mt={5}>
           <img src={productImage} height={125} width={180} />
-        </Box>
+          <RiHeartLine />
+        </Flex>
         <Stack p="4" space={3}>
           <Stack space={2}>
             <Heading

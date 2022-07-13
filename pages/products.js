@@ -8,9 +8,9 @@ import {
 } from "./Property";
 
 import { clientsecret, clientToken, clientid } from "./Cred";
-import ProductList from "../components/Molecules/ProductList";
+import ProductList from "../components/Molecules/ProductListComponent";
 import Filter from "../components/Molecules/ProductFilter";
-import Navbar from "../components/Molecules/NavBar.js";
+import Navbar from "../components/Molecules/NavBar/index.js";
 
 export async function getServerSideProps() {
   const auth_res = await fetch(authEndpoint, {
@@ -148,21 +148,19 @@ const Products = ({ data }) => {
             : ""}
         </Grid>
       </Box>
-      <Box
-        alignItems="center"
-        alignContent="center"
-        justifyContent="center"
-        style={{ position: "relative" }}
-      >
+      <Box alignItems="center" alignContent="center" justifyContent="center">
         <Box
+          bottom="70px"
           alignItems="center"
           alignContent="center"
           justifyContent="center"
-          style={{ position: "absolute" }}
+          style={{ position: "fixed" }}
         >
           <Filter />
+        </Box>
+        <Box alignItems="center" alignContent="center" justifyContent="center">
+          {" "}
           <Button
-            mt="83px"
             w="109px"
             h="43px"
             style={{ border: "solid 1px #D31424" }}
@@ -175,12 +173,6 @@ const Products = ({ data }) => {
             <Text color="#D31424">Load More</Text>
           </Button>
         </Box>
-        <Box
-          alignItems="center"
-          alignContent="center"
-          justifyContent="center"
-          style={{ position: "relative" }}
-        ></Box>
       </Box>
     </Box>
   );
