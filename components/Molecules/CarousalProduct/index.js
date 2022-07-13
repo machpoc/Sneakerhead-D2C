@@ -1,4 +1,4 @@
-import { AspectRatio, Box, Center, Heading, HStack, Stack,Image,Text } from 'native-base'
+import { AspectRatio, Box, Center, Heading, HStack, Stack,Image,Text,Pressable } from 'native-base'
 import React from 'react'
 import Grid, { Item } from '../../Atoms/Grid'
 // import Image from '../../Atoms/Image'
@@ -17,15 +17,15 @@ const CarousalProduct=({productImage,productName,
             
         <>
         <Box>
+        <Pressable _hover={{
+        shadow: 5,
+        // borderWidth: .5,
+        borderRadius:"md"
+    }} >
         <Box maxW={196}   maxH={245} minH={245} rounded="lg"  marginBottom={props.marginBottom} marginRight={props.marginRight} marginLeft={props.marginLeft} overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
         borderColor: "white",
         backgroundColor: "white"
-      }} _web={{
-        shadow: 2,
-        borderWidth: 0
-      }} _light={{
-        backgroundColor: "white"
-      }}>
+      }} >
         <StyledImage>
           <Box>
             {/* <AspectRatio w="100%" ratio={16 / 9}>
@@ -33,8 +33,12 @@ const CarousalProduct=({productImage,productName,
               <Image source={{
               uri: `${productImage}`
             }} alt="image" />
-            </AspectRatio> */}            
-            <img src={productImage} />
+            </AspectRatio> */}   
+
+        <img src={productImage} />
+  
+            
+          
           </Box>
 
           </StyledImage>
@@ -67,6 +71,7 @@ const CarousalProduct=({productImage,productName,
             </HStack>
           </Stack>
         </Box>
+        </Pressable>  
         </Box>
    
 
