@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledSideImages } from '../../../pages/Products/[id]/Products.styled';
+// import { StyledSideImages } from '../../../pages/Products/[id]/Products.styled';
 import ButtonComponent from '../../Atoms/Button/Button';
 import Grid, { Item } from '../../Atoms/Grid';
 import ButtonGroup from '../ButtonGroup';
