@@ -157,7 +157,8 @@ const Filter = () => {
         </div>
         <button
           style={{
-            position: "absolute",
+            position: "fixed",
+            bottom: "10%",
             marginTop: 60,
             marginLeft: 40,
             cursor: "pointer",
