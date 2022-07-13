@@ -1,3 +1,5 @@
+import React from "react";
+
 export const defaultEndpointProducts =
   "https://api.us-central1.gcp.commercetools.com/onlinestore-poc/product-projections?limit=500";
 export const authEndpoint =
@@ -48,8 +50,12 @@ export const DPage = [
   "I am in page productabc",
 ];
 
-function Welcome() {
-  return <h1>Hello</h1>;
-}
+const Welcome = () => {
+  return (
+    <div>
+      <h1>Hello</h1>
+    </div>
+  );
+};
 
 export default Welcome;
