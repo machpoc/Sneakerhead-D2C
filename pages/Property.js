@@ -1,7 +1,7 @@
 import React from "react";
 
 export const defaultEndpointProducts =
-  "https://api.us-central1.gcp.commercetools.com/onlinestore-poc/product-projections?limit=500";
+  "https://api.us-central1.gcp.commercetools.com/onlinestore-poc/product-projections";
 export const authEndpoint =
   "https://auth.us-central1.gcp.commercetools.com/oauth/token?grant_type=client_credentials";
 export const defaultEndpointsnipCart =
@@ -44,18 +44,34 @@ export const orderEndpoint =
 export const MiraklEndpoint =
   "https://api.us-central1.gcp.commercetools.com/onlinestore-poc/products?where=masterData(current(categories(id%3D%ff39a2b6-6807-48f4-b685-aaf732f5a30b%22)))";
 
-export const DPage = [
-  "I am in page product123",
-  "I am in page product812",
-  "I am in page productabc",
-];
-
-const Welcome = () => {
-  return (
-    <div>
-      <h1>Hello</h1>
-    </div>
-  );
-};
-
-export default Welcome;
+  export function convertToSlug(Text) {
+    return Text.toString()
+      .toLowerCase()
+      .replace(/[^\w ]+/g, "")
+      .replace(/ +/g, "-");
+  }
+  
+  // export const ORG_ID = "1409G6";
+  
+  export function generateHexString(length) {
+    var ret = "";
+    while (ret.length < length) {
+      ret += Math.random().toString(16).substring(2);
+    }
+    return ret.substring(0, length);
+  }
+  
+  export const DPage = [
+    "I am in page product123",
+    "I am in page product812",
+    "I am in page productabc",
+  ];
+  
+  // export const API_KEY = "fed2bfe1b19612e40bdcb795fca87ab8";
+  
+  function Welcome() {
+    return <h1>Hello</h1>;
+  }
+  
+  export default Welcome;
+  

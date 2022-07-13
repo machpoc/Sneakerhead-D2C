@@ -22,11 +22,13 @@ const ProductList = ({
   productName,
   productDescription,
   productPrice,
+data,
   ...props
+
 }) => {
   const [buttonstyle, setbuttonstyle] = useState({ display: "none" });
   const [isHovering, setisHovering] = useState(false);
-
+console.log("data in u may like",data)
   return (
     <>
       <div
@@ -50,7 +52,7 @@ const ProductList = ({
         }}
       >
         <Flex pl="1" pr="1" direction="row" mt={5}>
-          <img src="../images/refreshed/shoe1.png" height={125} width={180} />
+          <img src={data.masterVariant.images[0].url} height={125} width={180} />
           <RiHeartLine />
         </Flex>
         <Stack p="4" space={3}>
@@ -64,7 +66,7 @@ const ProductList = ({
               }}
               fontWeight="800"
             >
-              Puma
+              {data.name.en}
             </Heading>
             <Text
               fontSize="10"
@@ -78,7 +80,7 @@ const ProductList = ({
               ml="-0.5"
               mt="-1"
             >
-             Puma is very nice to have shoe for adults...
+             {data.description.en}
             </Text>
           </Stack>
 
@@ -93,7 +95,7 @@ const ProductList = ({
                 }}
                 fontWeight="800"
               >
-                $25
+                ${data.masterVariant.prices[0].value.centAmount}
               </Text>
             </HStack>
           </HStack>

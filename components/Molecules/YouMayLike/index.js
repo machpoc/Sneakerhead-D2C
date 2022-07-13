@@ -4,6 +4,7 @@ import Product from '../Product';
 import ProductList from '../productsList';
 // import Product from '../components/Molecules/Product'
 import SubHeader  from '../SubHeader';
+import { StledDiv } from './YouMaylike.styled';
 const products ={
     items:[
         {
@@ -95,17 +96,52 @@ else {
     return(
         
       <>
+  <StledDiv>    
+    
+     <ProductList data={item} />
   
-     <ProductList/>
+  
+  </StledDiv>
+
+
       </>
     
     )
     })
+    
    }
+   <button
+          style={{
+            cursor: "pointer",
+            position: "absolute",
+            left: "-6%",
+            top: "25%",
+            backgroundColor: "transparent",
+            border: "none",
+            fontSize: "1.2rem",
+          }}
+          onClick={dataChangeHandler}
+        >
+          ❮
+        </button>
+        <button
+          style={{
+            cursor: "pointer",
+            position: "absolute",
+            right: "-6.5%",
+            top: "20%",
+            backgroundColor: "transparent",
+            border: "none",
+            fontSize: "1.2rem",
+          }}
+          onClick={dataChangeHandler}
+        >
+          ❯
+        </button>
     </div>
 
   
-
+    
     
     </> );
 }
