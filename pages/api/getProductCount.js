@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export default function api(req, res) {
-  console.log(req.query.limit);
   axios
     .get(
       `https://api.us-central1.gcp.commercetools.com/onlinestore-poc/product-projections?limit=${req.query.limit}`,
