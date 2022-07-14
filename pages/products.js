@@ -13,13 +13,11 @@ import Filter from "../components/Molecules/ProductFilter";
 import Navbar from "../components/Molecules/NavBar/index.js";
 
 const ProductsComponent = (pageIndex, setPageIndex) => {
-  console.log(pageIndex.pageIndex);
   const { data: data } = useSWR(
     `/api/getProducts?limit=${pageIndex.pageIndex}`
   );
   if (!data) <h1>Loading...</h1>;
   if (data) {
-    console.log(data);
     return (
       <Grid columns={12} gap="30px">
         {data.length > 0

@@ -35,7 +35,7 @@ const CarousalProduct=({productImage,productName,
             }} alt="image" />
             </AspectRatio> */}   
 
-        <img src={productImage} />
+        <img style={{paddingTop:"4rem"}} src={productImage} />
   
             
           
@@ -56,8 +56,7 @@ const CarousalProduct=({productImage,productName,
             }} _dark={{
               color: "black.400"
             }} fontWeight="500" ml="-0.5" mt="-1">
-             {productDescription.slice(0,40)}...
-              </Text>
+             {productDescription}              </Text>
             </Stack>
            
             <HStack  alignItems="center" space={4} justifyContent="space-between">
