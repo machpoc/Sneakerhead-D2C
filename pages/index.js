@@ -182,7 +182,26 @@ const sample2 = ({ data }) => {
       <WaveRectangle />
 
       <HeroBanner rows={1} columns={12} gap={10} bgColor="#E2D4F4">
-        <Item rowStart={1} rowEnd={1} paddingTop="5rem" colStart={2} colEnd={5}>
+        <div style={{ position: "absolute", height: "100%", width: "100%" }}>
+          <svg
+            viewBox="0 0 1024 366"
+            preserveAspectRatio="none"
+            style={{ height: "100%", width: "100%" }}
+          >
+            <path
+              d="M-34 386C-25.9968 338.092 4.45422 293.1 49.0572 263.272C93.6601 233.361 152.025 218.864 208.437 223.613C249.038 227.029 287.688 239.86 327.118 248.942C366.548 258.107 409.199 263.522 447.848 252.108C483.18 241.61 512.069 217.947 548.278 209.949C604.788 197.368 666.862 225.363 721.908 208.782C766.999 195.202 793.448 155.959 812.187 118.465C830.926 80.889 847.616 40.0631 884.801 14.4844C915.35 -6.59506 958.001 -14.177 995.967 -5.42858C1033.93 3.40314 1066.14 28.3986 1080 59.8095V386H-34Z"
+              fill="#CBB5E7"
+            />
+          </svg>
+        </div>
+        <Item
+          style={{ zIndex: 1 }}
+          rowStart={1}
+          rowEnd={1}
+          paddingTop="5rem"
+          colStart={2}
+          colEnd={5}
+        >
           <div style={{ paddingTop: "12px" }}>
             {heroBannerData2 &&
               heroBannerData2[0].heroTitle.titleArray.map((item) => {
@@ -250,7 +269,14 @@ const sample2 = ({ data }) => {
             Explore more{" "}
           </ButtonComponent>
         </Item>
-        <Item rowStart={1} rowEnd={1} display="flex " colStart={5} colEnd={12}>
+        <Item
+          style={{ zIndex: 1 }}
+          rowStart={1}
+          rowEnd={1}
+          display="flex "
+          colStart={5}
+          colEnd={12}
+        >
           <img
             width={350}
             src="\images\refreshed\Adidas-Shoes-Free-PNG-Image.png"
