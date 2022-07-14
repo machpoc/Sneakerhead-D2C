@@ -12,7 +12,7 @@ import { useState, useEffect, useRef } from "react";
 
 
 
-const ProductDetails = (props) => {
+const ProductDetails = ({sizeArray,colorArray, ...props}) => {
 
     let value = props.value;
     console.log("teh data from commerce",props.value)
@@ -85,11 +85,17 @@ const ProductDetails = (props) => {
 <p>Color</p>
 
 {value.variants !=false ?<>
-<div style={{background: `${value.variants[0].attributes[0].value}`, borderRadius: "50%", width: "20px", height: "20px",display:"inline-block",margin:"0px 4px 0px 0px"}}></div>
+
+{colorArray.map(color=>{
+    return(
+<div style={{    border: "0.5px dashed",background: `${color}`, borderRadius: "50%", width: "20px", height: "20px",display:"inline-block",margin:"0px 4px 0px 0px"}}></div>
+
+    )
+})}
 
 </>:<>
-<div style={{background:` ${value.masterVariant.attributes[0].value}`, borderRadius: "50%", width: "20px", height: "20px",display:"inline-block",margin:"0px 4px 0px 0px"}}></div>
-<div style={{background: ` ${value.masterVariant.attributes[1].value}`, borderRadius: "50%", width: "20px", height: "20px",display:"inline-block",margin:"0px 0px 0px 4px"}}></div>
+<div style={{ border: "0.5px dashed",background:` ${value.masterVariant.attributes[0].value}`, borderRadius: "50%", width: "20px", height: "20px",display:"inline-block",margin:"0px 4px 0px 0px"}}></div>
+<div style={{ border: "0.5px dashed",background: ` ${value.masterVariant.attributes[1].value}`, borderRadius: "50%", width: "20px", height: "20px",display:"inline-block",margin:"0px 0px 0px 4px"}}></div>
 
 </>}
 
@@ -98,44 +104,21 @@ const ProductDetails = (props) => {
 <>
 <p>Size</p>
 <Grid columns={3} gap={10} >
-<Item margin="9px 0px 9px 0px">
-    <span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK 6</span>
-</Item><Item margin="9px 0px 9px 0px">
-<span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK 6</span>
 
-</Item><Item margin="9px 0px 9px 0px">
-<span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK 6</span>
+    { value.variants !=false ? sizeArray.map(size=>{
 
-</Item>      
-<Item margin="9px 0px 9px 0px">
-<span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK 6</span>
+        return(
+            <Item margin="9px 0px 9px 0px">
+            <span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK {size}</span>
+        </Item>
+        
+        )
 
-</Item><Item margin="9px 0px 9px 0px">
-<span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK 6</span>
-
-</Item><Item margin="9px 0px 9px 0px">
-<span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK 6</span>
-
-</Item><Item margin="9px 0px 9px 0px">
-<span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK 6</span>
-
+    }):
+    <Item margin="9px 0px 9px 0px">
+    <span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> FREE</span>
 </Item>
-<Item margin="9px 0px 9px 0px">
-<span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK 6</span>
-
-</Item>
-<Item margin="9px 0px 9px 0px">
-<span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK 6</span>
-
-</Item>
-<Item margin="9px 0px 9px 0px">
-<span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK 6</span>
-
-</Item>
-<Item margin="9px 0px 9px 0px">
-<span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK 6</span>
-
-</Item>
+    }
 
 </Grid>
 
@@ -151,21 +134,24 @@ const ProductDetails = (props) => {
 </ButtonGroup> */}
 </>
 
+
+<ButtonComponent fill={true} bg ="#db2727" hoverBg="#db2727"  marginBottom="5%"  marginTop="10%">ADD TO CART</ButtonComponent>
+
+<ButtonComponent  >BUY NOW</ButtonComponent>
 <CheckPincode/>
 <p style={{"fontFamily":"'Open Sans'","fontStyle":"normal","fontWeight":"400","fontSize":"12px","lineHeight":"16px"}}> ={">"} 5% additional OFF on Prepaid orders<br/>
   ={'>'} Mfg.By- Bata India Limited<br/>
  ={'>'} Mkd./Cust Care:- Bata House, 418/02, Sector 17, Gurgaon Mehrauli Road, Gurgaon, Haryana 122002 </p>
 
  <p  style={{"fontFamily":"'Open Sans'","fontStyle":"normal","fontWeight":"400","fontSize":"16px","lineHeight":"22px","color":"#000000",textDecoration: "underline"}}>View product details</p>
+
+
 </Item>
 
+</Grid>
 
 
-    </Grid>
-    
-    
-    
-    </> );
+</> );
 }
  
 export default ProductDetails;
