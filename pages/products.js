@@ -5,6 +5,8 @@ import {
   authEndpoint,
   defaultEndpointProducts,
   categoryEndpoint,
+  defaultEndpointCart,
+  authEndpoint1,
 } from "./Property";
 import useSWR from "swr";
 import { clientsecret, clientToken, clientid } from "./Cred";
@@ -12,7 +14,52 @@ import ProductList from "../components/Molecules/ProductListComponent";
 import Filter from "../components/Molecules/ProductFilter";
 import Navbar from "../components/Molecules/NavBar/index.js";
 
+function checkCartcreated() {
+  if (typeof window !== "undefined") {
+    if (!localStorage.getItem("cartid")) {
+      cartCreated();
+    }
+  }
+}
+
+// function to create a cart in commercetool
+async function cartCreated() {
+  const auth_res = await fetch(authEndpoint, {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization:
+        "Basic " +
+        Buffer.from(clientid + ":" + clientsecret).toString("base64"),
+    },
+  });
+
+  let res_auth = await auth_res.json();
+
+  const clientToken = res_auth.access_token;
+  const res = await fetch(defaultEndpointCart, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + clientToken,
+    },
+    body: JSON.stringify({
+      currency: "EUR",
+    }),
+  });
+
+  const data = await res.json();
+
+  if (localStorage.getItem("cartid") == null) {
+    localStorage.setItem("cartid", data.id);
+    localStorage.setItem("cartversion", data.version);
+  }
+}
+
 const ProductsComponent = (pageIndex, setPageIndex) => {
+  checkCartcreated();
   const { data: data } = useSWR(
     `/api/getProducts?limit=${pageIndex.pageIndex}`
   );
