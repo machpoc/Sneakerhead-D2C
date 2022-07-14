@@ -2,6 +2,7 @@ import React from "react";
 import ButtonComponent from "../../Atoms/Button/Button";
 import { useRouter } from "next/router";
 import Grid, { Item } from "../../Atoms/Grid";
+import SearchBar from "../SearchBar";
 
 const Navbar = () => {
   const StyledHeading = {
@@ -161,7 +162,7 @@ const Navbar = () => {
                 //   router.push("/");
                 // }}
               >
-                Search
+              <SearchBar/>
               </a>
             </li>
             <li
