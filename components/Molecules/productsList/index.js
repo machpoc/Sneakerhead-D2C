@@ -22,13 +22,11 @@ const ProductList = ({
   productName,
   productDescription,
   productPrice,
-data,
+  data,
   ...props
-
 }) => {
   const [buttonstyle, setbuttonstyle] = useState({ display: "none" });
   const [isHovering, setisHovering] = useState(false);
-console.log("data in u may like",data)
   return (
     <>
       <div
@@ -52,7 +50,11 @@ console.log("data in u may like",data)
         }}
       >
         <Flex pl="1" pr="1" direction="row" mt={5}>
-          <img src={data.masterVariant.images[0].url} height={125} width={180} />
+          <img
+            src={data.masterVariant.images[0].url}
+            height={125}
+            width={180}
+          />
           <RiHeartLine />
         </Flex>
         <Stack p="4" space={3}>
@@ -80,7 +82,7 @@ console.log("data in u may like",data)
               ml="-0.5"
               mt="-1"
             >
-             {data.description.en}
+              {data.description.en}
             </Text>
           </Stack>
 
