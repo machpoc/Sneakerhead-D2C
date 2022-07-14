@@ -105,7 +105,7 @@ const headerArray = header1.split(" ")
  {heroBannerData && heroBannerData[0].heroDescription}
    </span>
    </div>
-   <ButtonComponent marginBottom="4rem " width={142} bg="#D31424" fill="true" marginTop="32px" hoverBg="#D31424">Shop now</ButtonComponent>
+   <ButtonComponent marginBottom="25%" width={142} bg="#D31424" fill="true" marginTop="32px" hoverBg="#D31424">Shop now</ButtonComponent>
    </Item>
 <Item display="flex">
    <img className='bannerImageFirst' style={{ position:'absolute',    top: '-2%' ,right: '14%',}} width={489} height={511} src="images/refreshed/bannerImage1.png"/>
