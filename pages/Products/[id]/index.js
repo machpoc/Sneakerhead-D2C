@@ -16,6 +16,8 @@ import {
 
   } from "../../Property";
   import { clientid, clientsecret, searchClient } from "../../Cred.js";
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
   
 
 export async function getServerSideProps({ query }) {
@@ -41,19 +43,7 @@ export async function getServerSideProps({ query }) {
     accessToken: "7eR1gkrfTTlkiHY0BP-gqdqB3RBm_z6E6EB1xYljiQo",
   });
  
-    let contentful_res = await client.getEntries({ content_type: "review" });
   
-    const { id } = query;
-    const res = await fetch(`${defaultEndpointProducts}/${id}`, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + clientToken,
-      },
-    });
-  
-    const data = await res.json();
 
     const resProduct = await fetch(defaultEndpointProducts, {
         method: "GET",
@@ -65,78 +55,31 @@ export async function getServerSideProps({ query }) {
       });
     
       const productList = await resProduct.json();
-  
-  
-  
-  var raw = "";
-  
-  var requestOptions = {
-    method: 'GET',
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + clientToken,
-    },
-    redirect: 'follow'
-  };
-  
-  let customergrouplist = await fetch("https://api.us-central1.gcp.commercetools.com/onlinestore-poc/customer-groups", requestOptions)
-    .then(response => response.text())
-    .then(result => {return JSON.parse(result)})
-    .catch(error => console.log('error', error));
-  
-    console.log(customergrouplist)
-  let sellers = {}
-    customergrouplist.results.map((customer)=>{
-      if(customer.custom.fields.customertype==="seller"){
-        sellers[customer.id] = customer.name
-      }
-    })
-  
-  
-    var raw = "";
-    
-    var requestOptions = {
-      method: 'GET',
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + clientToken,
-      },
-  
-      redirect: 'follow'
-    };
-    
-    let offerslist =  await fetch("https://api.us-central1.gcp.commercetools.com/onlinestore-poc/custom-objects/offers", requestOptions)
-      .then(response => response.text())
-      .then(result => { return JSON.parse(result)})
-      .catch(error => console.log('error', error));
-  
-   
-    // if (data.masterData.staged.variants.length > 1) {
-    
-    //   data.masterData.staged.variants.map(async (variant, index) => {
-    //     if(index!=0){
-  
-    //     console.log("cusotomerid",variant.prices[0].customerGroup.id)
-       
-    //       // let sellername = await getCustomerGroupName(data.masterData.staged.variants[index].prices[0].customerGroup.id);
-    //       // console.log(sellername)
-    //     } })
-    // }
-  
+
     return {
       props: {
-        data,
-        contentful_res,sellers,offerslist,productList
+        
+        productList
       },
     };
   }
 
-const Product = ({data,productList}) => {
+const Product = ({productList}) => {
+  const router = useRouter()
+  const {id} = router.query
+  
+  console.log("id",id)
+
+  const { data } = useSWR(
+    `/api/getProductDetails?id=${id}`
+  );
+  
+  data && console.log("swr bss",data)
     return ( <>
     
     
     <Navbar/>
-    <ProductDetails value={data}/>
+{   data && <ProductDetails value={data}/>}
     <Grid marginTop="2rem" marginBottom="2rem">
     <YouMayLike data={productList}/>
     </Grid>
