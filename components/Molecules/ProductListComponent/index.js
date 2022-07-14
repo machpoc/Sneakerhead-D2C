@@ -15,8 +15,64 @@ import React, { useState } from "react";
 import Grid, { Item } from "../../Atoms/Grid";
 import { RiHeartLine } from "react-icons/ri";
 import { useRouter } from "next/router";
+import { authEndpoint1, defaultEndpointCart } from "../../../pages/Property";
+import { clientid, clientsecret } from "../../../pages/Cred";
 
 const img = require("/public/images/32262551-front-940x529.webp");
+
+async function BuyNow(prodid) {
+  const auth_res = await fetch(authEndpoint1, {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization:
+        "Basic " +
+        Buffer.from(clientid + ":" + clientsecret).toString("base64"),
+    },
+  });
+  let cartid = localStorage.getItem("cartid");
+
+  let cartversion = localStorage.getItem("cartversion");
+
+  let res_auth = await auth_res.json();
+  const clientToken = res_auth.access_token;
+  const res = await fetch(`${defaultEndpointCart}/${cartid}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + clientToken,
+    },
+    body: JSON.stringify({
+      version: parseInt(cartversion),
+
+      actions: [
+        {
+          action: "addLineItem",
+          productId: prodid,
+          variantId: 1,
+          quantity: 1,
+          supplyChannel: {
+            typeId: "channel",
+            //channel id from commercetool
+            id: "a386fdda-6583-4748-b650-ef11c9ad031f",
+          },
+          distributionChannel: {
+            typeId: "channel",
+            id: "a386fdda-6583-4748-b650-ef11c9ad031f",
+          },
+        },
+      ],
+    }),
+  });
+  const data = await res.json();
+  console.log(data);
+  if (data) {
+    localStorage.setItem("cartversion", data.version);
+  }
+  return data;
+}
 
 const ProductList = ({
   productId,
@@ -106,6 +162,12 @@ const ProductList = ({
         </Stack>
         <Box alignItems="center" alignContent="center" justifyContent="center">
           <Button
+            onPress={async () => {
+              let data = await BuyNow(productId);
+              if (data) {
+                router.push("/cart");
+              }
+            }}
             w="109px"
             h="43px"
             borderRadius={30}
