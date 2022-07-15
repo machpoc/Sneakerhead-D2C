@@ -17,7 +17,7 @@ const ContentBanner = ({header,description,buttonName}) => {
 </Item>
 <Item display="flex">
 <StyledButton>
-<ButtonComponent fill="true" bg="#D31424">
+<ButtonComponent fill="true" bg="#D31424" hoverTextColor="#D31424" hoverBg="#ffffff" >
                 {buttonName}
         </ButtonComponent>
 </StyledButton>

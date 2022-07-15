@@ -5,81 +5,76 @@ const Footer = () => {
     return (
 <Grid columns={5} rows={1} justifyItems="center" bgColor="#C1C3C4" >
 <Item paddingTop="1rem"   paddingBottom="5rem" >
-   <StyledHeader>MY ACCOUNT</StyledHeader>
+   <StyledHeader>Sneakerhead</StyledHeader>
    <StyledList>
     <li>
-        My Account
+    About Us
     </li>
     <li>
-        Order History
+    Careers
     </li>
     <li>
-        Wish lists
+    News & Events
     </li>
     <li>
-        content1
+    Blog
     </li>
    
 </StyledList>
 </Item>
 <Item  paddingTop="1rem" paddingBottom="5rem">
-    <StyledHeader>Policies</StyledHeader>
+    <StyledHeader>My account</StyledHeader>
 <StyledList>
 <li>
-        About Us
+My account
     </li>
     <li>
-        Careers
-    </li>
-    <li>
-        News & Events
-    </li>
-    <li>
-        Sitemap
-    </li>
-    <li>
-        Blog
+    Order history
     </li>
 </StyledList>
  
 </Item>
 <Item  paddingTop="1rem"    paddingBottom="5rem">
-<StyledHeader>Track Order</StyledHeader>
+<StyledHeader>Policies</StyledHeader>
 <StyledList>
 <li>
-        About Us
+Returns And Exchanges
     </li>
     <li>
-        Careers
+    Payment Terms
     </li>
     <li>
-        News & Events
+    Delivery Terms 
     </li>
     <li>
-        Sitemap
+    Store Credit Program
     </li>
     <li>
-        Blog
+    Terms Of Use 
+    </li>    <li>
+    Privacy Policy 
+    </li>    <li>
+    Security Policy
     </li>
 </StyledList>
 </Item>
 <Item  paddingTop="1rem"    paddingBottom="5rem">
-<StyledHeader>Contact Us</StyledHeader>
+<StyledHeader>Customer service</StyledHeader>
 <StyledList>
 <li>
-        About Us
+FAQS 
     </li>
     <li>
-        Careers
+    Contact Us 
     </li>
     <li>
-        News & Events
+    Track Order
     </li>
     <li>
-        Sitemap
+    Return Request
     </li>
     <li>
-        Blog
+    Return Status
     </li>
 </StyledList>
 </Item>
@@ -87,20 +82,12 @@ const Footer = () => {
 <StyledHeader>Follow us</StyledHeader>
 <StyledList>
 <li>
-        About Us
+      INSTAGRAM
     </li>
     <li>
-        Careers
+        FACEBOOK
     </li>
-    <li>
-        News & Events
-    </li>
-    <li>
-        Sitemap
-    </li>
-    <li>
-        Blog
-    </li>
+    
 </StyledList>
 </Item>
 </Grid>
