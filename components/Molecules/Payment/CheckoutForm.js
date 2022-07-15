@@ -4,6 +4,7 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+import { Box, Text } from "native-base";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -56,7 +57,7 @@ export default function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000/Checkout/Success",
+        return_url: "https://sneakerhead-d2c.vercel.app/Checkout/Success",
         receipt_email: email,
       },
     });
@@ -71,12 +72,35 @@ export default function CheckoutForm() {
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
+      <Box justifyContent="center" alignItems="center" mb="32px" mt="56px">
+        <Text color="black" fontSize="24px" fontWeight="bold" lineHeight="33px">
+          Enter new card
+        </Text>
+      </Box>
       <PaymentElement id="payment-element" />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-        </span>
-      </button>
+      <Box justifyContent="end" alignItems="end">
+        <button
+          style={{
+            marginRight: 20,
+            cursor: "pointer",
+            justifyContent: "end",
+            alignContent: "end",
+            alignItems: "end",
+            opacity: 1,
+            backgroundColor: "#D31424",
+            width: "82px",
+            height: "48px",
+
+            borderRadius: 50,
+            border: "0px",
+            color: "white",
+          }}
+          disabled={isLoading || !stripe || !elements}
+          id="submit"
+        >
+          Pay Now
+        </button>
+      </Box>
       {message && <div id="payment-message">{message}</div>}
     </form>
   );
