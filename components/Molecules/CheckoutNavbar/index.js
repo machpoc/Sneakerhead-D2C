@@ -3,9 +3,133 @@ import ButtonComponent from "../../Atoms/Button/Button";
 import { useRouter } from "next/router";
 import Grid, { Item } from "../../Atoms/Grid";
 import SearchBar from "../SearchBar";
-import { Divider } from "native-base";
+import { Box, Divider, Flex, Text } from "native-base";
+const NavStatus = ({ name, status }) => {
+  let icon = null;
+  if (status === "done") {
+    icon = (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="12" cy="12" r="9" fill="#3F8728" />
+        <path
+          d="M10.129 16.6636L6 12.5346L6.79263 11.7419L10.129 15.0783L17.2074 8L18 8.79263L10.129 16.6636Z"
+          fill="white"
+        />
+      </svg>
+    );
+  }
 
-const CheckoutNavbar = () => {
+  if (status === "active") {
+    icon = (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="12" cy="12" r="8.5" stroke="black" />
+        <path
+          d="M10.129 16.6636L6 12.5346L6.79263 11.7419L10.129 15.0783L17.2074 8L18 8.79263L10.129 16.6636Z"
+          fill="black"
+        />
+      </svg>
+    );
+  }
+  if (status === "inactive") {
+    icon = (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="12" cy="12" r="8.5" stroke="#C1C3C4" />
+        <path
+          d="M10.129 16.6636L6 12.5346L6.79263 11.7419L10.129 15.0783L17.2074 8L18 8.79263L10.129 16.6636Z"
+          fill="#C1C3C4"
+        />
+      </svg>
+    );
+  }
+  return (
+    <li
+      style={{
+        display: "inline-block",
+        padding: "16px",
+        fontStyle: "normal",
+        fontWeight: "400",
+        fontSize: "12px",
+        lineHeight: "16px",
+        alignContent: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        textTransform: "uppercase",
+        color: "#000000",
+      }}
+      class="about"
+    >
+      <Flex direction="row" alignContent="center" justifyContent="center">
+        {icon}
+        <Text
+          mt="4px"
+          ml="2"
+          fontSize="12px"
+          lineHeight="16px"
+          color="#000000"
+          alignContent="center"
+          justifyContent="center"
+        >
+          {name}
+        </Text>
+      </Flex>
+    </li>
+  );
+};
+const CheckoutNavbar = ({ page }) => {
+  let statusbar = null;
+  if (page === "login") {
+    statusbar = (
+      <>
+        <NavStatus status="active" name="Login" />
+        <NavStatus status="inactive" name="Shipping" />
+        <NavStatus status="inactive" name="Review & Payment" />
+      </>
+    );
+  }
+  if (page === "shipping") {
+    statusbar = (
+      <>
+        <NavStatus status="done" name="Login" />
+        <NavStatus status="active" name="Shipping" />
+        <NavStatus status="inactive" name="Review & Payment" />
+      </>
+    );
+  }
+  if (page === "payment") {
+    statusbar = (
+      <>
+        <NavStatus status="done" name="Login" />
+        <NavStatus status="done" name="Shipping" />
+        <NavStatus status="active" name="Review & Payment" />
+      </>
+    );
+  }
+  if (page === "success") {
+    statusbar = (
+      <>
+        <NavStatus status="done" name="Login" />
+        <NavStatus status="done" name="Shipping" />
+        <NavStatus status="done" name="Review & Payment" />
+      </>
+    );
+  }
   const StyledHeading = {
     color: "#000",
     margin: "60px",
@@ -67,6 +191,7 @@ const CheckoutNavbar = () => {
     fontFamily: "Arial, Helvetica",
   };
   const router = useRouter();
+
   return (
     <>
       <Grid
@@ -151,51 +276,7 @@ const CheckoutNavbar = () => {
               marginTop: "-19px",
             }}
           >
-            <li
-              style={{
-                display: "inline-block",
-                padding: "16px",
-                fontStyle: "normal",
-                fontWeight: "400",
-                fontSize: "12px",
-                lineHeight: "16px",
-                textTransform: "uppercase",
-                color: "#000000",
-              }}
-              class="home"
-            >
-              Login
-            </li>
-            <li
-              style={{
-                display: "inline-block",
-                padding: "16px",
-                fontStyle: "normal",
-                fontWeight: "400",
-                fontSize: "12px",
-                lineHeight: "16px",
-                textTransform: "uppercase",
-                color: "#000000",
-              }}
-              class="tutorials"
-            >
-              Shipping
-            </li>
-            <li
-              style={{
-                display: "inline-block",
-                padding: "16px",
-                fontStyle: "normal",
-                fontWeight: "400",
-                fontSize: "12px",
-                lineHeight: "16px",
-                textTransform: "uppercase",
-                color: "#000000",
-              }}
-              class="about"
-            >
-              Review & Payment
-            </li>
+            {statusbar}
           </ul>
         </Item>
       </Grid>
