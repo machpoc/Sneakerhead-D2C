@@ -1,13 +1,13 @@
 import { Box, Divider, Flex, Text } from "native-base";
 import React from "react";
-const CartItem = (data) => {
+const CartItem = ({ data, divider }) => {
   return (
     <Box>
       <Flex mt="24px" mb="20px" direction="row" justifyContent="space-between">
         <Box>
           <img
             style={{ maxWidth: "200px", maxHeight: "140px" }}
-            src={data.data.variant.images[0].url}
+            src={data.variant.images[0].url}
           />
         </Box>
         <Box width="40%" pl="24px">
@@ -18,13 +18,13 @@ const CartItem = (data) => {
             lineHeight="22px"
             fontWeight="bold"
           >
-            {data.data.name.en}
+            {data.name.en}
           </Text>
           <Text pb="4px" fontSize="12px" lineHeight="16px" color="#555553">
             Men's Hard Court Tennis Shoes
           </Text>
           <Text pb="4px" fontSize="12px" lineHeight="16px" color="#555553">
-            Color- {data.data.variant.attributes[0].value}
+            Color- {data.variant.attributes[0].value}
           </Text>
           <Flex direction="row">
             <Text
@@ -34,10 +34,10 @@ const CartItem = (data) => {
               lineHeight="16px"
               color="#555553"
             >
-              Size - UK {data.data.variant.attributes[1].value}
+              Size - UK {data.variant.attributes[1].value}
             </Text>
             <Text pb="4px" fontSize="12px" lineHeight="16px" color="#555553">
-              Quantity - {data.data.quantity}
+              Quantity - {data.quantity}
             </Text>
           </Flex>
         </Box>
@@ -49,11 +49,15 @@ const CartItem = (data) => {
             lineHeight="22px"
             fontWeight="bold"
           >
-            ${data.data.price.value.centAmount}
+            ${data.price.value.centAmount}
           </Text>
         </Box>
       </Flex>
-      <Divider style={{ border: "1px solid #C1C3C4" }} />
+      {divider === true ? (
+        <Divider style={{ border: "1px solid #C1C3C4" }} />
+      ) : (
+        ""
+      )}
     </Box>
   );
 };

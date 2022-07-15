@@ -2,7 +2,7 @@ import { Box, Divider, Flex, Text } from "native-base";
 import React from "react";
 import ButtonGroup from "../ButtonGroup";
 
-const CartSummary = (data) => {
+const CartSummary = (data, button) => {
   console.log("cartdata", data);
   return (
     <Box m="5px">
@@ -66,46 +66,54 @@ const CartSummary = (data) => {
         </Text>
       </Flex>
       <Divider style={{ border: "1px solid #C1C3C4" }} mb="8px" />
-      <Box mt="8px" ml="10%" mr="10%">
-        <button
-          style={{
-            cursor: "pointer",
-            justifyContent: "center",
-            alignContent: "center",
-            alignItems: "center",
-            opacity: 1,
-            backgroundColor: "#D31424",
-            width: "100%",
-            height: "48px",
+      {button === true ? (
+        <Box mt="8px" ml="10%" mr="10%">
+          <button
+            style={{
+              cursor: "pointer",
+              justifyContent: "center",
+              alignContent: "center",
+              alignItems: "center",
+              opacity: 1,
+              backgroundColor: "#D31424",
+              width: "100%",
+              height: "48px",
 
-            borderRadius: 50,
-            border: "0px",
-            color: "white",
-          }}
-        >
-          <Text>Guest Checkout</Text>
-        </button>
-      </Box>
-      <Box mt="8px" ml="10%" mr="10%">
-        <button
-          style={{
-            cursor: "pointer",
-            justifyContent: "center",
-            alignContent: "center",
-            alignItems: "center",
-            opacity: 1,
-            backgroundColor: "#D31424",
-            width: "100%",
-            height: "48px",
+              borderRadius: 50,
+              border: "0px",
+              color: "white",
+            }}
+          >
+            <Text>Guest Checkout</Text>
+          </button>
+        </Box>
+      ) : (
+        ""
+      )}
+      {button === true ? (
+        <Box mt="8px" ml="10%" mr="10%">
+          <button
+            style={{
+              cursor: "pointer",
+              justifyContent: "center",
+              alignContent: "center",
+              alignItems: "center",
+              opacity: 1,
+              backgroundColor: "#D31424",
+              width: "100%",
+              height: "48px",
 
-            borderRadius: 50,
-            border: "0px",
-            color: "white",
-          }}
-        >
-          <Text>Member Checkout</Text>
-        </button>
-      </Box>
+              borderRadius: 50,
+              border: "0px",
+              color: "white",
+            }}
+          >
+            <Text>Member Checkout</Text>
+          </button>
+        </Box>
+      ) : (
+        ""
+      )}
     </Box>
   );
 };
