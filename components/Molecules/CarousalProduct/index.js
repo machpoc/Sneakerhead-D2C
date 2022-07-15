@@ -1,4 +1,6 @@
 import { AspectRatio, Box, Center, Heading, HStack, Stack,Image,Text,Pressable } from 'native-base'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import React from 'react'
 import Grid, { Item } from '../../Atoms/Grid'
 // import Image from '../../Atoms/Image'
@@ -8,15 +10,20 @@ const img = require('/public/images/32262551-front-940x529.webp')
 
 const CarousalProduct=({productImage,productName,
     productDescription,
-    productPrice,
+    productPrice,id,
     ...props
   })=>{
 
+    const router = useRouter();
 
+    const link = `Products/${id}`
     return(
             
         <>
-        <Box>
+          <Link href={'Products/[id]'}
+                      as = {` Products/${id}`} >
+            <a>
+          <Box>
         <Pressable _hover={{
         shadow: 5,
         // borderWidth: .5,
@@ -72,6 +79,9 @@ const CarousalProduct=({productImage,productName,
         </Box>
         </Pressable>  
         </Box>
+        </a>
+        </Link>
+
    
 
 </>
