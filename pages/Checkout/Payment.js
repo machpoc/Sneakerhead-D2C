@@ -1,5 +1,6 @@
 import { Box, Button, Text } from "native-base";
 import React, { useState } from "react";
+import useSWR from "swr";
 import Grid, { Item } from "../../components/Atoms/Grid";
 import CheckoutNavbar from "../../components/Molecules/CheckoutNavbar";
 import CardPayment from "../../components/Molecules/Payment/CardPayment";
@@ -28,7 +29,10 @@ const PaymentOptions = ({ value, option, setpaymentMethod }) => {
 };
 const Payment = () => {
   const [paymentmethod, setpaymentMethod] = useState("");
-  if (paymentmethod === "") console.log("lol");
+  const cartid =
+    typeof window !== "undefined" ? localStorage.getItem("cartid") : null;
+  const { data: cartdata } = useSWR(`/api/getcartData?cartid=${cartid}`);
+  // console.log("total", cartdata.totalPrice.centAmount)
   return (
     <Box>
       <CheckoutNavbar page="payment" />
@@ -71,7 +75,11 @@ const Payment = () => {
         </Grid>
       </Box>
 
-      {paymentmethod === "cards" ? <CardPayment /> : ""}
+      {paymentmethod === "cards" && cartdata ? (
+        <CardPayment total={cartdata.totalPrice.centAmount} />
+      ) : (
+        ""
+      )}
     </Box>
   );
 };

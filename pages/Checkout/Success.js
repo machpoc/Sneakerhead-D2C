@@ -3,8 +3,16 @@ import React from "react";
 import CheckoutNavbar from "../../components/Molecules/CheckoutNavbar";
 import { TiTickOutline } from "react-icons/ti";
 import Grid, { Item } from "../../components/Atoms/Grid";
+import { authEndpoint1, orderdefaultEndpoint } from "../Property";
+import { clientid, clientsecret } from "../Cred";
 
 export async function getServerSideProps(context) {
+  if (typeof window !== "undefined") {
+    // your code
+    const id = query.id;
+    const getData = JSON.parse(localStorage.getItem("cartid"));
+    console.log(getData);
+  }
   const paymentIntent = context.query.payment_intent;
 
   var myHeaders = new Headers();
@@ -20,7 +28,7 @@ export async function getServerSideProps(context) {
   };
 
   let paymentdata = await fetch(
-    "https://api.stripe.com/v1/payment_intents/pi_3LLj0TJgcE2PmejG1BHNrTng",
+    `https://api.stripe.com/v1/payment_intents/${paymentIntent}`,
     requestOptions
   )
     .then((response) => response.text())
@@ -36,9 +44,84 @@ export async function getServerSideProps(context) {
   };
 }
 
+async function orderSuccess(orderid) {
+  // console.log("invoicenumber", order.invoiceNumber);
+  const auth_res = await fetch(authEndpoint1, {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization:
+        "Basic " +
+        Buffer.from(clientid + ":" + clientsecret).toString("base64"),
+    },
+  });
+  let cartid = localStorage.getItem("cartid");
+  let cartversion = localStorage.getItem("cartversion");
+
+  let res_auth = await auth_res.json();
+
+  const clientToken = res_auth.access_token;
+  const res = await fetch(`${orderdefaultEndpoint}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + clientToken,
+    },
+    body: JSON.stringify({
+      id: cartid,
+      version: parseInt(cartversion),
+      orderNumber: orderid,
+    }),
+  });
+  const data = await res.json();
+
+  console.log(data);
+  // Adding custom field estimatedDeliveryDate with an order
+  if (data) {
+    const resCustom = await fetch(`${orderdefaultEndpoint}/${data.id}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + clientToken,
+      },
+      body: JSON.stringify({
+        version: parseInt(data.version),
+
+        actions: [
+          {
+            action: "setCustomType",
+            type: {
+              id: "21ca85bf-c8b7-400a-88a7-207360b6e4c7",
+              typeId: "type",
+            },
+            fields: {
+              estimatedDeliveryDate: "2021-09-30",
+            },
+          },
+        ],
+      }),
+    });
+
+    const datacustom = await resCustom.json();
+  }
+
+  localStorage.setItem("orderid", data.id);
+  localStorage.removeItem("cartid");
+  localStorage.removeItem("cartversion");
+}
 const Success = ({ paymentdata }) => {
   let status = paymentdata.status;
-
+  const cartid =
+    typeof window !== "undefined" ? localStorage.getItem("cartid") : null;
+  const cartversion =
+    typeof window !== "undefined" ? localStorage.getItem("cartversion") : null;
+  let orderstatus = false;
+  if (cartid !== "null" && cartversion !== "null" && status === "succeeded") {
+    orderSuccess(paymentdata.id);
+  }
   return (
     <Box>
       <CheckoutNavbar page="success" />
