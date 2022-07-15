@@ -162,7 +162,7 @@ const Navbar = () => {
                 //   router.push("/");
                 // }}
               >
-              <SearchBar/>
+                <SearchBar />
               </a>
             </li>
             <li
@@ -234,7 +234,12 @@ const Navbar = () => {
               }}
               class="contact"
             >
-              <a href="#">
+              <a
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  router.push("/cart");
+                }}
+              >
                 <svg
                   width="21"
                   height="20"

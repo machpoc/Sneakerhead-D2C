@@ -27,11 +27,11 @@ const Cart = ({ data }) => {
             </Text>
           </Box>
           {data.lineItems.map((item) => {
-            return <CartItem data={item} />;
+            return <CartItem data={item} divider="true" />;
           })}
         </Item>
         <Item colStart={8} colEnd={12}>
-          <CartSummary data={data} />
+          <CartSummary data={data} button="true" />
         </Item>
       </Grid>
     </Box>
