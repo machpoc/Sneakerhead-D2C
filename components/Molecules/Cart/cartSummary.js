@@ -1,9 +1,11 @@
 import { Box, Divider, Flex, Text } from "native-base";
+import { useRouter } from "next/dist/client/router";
 import React from "react";
 import ButtonGroup from "../ButtonGroup";
 
-const CartSummary = (data, button) => {
-  console.log("cartdata", data);
+const CartSummary = ({ data, button }) => {
+  console.log("cartdata", button);
+  const router = useRouter();
   return (
     <Box m="5px">
       <Text
@@ -26,7 +28,7 @@ const CartSummary = (data, button) => {
           Subtotal
         </Text>
         <Text pb="4px" fontSize="16px" lineHeight="22px" color="#555553">
-          ${data.data.totalPrice.centAmount}
+          ${data.totalPrice.centAmount}
         </Text>
       </Flex>
       <Flex mb="8px" direction="row" justifyContent="space-between">
@@ -62,13 +64,16 @@ const CartSummary = (data, button) => {
           color="black"
           fontWeight="bold"
         >
-          ${data.data.totalPrice.centAmount}
+          ${data.totalPrice.centAmount}
         </Text>
       </Flex>
       <Divider style={{ border: "1px solid #C1C3C4" }} mb="8px" />
-      {button === true ? (
+      {button === "true" ? (
         <Box mt="8px" ml="10%" mr="10%">
           <button
+            onClick={() => {
+              router.push("/Checkout");
+            }}
             style={{
               cursor: "pointer",
               justifyContent: "center",
@@ -90,7 +95,7 @@ const CartSummary = (data, button) => {
       ) : (
         ""
       )}
-      {button === true ? (
+      {button === "true" ? (
         <Box mt="8px" ml="10%" mr="10%">
           <button
             style={{

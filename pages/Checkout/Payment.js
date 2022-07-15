@@ -32,49 +32,45 @@ const Payment = () => {
   return (
     <Box>
       <CheckoutNavbar page="payment" />
-      {paymentmethod === "" ? (
-        <>
-          {" "}
-          <Box width="1024px" style={{ margin: "auto" }}>
-            <Box
-              mt="48px"
-              mb="48px"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Text
-                color="black"
-                fontSize="24px"
-                lineHeight="33px"
-                fontWeight="bold"
-              >
-                Shipping Address
-              </Text>
-            </Box>
-            <Grid columns={12} gap="30px">
-              <Item colStart={4} colEnd={10}>
-                <PaymentOptions
-                  value="cards"
-                  option="Credit/Debit cards"
-                  setpaymentMethod={setpaymentMethod}
-                />
-                <PaymentOptions
-                  value="others"
-                  option="Net banking/Wallets/UPI/Others"
-                  setpaymentMethod={setpaymentMethod}
-                />
-                <PaymentOptions
-                  value="cod"
-                  option=" Cash on delivery"
-                  setpaymentMethod={setpaymentMethod}
-                />
-              </Item>
-            </Grid>
-          </Box>
-        </>
-      ) : (
-        ""
-      )}
+
+      <Box
+        width="1024px"
+        style={{
+          margin: "auto",
+          display: paymentmethod === "" ? "block" : "none",
+        }}
+      >
+        <Box mt="48px" mb="48px" alignItems="center" justifyContent="center">
+          <Text
+            color="black"
+            fontSize="24px"
+            lineHeight="33px"
+            fontWeight="bold"
+          >
+            Shipping Address
+          </Text>
+        </Box>
+        <Grid columns={12} gap="30px">
+          <Item colStart={4} colEnd={10}>
+            <PaymentOptions
+              value="cards"
+              option="Credit/Debit cards"
+              setpaymentMethod={setpaymentMethod}
+            />
+            <PaymentOptions
+              value="others"
+              option="Net banking/Wallets/UPI/Others"
+              setpaymentMethod={setpaymentMethod}
+            />
+            <PaymentOptions
+              value="cod"
+              option=" Cash on delivery"
+              setpaymentMethod={setpaymentMethod}
+            />
+          </Item>
+        </Grid>
+      </Box>
+
       {paymentmethod === "cards" ? <CardPayment /> : ""}
     </Box>
   );
