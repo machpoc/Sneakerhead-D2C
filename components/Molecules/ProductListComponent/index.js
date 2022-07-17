@@ -109,6 +109,7 @@ const ProductList = ({
           gridColumn: "span 3",
           overflow: "hidden",
           border: isHovering ? "1px solid #C1C3C4" : "",
+          boxShadow: isHovering ? "0px 0px 5px 2px rgba(0, 0, 0, 0.25)" : "",
         }}
       >
         <Flex pl="1" pr="1" direction="row" mt={5}>
