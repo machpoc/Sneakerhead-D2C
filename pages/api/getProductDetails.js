@@ -3,7 +3,7 @@ import axios from "axios";
 export default function api(req, res) {
   const headers = {
     "Content-Type": "application/json",
-    Authorization: "Bearer svFIUaggmdKj0GeYzrwR1C4iCFeRl4qU",
+    Authorization: "Bearer f16iwZMuY-Oik3UfQB-oZVJiQPT_GTK0",
   };
   axios
     .get(

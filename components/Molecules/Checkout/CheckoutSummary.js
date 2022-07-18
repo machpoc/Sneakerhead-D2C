@@ -5,7 +5,6 @@ import CartItem from "../Cart/cartItem";
 import CartSummary from "../Cart/cartSummary";
 
 const CheckoutSummary = ({ cartdata }) => {
-  cartdata && console.log(cartdata);
   return (
     <Box mt="18px" mb="61px">
       <Grid columns={12} gap="30px">
@@ -24,7 +23,7 @@ const CheckoutSummary = ({ cartdata }) => {
 
         <Item colStart={3} colEnd={11}>
           {cartdata.lineItems.map((item) => {
-            return <CartItem data={item} divider="false" />;
+            return <CartItem key={item.id} data={item} divider="false" />;
           })}
         </Item>
 

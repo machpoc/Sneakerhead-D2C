@@ -2,7 +2,7 @@ import { Box, Text } from "native-base";
 import { useRouter } from "next/router";
 import React from "react";
 import Grid, { Item } from "../../Atoms/Grid";
-
+import { signIn } from "next-auth/react";
 const LoginComponent = () => {
   const router = useRouter();
   return (
@@ -62,6 +62,12 @@ const LoginComponent = () => {
         </button>
         <Box alignItems="center" justifyContent="center">
           <button
+            onClick={() => {
+              signIn("google", {
+                redirect: true,
+                callbackUrl: "/Checkout/ShippingAddress/",
+              });
+            }}
             style={{
               border: "1px solid #D31424",
               marginRight: 20,

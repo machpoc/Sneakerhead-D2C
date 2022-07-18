@@ -4,7 +4,6 @@ import React from "react";
 import ButtonGroup from "../ButtonGroup";
 
 const CartSummary = ({ data, button }) => {
-  console.log("cartdata", button);
   const router = useRouter();
   return (
     <Box m="5px">
