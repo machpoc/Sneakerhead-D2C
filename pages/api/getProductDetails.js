@@ -2,7 +2,6 @@ import axios from "axios";
 
 export default function api(req, res) {
   const headers = {
-    'Content-Type': 'application/json',
     'Authorization': 'Bearer LNLXz9pRjxFLTyfgZHwqNerqyWbFSU5L'
   }
   axios
@@ -12,7 +11,7 @@ export default function api(req, res) {
     )
 
     .then((data) => {
-      // console.log("productdetail",data)
+      console.log("productdetail",data)
       return res.json(data.data);
     });
 }
