@@ -13,14 +13,16 @@ import { route } from "next/dist/server/router";
 
 
 
-const ProductDetails = ({sizeArray,colorArray,variantId,productId, ...props}) => {
+const VariantDetails = ({sizeArray,colorArray,variantId,productId, ...props}) => {
 
   const router = useRouter()
 let value = props.value;
 
  console.log("valuvalue",value)
- const priceData= value.masterVariant.prices[0].value.centAmount
-const [price,setPrice] = useState(`${priceData}`)
+ const variantDataInitial= [value.masterVariant]
+//  .prices[0].value.centAmount
+const [variantData,setVariantData] = useState(`${variantDataInitial}`)
+console.log( "variantData",JSON.stringify( variantData))
 
 const [isVariantUpdated, setVariantUpdated]= useState(false)
 
@@ -31,7 +33,7 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
       value.variants.map(variant=>{
 
         if(variantId.toString()===(variant.id).toString()){
-        setPrice(variant.prices[0].value.centAmount)
+          setVariantData(variant)
         }
         // else{
         
@@ -42,7 +44,7 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
         
         })
 
-    },[price,isVariantUpdated])
+    },[variantData,isVariantUpdated])
 
   function colorChangeHandler(id){
 
@@ -140,7 +142,7 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
           <p>{value.description.en}</p>
 
         
- <h1>${price}</h1>
+ <h1>${variantData.prices[0].value.centAmount}</h1>
 
 
 
@@ -219,4 +221,4 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
 </> );
 }
  
-export default ProductDetails;
+export default VariantDetails;

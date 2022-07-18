@@ -106,11 +106,15 @@ const YouMayLike = ({ data }) => {
           style={{
             cursor: "pointer",
             position: "absolute",
-            left: "-6%",
-            top: "25%",
+            right: "5%",
+            top:"-19%",
             backgroundColor: "transparent",
             border: "none",
-            fontSize: "1.2rem",
+            fontSize: "18px",
+            background: "#C1C3C4",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px"
           }}
           onClick={dataChangeHandler}
         >
@@ -120,11 +124,15 @@ const YouMayLike = ({ data }) => {
           style={{
             cursor: "pointer",
             position: "absolute",
-            right: "-6.5%",
-            top: "20%",
+            right: "0%",
+            top: "-19%",
             backgroundColor: "transparent",
             border: "none",
-            fontSize: "1.2rem",
+            fontSize: "18px",
+            background: "#C1C3C4",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px"
           }}
           onClick={dataChangeHandler}
         >
