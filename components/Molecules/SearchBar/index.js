@@ -3,8 +3,10 @@ import { StyledInput } from './SearchBar.styled.js';
 const SearchBar = () => {
     return ( <>
     
-    <div>
-<img height={21} src="images/refreshed/search.svg"/>
+    <div style={{background:"transparent",border:"none",width: "100px",height: "30px",borderRadius:"25px",
+background:" #F0F1F1",height:"40px",width:"132px"}}>
+
+<img style={{margin: "10% 0% 0% 0%"}} height={21} src="images/refreshed/search.svg"/>
 <StyledInput placeholder="SEARCH"/>
     </div>
     </> );
