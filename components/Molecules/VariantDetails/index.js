@@ -7,15 +7,52 @@ import CheckPincode from "../CheckPincode";
 import ProductList from "../productsList";
 import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
+import { route } from "next/dist/server/router";
 
 
 
 
 
-const ProductDetails = ({sizeArray,colorArray, ...props}) => {
+const ProductDetails = ({sizeArray,colorArray,variantId,productId, ...props}) => {
 
-    let value = props.value;
+  const router = useRouter()
+let value = props.value;
+
+ console.log("valuvalue",value)
+ const priceData= value.masterVariant.prices[0].value.centAmount
+const [price,setPrice] = useState(`${priceData}`)
+
+const [isVariantUpdated, setVariantUpdated]= useState(false)
+
+ 
     console.log("teh data from commerce",props.value)
+
+    useEffect(()=>{
+      value.variants.map(variant=>{
+
+        if(variantId.toString()===(variant.id).toString()){
+        setPrice(variant.prices[0].value.centAmount)
+        }
+        // else{
+        
+        //    setPrice(value.masterVariant.prices[0].value.centAmount)
+        
+        // }
+        
+        
+        })
+
+    },[price,isVariantUpdated])
+
+  function colorChangeHandler(id){
+
+    console.log("colorChangeHandler",id)
+
+    router.push(`/Products/${productId}/${id}`,undefined, { scroll: false });
+    setVariantUpdated(!isVariantUpdated)
+
+  }
+
     return ( <>
     
     <Grid columns={12} rows={1} gap={30}>
@@ -102,7 +139,11 @@ const ProductDetails = ({sizeArray,colorArray, ...props}) => {
 
           <p>{value.description.en}</p>
 
-          <h1>${value.masterVariant.prices[0].value.centAmount}</h1>
+        
+ <h1>${price}</h1>
+
+
+
           <p>(Inclusive of all taxes)</p>
 
 
@@ -110,8 +151,9 @@ const ProductDetails = ({sizeArray,colorArray, ...props}) => {
 {value.variants !=false ?<>
 
 {colorArray.map(color=>{
+
     return(
-<div style={{    border: "0.5px dashed",background: `${color}`, borderRadius: "50%", width: "20px", height: "20px",display:"inline-block",margin:"0px 4px 0px 0px"}}></div>
+<button onClick={()=>colorChangeHandler(color.id)} style={{    border: "0.5px dashed",background: `${color.value}`, borderRadius: "50%", width: "20px", height: "20px",display:"inline-block",margin:"0px 4px 0px 0px"}}></button>
 
     )
 })}

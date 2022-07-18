@@ -70,8 +70,10 @@ const sample2 = ({ data }) => {
   const { data: marketingBanner } = useSWR("/api/getMarketingBanner");
   const { data: productData } = useSWR("/api/getProducts");
 
+
   const { data: session } = useSession();
   console.log("usersession", session);
+
 
   const header1 = "LIFE IS BETTER IN RUNNING SHOES";
 
@@ -126,10 +128,11 @@ const sample2 = ({ data }) => {
           <ButtonComponent
             marginBottom="25%"
             width={142}
+            marginTop="32px"
             bg="#D31424"
             fill="true"
-            marginTop="32px"
-            hoverBg="#D31424"
+            hoverBg="#FFFFFF"
+            hoverTextColor="#D31424"
           >
             Shop now
           </ButtonComponent>
@@ -258,9 +261,11 @@ const sample2 = ({ data }) => {
             width={142}
             bg="#D31424"
             fill="true"
+            hoverBg="#FFFFFF"
+            hoverTextColor="#D31424"
             marginTop="32px"
           >
-            Explore more{" "}
+            Explore more
           </ButtonComponent>
         </Item>
         <Item

@@ -78,6 +78,50 @@ const Product = ({ productList }) => {
       <Footer />
     </>
   );
-};
 
+
+let arraysize=[]
+data && data.variants.map(item=>{
+
+item.attributes.map(item2=>{
+
+if (item2.name==="size")
+
+arraysize.push(item2.value)
+
+})
+
+})
+
+let arraycolor=[]
+data && data.variants.map(item=>{
+
+item.attributes.map(item2=>{
+
+if (item2.name==="color")
+
+arraycolor.push(item2.value)
+
+})
+
+})
+
+ console.log("arraysize",arraysize)
+
+    return ( <>
+    
+    
+    <Navbar/>
+{   data && <ProductDetails value={data} sizeArray={arraysize} colorArray={arraycolor}/>}
+    <Grid marginTop="2rem" marginBottom="2rem">
+    <YouMayLike data={productList}/>
+    </Grid>
+    <ContactUs/>
+    
+    <ContactMode/>
+    <Footer/>
+    </> );
+}
+ 
 export default Product;
+
