@@ -1,11 +1,11 @@
 import React from 'react';
-import Navbar from '../../../components/Molecules/NavBar';
-import Footer from '../../../components/Molecules/Footer';
-import ContactUs from '../../../components/Molecules/ContactUs';
-import ContactMode from '../../../components/Molecules/ContactMode';
-import ProductDetails from '../../../components/Molecules/ProductDetails/index.js';
-import YouMayLike from '../../../components/Molecules/YouMayLike/index.js';
-import Grid from '../../../components/Atoms/Grid/index.js';
+import Navbar from '../../../../components/Molecules/NavBar';
+import Footer from '../../../../components/Molecules/Footer';
+import ContactUs from '../../../../components/Molecules/ContactUs';
+import ContactMode from '../../../../components/Molecules/ContactMode';
+import VariantDetails from '../../../../components/Molecules/VariantDetails/index.js';
+import YouMayLike from '../../../../components/Molecules/YouMayLike/index.js';
+import Grid from '../../../../components/Atoms/Grid/index.js';
 import { createClient as createClientD } from "contentful";
 
 import {
@@ -14,8 +14,8 @@ import {
     authEndpoint,
     generateHexString 
 
-  } from "../../Property";
-  import { clientid, clientsecret, searchClient } from "../../Cred.js";
+  } from "../../../Property";
+  import { clientid, clientsecret, searchClient } from "../../../Cred.js";
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
   
@@ -67,6 +67,10 @@ export async function getServerSideProps({ query }) {
 const Product = ({productList}) => {
   const router = useRouter()
   const {id} = router.query
+  var productId = router.query.id;
+  const variantId = router.query.variant;
+
+  console.log("id is",productId,"variant is",variantId)
   
   console.log("id",id)
 
@@ -99,7 +103,9 @@ item.attributes.map(item2=>{
 
 if (item2.name==="color")
 
-arraycolor.push(item2.value)
+arraycolor.push({value:item2.value,id:item.id})
+
+console.log("arraycolor",arraycolor)
 
 })
 
@@ -111,7 +117,7 @@ arraycolor.push(item2.value)
     
     
     <Navbar/>
-{   data && <ProductDetails value={data} sizeArray={arraysize} colorArray={arraycolor}/>}
+{   data && <VariantDetails productId={productId} value={data} sizeArray={arraysize} colorArray={arraycolor} variantId={variantId}/>}
     <Grid marginTop="2rem" marginBottom="2rem">
     <YouMayLike data={productList}/>
     </Grid>

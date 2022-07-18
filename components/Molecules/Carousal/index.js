@@ -34,6 +34,7 @@ const Carousal = ({ data }) => {
               productName={item.name.en}
               productDescription={item.description.en}
               productPrice={item.masterVariant.prices[0].value.centAmount}
+              id={item.id}
               marginRight="2.5rem"
               marginLeft="2.5rem"
             />
@@ -43,11 +44,15 @@ const Carousal = ({ data }) => {
           style={{
             cursor: "pointer",
             position: "absolute",
-            left: "-8%",
-            top:" 53%",
+            right: "5%",
+            top:"-19%",
             backgroundColor: "transparent",
             border: "none",
-            fontSize: "1.2rem",
+            fontSize: "18px",
+            background: "#C1C3C4",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px"
           }}
           onClick={dataChangeHandler}
         >
@@ -57,11 +62,15 @@ const Carousal = ({ data }) => {
           style={{
             cursor: "pointer",
             position: "absolute",
-            right: "-6.5%",
-            top: "48%",
+            right: "0%",
+            top: "-19%",
             backgroundColor: "transparent",
             border: "none",
-            fontSize: "1.2rem",
+            fontSize: "18px",
+            background: "#C1C3C4",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px"
           }}
           onClick={dataChangeHandler}
         >

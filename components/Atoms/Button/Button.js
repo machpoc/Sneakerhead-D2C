@@ -22,6 +22,7 @@ height,
 radius,
 fill,marginTop,
 marginBottom,
+hoverTextColor
 }
 
 ) => {
@@ -61,7 +62,8 @@ marginBottom,
                     color: fill?"#ffffff":"rgba(211,20,36,1.00)"
                   }}
                 _hover={{
-                    bg: fill?`${hoverBg}`:"#ffffff"
+                    bg: fill?`${hoverBg}`:"#ffffff",
+                    _text: {    color: fill? `${hoverTextColor}`:"rgba(211,20,36,1.00)" },
                   }}
                   _pressed={{
                     bg: fill?`#d31423c7`:"#f7f7f7"
