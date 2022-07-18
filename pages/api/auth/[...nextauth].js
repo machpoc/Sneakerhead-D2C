@@ -106,6 +106,7 @@ export default NextAuth({
       return token;
     },
   },
+  secret: "324234234234sdewdqwed13",
   session: {
     strategy: "jwt",
   },
