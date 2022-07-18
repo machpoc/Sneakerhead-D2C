@@ -77,6 +77,8 @@ const Product = ({productList}) => {
   const { data } = useSWR(
     `/api/getProductDetails?id=${id}`
   );
+
+  
   
   data && console.log("swr bsssss",data)
 
