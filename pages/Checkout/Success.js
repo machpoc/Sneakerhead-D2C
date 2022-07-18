@@ -11,7 +11,6 @@ export async function getServerSideProps(context) {
     // your code
     const id = query.id;
     const getData = JSON.parse(localStorage.getItem("cartid"));
-    console.log(getData);
   }
   const paymentIntent = context.query.payment_intent;
 
@@ -77,7 +76,6 @@ async function orderSuccess(orderid) {
   });
   const data = await res.json();
 
-  console.log(data);
   // Adding custom field estimatedDeliveryDate with an order
   if (data) {
     const resCustom = await fetch(`${orderdefaultEndpoint}/${data.id}`, {

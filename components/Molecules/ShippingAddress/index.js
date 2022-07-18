@@ -1,11 +1,160 @@
 import { Box, Input, Text } from "native-base";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import { authEndpoint1, defaultEndpointCart } from "../../../pages/Property";
 import { clientsecret, clientid } from "../../../pages/Cred";
-const InputComponent = ({ placeholder }) => {
+
+let states = [
+  {
+    key: "AN",
+    name: "Andaman and Nicobar Islands",
+  },
+  {
+    key: "AP",
+    name: "Andhra Pradesh",
+  },
+  {
+    key: "AR",
+    name: "Arunachal Pradesh",
+  },
+  {
+    key: "AS",
+    name: "Assam",
+  },
+  {
+    key: "BR",
+    name: "Bihar",
+  },
+  {
+    key: "CG",
+    name: "Chandigarh",
+  },
+  {
+    key: "CH",
+    name: "Chhattisgarh",
+  },
+  {
+    key: "DH",
+    name: "Dadra and Nagar Haveli",
+  },
+  {
+    key: "DD",
+    name: "Daman and Diu",
+  },
+  {
+    key: "DL",
+    name: "Delhi",
+  },
+  {
+    key: "GA",
+    name: "Goa",
+  },
+  {
+    key: "GJ",
+    name: "Gujarat",
+  },
+  {
+    key: "HR",
+    name: "Haryana",
+  },
+  {
+    key: "HP",
+    name: "Himachal Pradesh",
+  },
+  {
+    key: "JK",
+    name: "Jammu and Kashmir",
+  },
+  {
+    key: "JH",
+    name: "Jharkhand",
+  },
+  {
+    key: "KA",
+    name: "Karnataka",
+  },
+  {
+    key: "KL",
+    name: "Kerala",
+  },
+  {
+    key: "LD",
+    name: "Lakshadweep",
+  },
+  {
+    key: "MP",
+    name: "Madhya Pradesh",
+  },
+  {
+    key: "MH",
+    name: "Maharashtra",
+  },
+  {
+    key: "MN",
+    name: "Manipur",
+  },
+  {
+    key: "ML",
+    name: "Meghalaya",
+  },
+  {
+    key: "MZ",
+    name: "Mizoram",
+  },
+  {
+    key: "NL",
+    name: "Nagaland",
+  },
+  {
+    key: "OR",
+    name: "Odisha",
+  },
+  {
+    key: "PY",
+    name: "Puducherry",
+  },
+  {
+    key: "PB",
+    name: "Punjab",
+  },
+  {
+    key: "RJ",
+    name: "Rajasthan",
+  },
+  {
+    key: "SK",
+    name: "Sikkim",
+  },
+  {
+    key: "TN",
+    name: "Tamil Nadu",
+  },
+  {
+    key: "TS",
+    name: "Telangana",
+  },
+  {
+    key: "TR",
+    name: "Tripura",
+  },
+  {
+    key: "UK",
+    name: "Uttarakhand",
+  },
+  {
+    key: "UP",
+    name: "Uttar Pradesh",
+  },
+  {
+    key: "WB",
+    name: "West Bengal",
+  },
+];
+const InputComponent = ({ placeholder, value, setvalue }) => {
   return (
     <Input
+      value={value}
+      onChange={(e) => setvalue(e.target.value)}
       color="black"
       fontWeight="bold"
       fontSize="12px"
@@ -141,17 +290,44 @@ async function updateShipping() {
   // confirmOrder(order);
 }
 const ShippingAddressComponent = () => {
+  // console.log(states);
+  const [email, setemail] = useState("");
+  const [fname, setfname] = useState("");
+  const [lname, setlname] = useState("");
+  const [street, setstreet] = useState("");
+  const [city, setcity] = useState("");
+  const [zip, setzip] = useState("");
+  const [state, setstate] = useState("");
+  const [phoneno, setphoneno] = useState("");
   const router = useRouter();
   return (
     <Box>
       <Box>
-        <InputComponent placeholder="Email Address*" />
-        <InputComponent placeholder="First Name*" />
-        <InputComponent placeholder="Last Name*" />
-        <InputComponent placeholder="Street Address*" />
-        <InputComponent placeholder="City*" />
+        <InputComponent
+          placeholder="Email Address*"
+          value={email}
+          setvalue={setemail}
+        />
+        <InputComponent
+          placeholder="First Name*"
+          value={fname}
+          setvalue={setfname}
+        />
+        <InputComponent
+          placeholder="Last Name*"
+          value={lname}
+          setvalue={setlname}
+        />
+        <InputComponent
+          placeholder="Street Address*"
+          value={street}
+          setvalue={setstreet}
+        />
+        <InputComponent placeholder="City*" value={city} setvalue={setcity} />
         <select
+          onChange={(e) => setstate(e.target.value)}
           style={{
+            textIndent: "10px",
             height: "48px",
             backgroundColor: "#F0F1F1",
             borderRadius: "10px",
@@ -160,15 +336,21 @@ const ShippingAddressComponent = () => {
             borderColor: "#F0F1F1",
           }}
         >
-          <option style={{ margin: "16px" }}>
-            Please select a region, state or province
-          </option>
-          <option>Karnataka</option>
-          <option>Karnataka</option>
-          <option>Karnataka</option>
+          <option selected>Please select a region, state or province</option>
+          {states.map((state) => {
+            return <option value={state.key}>{state.name}</option>;
+          })}
         </select>
-        <InputComponent placeholder="Zip/Postal Code*" />
-        <InputComponent placeholder="Phone Number*" />
+        <InputComponent
+          placeholder="Zip/Postal Code*"
+          value={zip}
+          setvalue={setzip}
+        />
+        <InputComponent
+          placeholder="Phone Number*"
+          value={phoneno}
+          setvalue={setphoneno}
+        />
         <Box width="100%" alignItems="end">
           <button
             style={{
@@ -190,7 +372,6 @@ const ShippingAddressComponent = () => {
               let data = await updateShipping();
               let data1 = await addShippingMethod();
               if (data1) {
-                console.log("donensads");
                 router.push("/Checkout/Payment");
               }
             }}

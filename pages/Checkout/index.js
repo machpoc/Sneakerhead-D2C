@@ -5,8 +5,12 @@ import Grid, { Item } from "../../components/Atoms/Grid";
 import CheckoutSummary from "../../components/Molecules/Checkout/CheckoutSummary";
 import LoginComponent from "../../components/Molecules/Checkout/LoginComponent";
 import CheckoutNavbar from "../../components/Molecules/CheckoutNavbar";
+import { signOut, useSession } from "next-auth/react";
 
 const Checkout = () => {
+  const { data: session } = useSession();
+  console.log("usersession", session);
+
   const cartid =
     typeof window !== "undefined" ? localStorage.getItem("cartid") : null;
   // let cartdata = null;
