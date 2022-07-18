@@ -17,7 +17,6 @@ const ProductDetails = ({sizeArray,colorArray, ...props}) => {
     let value = props.value;
     console.log("teh data from commerce",props.value)
     return ( <>
-    
     <Grid columns={12} rows={1} gap={30}>
 
         <Item colStart={2} colEnd={3}>

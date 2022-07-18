@@ -19,10 +19,16 @@ const VariantDetails = ({sizeArray,colorArray,variantId,productId, ...props}) =>
 let value = props.value;
 
  console.log("valuvalue",value)
- const variantDataInitial= [value.masterVariant]
-//  .prices[0].value.centAmount
-const [variantData,setVariantData] = useState(`${variantDataInitial}`)
-console.log( "variantData",JSON.stringify( variantData))
+const variantValue=[value][0].variants[0]
+
+console.log("variantValue",variantValue)
+
+
+const [variantData,setVariantData] = useState(variantValue)
+
+
+
+console.log( "variantData", variantData)
 
 const [isVariantUpdated, setVariantUpdated]= useState(false)
 
@@ -142,7 +148,7 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
           <p>{value.description.en}</p>
 
         
- <h1>${variantData.prices[0].value.centAmount}</h1>
+{ <h1>${variantData.prices[0].value.centAmount}</h1>}
 
 
 

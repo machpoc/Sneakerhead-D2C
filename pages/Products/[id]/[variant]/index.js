@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../../../../components/Molecules/NavBar';
 import Footer from '../../../../components/Molecules/Footer';
 import ContactUs from '../../../../components/Molecules/ContactUs';
@@ -65,6 +65,7 @@ export async function getServerSideProps({ query }) {
   }
 
 const Product = ({productList}) => {
+  const [mounted, setMounted] = useState(false)
   const router = useRouter()
   const {id} = router.query
   var productId = router.query.id;
@@ -74,11 +75,14 @@ const Product = ({productList}) => {
   
   console.log("id",id)
 
-  const { data } = useSWR(
-    `/api/getProductDetails?id=${id}`
-  );
+  const { data } = useSWR( mounted ? `/api/getProductDetails?id=${productId}`:null);
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   
+  console.log("ssasasa",data)
   
   data && console.log("swr bsssss",data)
 
