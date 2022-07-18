@@ -10,10 +10,10 @@ export default NextAuth({
         "597988800884-d2ebae1sirboi2h5gb2iovo18p2l1smi.apps.googleusercontent.com",
       clientSecret: "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",
     }),
-    FacebookProvider({
-      clientId: process.env.FB_CLIENT_ID,
-      clientSecret: process.env.FB_SECREY_KEY,
-    }),
+    // FacebookProvider({
+    //   clientId: process.env.FB_CLIENT_ID,
+    //   clientSecret: process.env.FB_SECREY_KEY,
+    // }),
   ],
 
   callbacks: {
