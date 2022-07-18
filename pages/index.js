@@ -26,6 +26,7 @@ import {
 } from "./Property";
 
 import { clientsecret, clientToken, clientid } from "./Cred";
+import { signOut, useSession } from "next-auth/react";
 
 export async function getServerSideProps() {
   const auth_res = await fetch(authEndpoint, {
@@ -69,12 +70,10 @@ const sample2 = ({ data }) => {
   const { data: marketingBanner } = useSWR("/api/getMarketingBanner");
   const { data: productData } = useSWR("/api/getProducts");
 
-  offerDetails &&
-    console.log(
-      "herobannerdataaaaaaaaaaaaaaaa",data );
 
-  console.log("data is", process.env.CONTENTFUL_TOKEN);
-  console.log(data);
+  const { data: session } = useSession();
+  console.log("usersession", session);
+
 
   const header1 = "LIFE IS BETTER IN RUNNING SHOES";
 

@@ -3,8 +3,12 @@ import React from "react";
 import Grid, { Item } from "../../components/Atoms/Grid";
 import CheckoutNavbar from "../../components/Molecules/CheckoutNavbar";
 import ShippingAddressComponent from "../../components/Molecules/ShippingAddress";
+import { signOut, useSession } from "next-auth/react";
 
 const ShippingAddress = () => {
+  const { data: session } = useSession();
+  console.log("usersession", session);
+
   return (
     <Box>
       <CheckoutNavbar page="shipping" />

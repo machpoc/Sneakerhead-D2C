@@ -22,12 +22,17 @@ const Cart = ({ data }) => {
             alignItems="center"
             justifyContent="center"
           >
-            <Text color="#555553">
-              You have added {data.lineItems[length - 1].name.en} to your cart.{" "}
-            </Text>
+            {length > 0 ? (
+              <Text color="#555553">
+                You have added {data.lineItems[length - 1].name.en} to your
+                cart.{" "}
+              </Text>
+            ) : (
+              " "
+            )}
           </Box>
           {data.lineItems.map((item) => {
-            return <CartItem data={item} divider="true" />;
+            return <CartItem key={item.id} data={item} divider="true" />;
           })}
         </Item>
         <Item colStart={8} colEnd={12}>
