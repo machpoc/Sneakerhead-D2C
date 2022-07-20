@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default function api(req, res) {
   const headers = {
-    'Authorization': 'Bearer LNLXz9pRjxFLTyfgZHwqNerqyWbFSU5L'
+    'Authorization': 'Bearer VZKs6X6qnMI6LT7ajtl1BB5DagNCDmao'
   }
   axios
     .get(

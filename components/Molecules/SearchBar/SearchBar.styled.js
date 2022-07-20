@@ -11,6 +11,10 @@ border-radius:25px;
 background: #F0F1F1;
 display: flex;
 
+margin-top: -20px;
+    margin-left: 22px;
+    width: 4rem;
+    
 &:focus {
     outline: none; 
     }

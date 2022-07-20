@@ -156,14 +156,9 @@ const Navbar = () => {
               }}
               class="home"
             >
-              <a
-                style={{ cursor: "pointer" }}
-                // onClick={() => {
-                //   router.push("/");
-                // }}
-              >
+         
                 <SearchBar />
-              </a>
+          
             </li>
             <li
               style={{
