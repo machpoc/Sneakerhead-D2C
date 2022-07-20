@@ -28,8 +28,12 @@ const Carousal = ({ data }) => {
         }}
       >
         {productData.map((item) => {
+
+const variantData = item.variants
+
           return (
             <CarousalProduct
+            isVariant={variantData.length}
               productImage={item.masterVariant.images[0].url}
               productName={item.name.en}
               productDescription={item.description.en}

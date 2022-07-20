@@ -12,7 +12,7 @@ background: #F0F1F1;
 display: flex;
 
 margin-top: -20px;
-    margin-left: 22px;
+    margin-left: 28px;
     width: 4rem;
     
 &:focus {

@@ -69,8 +69,14 @@ const ProductsComponent = (pageIndex, setPageIndex) => {
       <Grid columns={12} gap="30px">
         {data.length > 0
           ? data.map((item) => {
+
+            const variants= item.variants
+
+
               return (
-                <ProductList
+                <ProductList 
+                fullData={item}
+                  isVariant={variants.length}
                   productId={item.id}
                   key={item.id}
                   productImage={item.masterVariant.images[0].url}
