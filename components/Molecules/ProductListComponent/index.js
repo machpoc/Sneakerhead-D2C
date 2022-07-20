@@ -75,6 +75,7 @@ async function BuyNow(prodid) {
 }
 
 const ProductList = ({
+  isVariant,
   productId,
   productImage,
   productName,
@@ -85,11 +86,19 @@ const ProductList = ({
   const [buttonstyle, setbuttonstyle] = useState({ display: "none" });
   const [isHovering, setisHovering] = useState(false);
   const router = useRouter();
+  // console.log(completeData)
   return (
     <>
       <div
         onClick={() => {
-          router.push(`/Products/${productId}`);
+      
+if(isVariant){
+  router.push(`/Products/${productId}/2`);
+}else{
+  router.push(`/Products/${productId}`);
+
+}
+
         }}
         onMouseEnter={(e) => {
           setbuttonstyle({ display: "block" });

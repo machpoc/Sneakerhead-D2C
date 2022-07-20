@@ -10,7 +10,7 @@ const img = require('/public/images/32262551-front-940x529.webp')
 
 const CarousalProduct=({productImage,productName,
     productDescription,
-    productPrice,id,
+    productPrice,id,isVariant,
     ...props
   })=>{
 
@@ -21,7 +21,7 @@ const CarousalProduct=({productImage,productName,
             
         <>
           <Link href={'Products/[id]'}
-                      as = {` Products/${id}`} >
+                         as = {isVariant ? `Products/${id}/2`:`Products/${id}`} >
             <a>
           <Box>
         <Pressable _hover={{
