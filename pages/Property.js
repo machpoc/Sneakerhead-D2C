@@ -1,5 +1,11 @@
 import React from "react";
 
+
+const dev = process.env.NODE_ENV !== 'production';
+
+export const server = dev ? 'http://localhost:3000' : 'https://sneakerhead-d2c.vercel.app';
+
+
 export const defaultEndpointProducts =
   "https://api.us-central1.gcp.commercetools.com/onlinestore-poc/product-projections";
 export const authEndpoint =

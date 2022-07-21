@@ -63,7 +63,9 @@ const Product = ({ productList }) => {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data } = useSWR(`/api/getProductDetails?id=${id}`);
+  const token= typeof window !== "undefined" ? localStorage.getItem("accessToken"):null
+
+  const { data } = useSWR( `/api/getProductDetails?id=${id}&token=${token}`);
 
   return (
     <>
