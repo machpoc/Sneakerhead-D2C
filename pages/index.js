@@ -172,7 +172,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
           >
             <svg
               width="100%"
-              height="700"
+              height="100%"
               viewBox="0 0 1024 574"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
