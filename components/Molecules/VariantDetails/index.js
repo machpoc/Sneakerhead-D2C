@@ -8,9 +8,64 @@ import ProductList from "../productsList";
 import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
 import { route } from "next/dist/server/router";
+import { Button } from "native-base";
+import { authEndpoint1, defaultEndpointCart } from "../../../pages/Property";
+import { clientid, clientsecret } from "../../../pages/Cred";
 
 
+async function BuyNow(prodid) {
+  const auth_res = await fetch(authEndpoint1, {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization:
+        "Basic " +
+        Buffer.from(clientid + ":" + clientsecret).toString("base64"),
+    },
+  });
+  let cartid = localStorage.getItem("cartid");
 
+  let cartversion = localStorage.getItem("cartversion");
+
+  let res_auth = await auth_res.json();
+  const clientToken = res_auth.access_token;
+  const res = await fetch(`${defaultEndpointCart}/${cartid}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + clientToken,
+    },
+    body: JSON.stringify({
+      version: parseInt(cartversion),
+
+      actions: [
+        {
+          action: "addLineItem",
+          productId: prodid,
+          variantId: 1,
+          quantity: 1,
+          supplyChannel: {
+            typeId: "channel",
+            //channel id from commercetool
+            id: "a386fdda-6583-4748-b650-ef11c9ad031f",
+          },
+          distributionChannel: {
+            typeId: "channel",
+            id: "a386fdda-6583-4748-b650-ef11c9ad031f",
+          },
+        },
+      ],
+    }),
+  });
+  const data = await res.json();
+
+  if (data) {
+    localStorage.setItem("cartversion", data.version);
+  }
+  return data;
+}
 
 
 const VariantDetails = ({sizeArray,variantId,productId, ...props}) => {
@@ -19,10 +74,10 @@ const VariantDetails = ({sizeArray,variantId,productId, ...props}) => {
   const router = useRouter()
 let value = props.value;
 
- console.log("valuvalue",value)
+//  console.log("valuvalue",value)
 const variantValue=[value][0].variants[0]
 
-console.log("variantValue",variantValue)
+// console.log("variantValue",variantValue)
 
 
 const [variantData,setVariantData] = useState(variantValue)
@@ -38,11 +93,11 @@ console.log( "variantData", variantData)
 const [isVariantUpdated, setVariantUpdated]= useState(false)
 
  
-    console.log("teh data from commerce",props.value)
+    // console.log("teh data from commerce",props.value)
 
     useEffect(()=>{
 
-      router.events.on('routeChangeStart',()=>{
+  
         value.variants.map(variant=>{
 
           if(variantId.toString()===(variant.id).toString()){
@@ -55,9 +110,7 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
           // }
           
           
-          })
-      })
-      
+          })      
 
     },[variantData,isVariantUpdated])
 
@@ -65,7 +118,7 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
 
   function colorChangeHandler(id){
 
-    console.log("colorChangeHandler",id)
+    // console.log("colorChangeHandler",id)
 
     router.push(`/Products/${productId}/${id}`,undefined, { scroll: false });
     setVariantUpdated(!isVariantUpdated)
@@ -99,7 +152,7 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
           colorAttributes.push(temp1);
          //remove the duplicates in colorAttributes and storing to uniqueColorAttributes
 
-         console.log("colorAttributes2",colorAttributes)
+        //  console.log("colorAttributes2",colorAttributes)
 
            uniqueColorAttributes = colorAttributes.filter((colorAttributes, index, self) =>
     index === self.findIndex((t) => (t.value === colorAttributes.value)))
@@ -108,7 +161,7 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
     
     uniqueColorAttributes= uniqueColorAttributes.filter((color)=>color.name==="color")
     
-    console.log("uniqueColorAttributes222",uniqueColorAttributes)
+    // console.log("uniqueColorAttributes222",uniqueColorAttributes)
     
     let temp2 = {
       id: variant.id,
@@ -121,7 +174,7 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
     
     // storing all colors filter by variant id
 
-    console.log("variantId",variantId)
+    // console.log("variantId",variantId)
 
 
      initialColorData = colorAttributes.filter(
@@ -132,10 +185,10 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
       });
     });
 
-    console.log("initialColorData",initialColorData)
+    // console.log("initialColorData",initialColorData)
 
     //getting all color data with same color in initial selected color
-console.log("colorAttributes",colorAttributes)
+// console.log("colorAttributes",colorAttributes)
 
     colorArray= colorAttributes.filter(
       (size) => size.value.toString() === initialColorData[0].value.toString() );
@@ -166,10 +219,10 @@ console.log("colorAttributes",colorAttributes)
 
 /*  Unique color data and initial size data storing End    */
 
-console.log("uniqueColorAttributes",uniqueColorAttributes)
+// console.log("uniqueColorAttributes",uniqueColorAttributes)
   if (uniqueColorAttributes.length > 0) {
 
-    console.log("entering uniqueColorAttributes ", uniqueColorAttributes)
+    // console.log("entering uniqueColorAttributes ", uniqueColorAttributes)
 
     productsizedetail = (
       <div>
@@ -228,7 +281,7 @@ function sizeInfo(e){
     );
     setsizeDataAfterChange(sizeArray);
     router.push(`/Products/${productId}/${sizeId}`,undefined, { scroll: false });
-      setVariantUpdated(!isVariantUpdated)
+    
   }else{
     const sizeValue=size[0].value;
     const colorId=size[0].id;
@@ -243,12 +296,12 @@ function sizeInfo(e){
       (size) => sizeIdArray.includes(size.id) && size.name.includes('size')
     );
     setsizeDataAfterChange(sizeArray);
- console.log('a',sizeAttributes)
- console.log('b',sizeArray)
+//  console.log('a',sizeAttributes)
+//  console.log('b',sizeArray)
    router.push(`/Products/${productId}/${colorId}`,undefined, { scroll: false });
-   setVariantUpdated(!isVariantUpdated)
+  
   }
-
+  setVariantUpdated(!isVariantUpdated)
 }
   function displaySize(e) {
     if (e.target.value) {
@@ -371,7 +424,12 @@ function sizeInfo(e){
 
 <ButtonComponent fill={true} bg ="#db2727" hoverBg="#db2727"  marginBottom="5%"  marginTop="10%">ADD TO CART</ButtonComponent>
 
-<ButtonComponent  >BUY NOW</ButtonComponent>
+<ButtonComponent onPress={async () => {
+              let data = await BuyNow(productId);
+              if (data) {
+                router.push("/cart");
+              }
+            }}  >BUY NOW</ButtonComponent>
 <CheckPincode/>
 <p style={{"fontFamily":"'Open Sans'","fontStyle":"normal","fontWeight":"400","fontSize":"12px","lineHeight":"16px"}}> ={">"} 5% additional OFF on Prepaid orders<br/>
   ={'>'} Mfg.By- Bata India Limited<br/>
