@@ -67,8 +67,8 @@ const sample2 = ({ data }) => {
   
 const {data:accessToken}= useSWR("/api/getAuthToken")
 
-accessToken && console.log("accessToken &&",accessToken.access_token)
-accessToken && localStorage.setItem("accessToken", accessToken.access_token);
+// accessToken && console.log("accessToken &&",accessToken.access_token)
+// accessToken && localStorage.setItem("accessToken", accessToken.access_token);
   // localStorage.setItem("refreshToken", refreshToken);
 
   const { data: heroBannerData } = useSWR("/api/getHeroBanner");

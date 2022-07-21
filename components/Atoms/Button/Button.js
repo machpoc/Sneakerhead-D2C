@@ -8,6 +8,7 @@ const  ButtonComponent = (
 
 
     {
+      onPress,
         size,
         colorScheme,
         direction,
@@ -48,6 +49,7 @@ hoverTextColor
         <>
 
             <Button
+            onPress={onPress}
              ref={myRef}
             width={width}
             height={height}

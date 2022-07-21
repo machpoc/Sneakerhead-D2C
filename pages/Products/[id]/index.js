@@ -73,7 +73,7 @@ const Product = ({ productList }) => {
   return (
     <>
       <Navbar />
-      {data && <ProductDetails value={data} />}
+      {data && <ProductDetails value={data} productId={id} />}
       <Grid marginTop="2rem" marginBottom="2rem">
         <YouMayLike data={productList} />
       </Grid>
