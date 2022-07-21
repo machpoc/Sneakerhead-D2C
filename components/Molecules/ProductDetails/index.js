@@ -9,13 +9,69 @@ import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
 
 
+import { authEndpoint1, defaultEndpointCart } from "../../../pages/Property";
+import { clientid, clientsecret } from "../../../pages/Cred";
 
 
+async function BuyNow(prodid) {
+  const auth_res = await fetch(authEndpoint1, {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization:
+        "Basic " +
+        Buffer.from(clientid + ":" + clientsecret).toString("base64"),
+    },
+  });
+  let cartid = localStorage.getItem("cartid");
 
-const ProductDetails = ({sizeArray,colorArray, ...props}) => {
+  let cartversion = localStorage.getItem("cartversion");
 
+  let res_auth = await auth_res.json();
+  const clientToken = res_auth.access_token;
+  const res = await fetch(`${defaultEndpointCart}/${cartid}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + clientToken,
+    },
+    body: JSON.stringify({
+      version: parseInt(cartversion),
+
+      actions: [
+        {
+          action: "addLineItem",
+          productId: prodid,
+          variantId: 1,
+          quantity: 1,
+          supplyChannel: {
+            typeId: "channel",
+            //channel id from commercetool
+            id: "a386fdda-6583-4748-b650-ef11c9ad031f",
+          },
+          distributionChannel: {
+            typeId: "channel",
+            id: "a386fdda-6583-4748-b650-ef11c9ad031f",
+          },
+        },
+      ],
+    }),
+  });
+  const data = await res.json();
+
+  if (data) {
+    localStorage.setItem("cartversion", data.version);
+  }
+  return data;
+}
+
+
+const ProductDetails = ({sizeArray,colorArray,productId, ...props}) => {
+const router = useRouter()
     let value = props.value;
-    console.log("teh data from commerce",props.value)
+    // console.log("teh data from commerce",props.value)
     return ( <>
     <Grid columns={12} rows={1} gap={30}>
 
@@ -157,9 +213,19 @@ const ProductDetails = ({sizeArray,colorArray, ...props}) => {
           </>
 
 
-<ButtonComponent fill={true} bg ="#db2727" hoverBg="#db2727"  marginBottom="5%"  marginTop="10%">ADD TO CART</ButtonComponent>
+<ButtonComponent  onPress={async () => {
+              let data = await BuyNow(productId);
+              if (data) {
+                router.push("/cart");
+              }
+            }}   fill={true} bg ="#db2727" hoverBg="#db2727"  marginBottom="5%"  marginTop="10%">ADD TO CART</ButtonComponent>
 
-<ButtonComponent  >BUY NOW</ButtonComponent>
+<ButtonComponent onPress={async () => {
+              let data = await BuyNow(productId);
+              if (data) {
+                router.push("/cart");
+              }
+            }}  >BUY NOW</ButtonComponent>
 <CheckPincode/>
 <p style={{"fontFamily":"'Open Sans'","fontStyle":"normal","fontWeight":"400","fontSize":"12px","lineHeight":"16px"}}> ={">"} 5% additional OFF on Prepaid orders<br/>
   ={'>'} Mfg.By- Bata India Limited<br/>

@@ -422,7 +422,12 @@ function sizeInfo(e){
           </>
 
 
-<ButtonComponent fill={true} bg ="#db2727" hoverBg="#db2727"  marginBottom="5%"  marginTop="10%">ADD TO CART</ButtonComponent>
+<ButtonComponent  onPress={async () => {
+              let data = await BuyNow(productId);
+              if (data) {
+                router.push("/cart");
+              }
+            }}  fill={true} bg ="#db2727" hoverBg="#db2727"  marginBottom="5%"  marginTop="10%">ADD TO CART</ButtonComponent>
 
 <ButtonComponent onPress={async () => {
               let data = await BuyNow(productId);
