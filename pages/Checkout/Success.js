@@ -5,6 +5,7 @@ import { TiTickOutline } from "react-icons/ti";
 import Grid, { Item } from "../../components/Atoms/Grid";
 import { authEndpoint1, orderdefaultEndpoint } from "../Property";
 import { clientid, clientsecret } from "../Cred";
+import { useRouter } from "next/router";
 
 export async function getServerSideProps(context) {
   if (typeof window !== "undefined") {
@@ -44,6 +45,7 @@ export async function getServerSideProps(context) {
 }
 
 async function orderSuccess(orderid) {
+
   // console.log("invoicenumber", order.invoiceNumber);
   const auth_res = await fetch(authEndpoint1, {
     method: "POST",
@@ -111,6 +113,8 @@ async function orderSuccess(orderid) {
   localStorage.removeItem("cartversion");
 }
 const Success = ({ paymentdata }) => {
+
+  const router = useRouter()
   let status = paymentdata.status;
   const cartid =
     typeof window !== "undefined" ? localStorage.getItem("cartid") : null;
@@ -162,7 +166,9 @@ const Success = ({ paymentdata }) => {
                   Payment successful of $594
                 </Text>
               </Box>
-              <button
+              <button onClick={()=>{
+                router.push("/")
+              }}
                 style={{
                   marginTop: "24px",
                   cursor: "pointer",
