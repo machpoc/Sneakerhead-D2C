@@ -68,7 +68,7 @@ const ProductList = ({
               }}
               fontWeight="800"
             >
-              {data.name.en}
+              {data.name.en.slice(0,20)}...
             </Heading>
             <Text
               fontSize="10"
@@ -82,7 +82,7 @@ const ProductList = ({
               ml="-0.5"
               mt="-1"
             >
-              {data.description.en}
+              {data.description.en.slice(0,50)}...
             </Text>
           </Stack>
 
