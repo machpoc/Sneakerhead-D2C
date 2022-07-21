@@ -74,6 +74,10 @@ const Product = ({productList}) => {
   console.log("id is",productId,"variant is",variantId)
   
   console.log("id",id)
+  const {data:accessToken}= useSWR("/api/getAuthToken")
+
+accessToken && console.log("accessToken &&",accessToken.access_token)
+accessToken && localStorage.setItem("accessToken", accessToken.access_token);
   const token= typeof window !== "undefined" ? localStorage.getItem("accessToken"):null
 
   const { data } = useSWR( mounted ? `/api/getProductDetails?id=${productId}&token=${token}`:null,token);
