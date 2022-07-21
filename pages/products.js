@@ -100,7 +100,10 @@ const ProductsComponent = (pageIndex, setPageIndex) => {
 const Products = ({}) => {
   const [pageIndex, setPageIndex] = useState(12);
 
-  
+  const {data:accessToken}= useSWR("/api/getAuthToken")
+
+accessToken && console.log("accessToken &&",accessToken.access_token)
+accessToken && localStorage.setItem("accessToken", accessToken.access_token);
 
   const token= typeof window !== "undefined" ? localStorage.getItem("accessToken"):null
 
