@@ -41,21 +41,27 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
     console.log("teh data from commerce",props.value)
 
     useEffect(()=>{
-      value.variants.map(variant=>{
 
-        if(variantId.toString()===(variant.id).toString()){
-          setVariantData(variant)
-        }
-        // else{
-        
-        //    setPrice(value.masterVariant.prices[0].value.centAmount)
-        
-        // }
-        
-        
-        })
+      router.events.on('routeChangeStart',()=>{
+        value.variants.map(variant=>{
+
+          if(variantId.toString()===(variant.id).toString()){
+            setVariantData(variant)
+          }
+          // else{
+          
+          //    setPrice(value.masterVariant.prices[0].value.centAmount)
+          
+          // }
+          
+          
+          })
+      })
+      
 
     },[variantData,isVariantUpdated])
+
+    // router.events.on('routeChangeStart',setVariantUpdated(!isVariantUpdated))
 
   function colorChangeHandler(id){
 
@@ -343,7 +349,7 @@ function sizeInfo(e){
           <p>{value.description.en}</p>
 
         
-{ <h1>${variantData.prices[0].value.centAmount}</h1>}
+{ <h1>${variantData.prices[0].value.centAmount/100}</h1>}
 
 
 

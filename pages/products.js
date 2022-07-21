@@ -60,8 +60,11 @@ async function cartCreated() {
 
 const ProductsComponent = (pageIndex, setPageIndex) => {
   checkCartcreated();
+
+  const token= typeof window !== "undefined" ? localStorage.getItem("accessToken"):null
+
   const { data: data } = useSWR(
-    `/api/getProducts?limit=${pageIndex.pageIndex}`
+    `/api/getProducts?limit=${pageIndex.pageIndex}&token=${token}`
   );
   if (!data) <h1>Loading...</h1>;
   if (data) {
@@ -96,7 +99,12 @@ const ProductsComponent = (pageIndex, setPageIndex) => {
 
 const Products = ({}) => {
   const [pageIndex, setPageIndex] = useState(12);
-  const { data: data } = useSWR(`/api/getProductCount?limit=${pageIndex}`);
+
+  
+
+  const token= typeof window !== "undefined" ? localStorage.getItem("accessToken"):null
+
+  const { data: data } = useSWR(`/api/getProductCount?limit=${pageIndex}&token=${token}`);
   return (
     <Box style={{ position: "relative", width: "100vw" }}>
       <Navbar />

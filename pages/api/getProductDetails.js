@@ -1,8 +1,10 @@
 import axios from "axios";
 
 export default function api(req, res) {
+
+
   const headers = {
-    'Authorization': 'Bearer IVF8sgko5KnOXc4Nn5MMhhq6x0IONdaq'
+    'Authorization': `Bearer ${req.query.token}`
   }
   axios
     .get(
@@ -11,7 +13,7 @@ export default function api(req, res) {
     )
 
     .then((data) => {
-      console.log("productdetail",data)
+      console.log("productdetail",req.query.token)
       return res.json(data.data);
     });
 }

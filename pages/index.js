@@ -63,12 +63,23 @@ export async function getServerSideProps() {
 //   `/api/getProducts?limit=${pageIndex.pageIndex}`
 // );
 const sample2 = ({ data }) => {
+
+  
+const {data:accessToken}= useSWR("/api/getAuthToken")
+
+accessToken && console.log("accessToken &&",accessToken.access_token)
+accessToken && localStorage.setItem("accessToken", accessToken.access_token);
+  // localStorage.setItem("refreshToken", refreshToken);
+
   const { data: heroBannerData } = useSWR("/api/getHeroBanner");
   const { data: heroBannerData2 } = useSWR("/api/getHeroBanner2");
   const { data: offerDetails } = useSWR("/api/getOffer");
   const { data: marketingTile } = useSWR("/api/getMarketingTile");
   const { data: marketingBanner } = useSWR("/api/getMarketingBanner");
-  const { data: productData } = useSWR("/api/getProducts");
+
+  const token= typeof window !== "undefined" ? localStorage.getItem("accessToken"):null
+
+  const { data: productData } = useSWR(`/api/getProducts?token=${token}`);
 
 
   const { data: session } = useSession();

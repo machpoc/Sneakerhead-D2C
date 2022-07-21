@@ -5,6 +5,9 @@ import useSWR, { SWRConfig } from "swr";
 import { SessionProvider, useSession } from "next-auth/react";
 import { theme } from "../components/Atoms/Theme/theme";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+
+
+
   return (
     <NativeBaseProvider theme={theme}>
       <SWRConfig

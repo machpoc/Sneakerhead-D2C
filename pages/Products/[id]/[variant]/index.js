@@ -74,8 +74,9 @@ const Product = ({productList}) => {
   console.log("id is",productId,"variant is",variantId)
   
   console.log("id",id)
+  const token= typeof window !== "undefined" ? localStorage.getItem("accessToken"):null
 
-  const { data } = useSWR( mounted ? `/api/getProductDetails?id=${productId}`:null);
+  const { data } = useSWR( mounted ? `/api/getProductDetails?id=${productId}&token=${token}`:null,token);
 
   useEffect(() => {
     setMounted(true)
