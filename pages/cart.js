@@ -55,6 +55,7 @@ const cart = ({ productList }) => {
     typeof window !== "undefined" ? localStorage.getItem("cartid") : null;
   // let cartdata = null;
   // if (cartid) {
+
   const { data: cartdata } = useSWR(`/api/getcartData?cartid=${cartid}`);
 
   return (
