@@ -52,6 +52,8 @@ ${props=>props.display &&  `align-items: center;
   margin:${props=>props.margin};
   z-index:${props=>props.zIndex};
 
+  border-right:${props=>props.borderRight};
+
   
 
 `
