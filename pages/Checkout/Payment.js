@@ -31,7 +31,10 @@ const Payment = () => {
   const [paymentmethod, setpaymentMethod] = useState("");
   const cartid =
     typeof window !== "undefined" ? localStorage.getItem("cartid") : null;
-  const { data: cartdata } = useSWR(`/api/getcartData?cartid=${cartid}`);
+    const token= typeof window !== "undefined" ? localStorage.getItem("accessToken"):null
+
+  const { data: cartdata } = useSWR(`/api/getcartData?cartid=${cartid}&token=${token}`);
+
   // console.log("total", cartdata.totalPrice.centAmount)
   return (
     <Box>
