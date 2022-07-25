@@ -42,7 +42,7 @@ const CarousalProduct=({productImage,productName,
             }} alt="image" />
             </AspectRatio> */}   
 
-        <img style={{paddingTop:"4rem"}} src={productImage} />
+        <img style={{paddingTop:"4rem"}} src={productImage} height="191" width="155" />
   
             
           

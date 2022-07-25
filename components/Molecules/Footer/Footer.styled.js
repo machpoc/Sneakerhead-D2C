@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const StyledHeader = styled.span`
-font-weight:"600"
+font-weight:600;
 `
 
 const StyledList = styled.ul`
