@@ -351,6 +351,36 @@ const Navbar = () => {
             >
               <a href="#">SHOES</a>
             </li>
+            <li
+              style={{
+                display: "inline-block",
+                padding: "16px",
+                fontStyle: "normal",
+                fontWeight: "400",
+                fontSize: "12px",
+                lineHeight: "16px",
+                textTransform: "uppercase",
+                color: "#000000",
+              }}
+              class="contact"
+            >
+              <a href="#">Gear</a>
+            </li>
+            <li
+              style={{
+                display: "inline-block",
+                padding: "16px",
+                fontStyle: "normal",
+                fontWeight: "400",
+                fontSize: "12px",
+                lineHeight: "16px",
+                textTransform: "uppercase",
+                color: "#000000",
+              }}
+              class="contact"
+            >
+              <a href="#">Sale</a>
+            </li>
           </ul>
         </Item>
       </Grid>

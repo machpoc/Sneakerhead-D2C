@@ -229,6 +229,7 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
 
 {uniqueColorAttributes.map((attr, index) => {
   return(
+    
 <button value={attr.value} onClick={sizeInfo} style={{    border: "0.5px dashed",background: `${attr.value}`, borderRadius: "50%", width: "20px", height: "20px",display:"inline-block",margin:"0px 4px 0px 0px"}}></button>
   )
 })
@@ -409,7 +410,7 @@ function sizeInfo(e){
           <p>(Inclusive of all taxes)</p>
 
          
-
+<p style={{paddingBotton:"5px"}}>Color</p>
           {productsizedetail}
 
 <>

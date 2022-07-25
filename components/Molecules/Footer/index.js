@@ -81,12 +81,13 @@ FAQS
 <Item  paddingTop="1rem"    paddingBottom="5rem">
 <StyledHeader>Follow us</StyledHeader>
 <StyledList>
-<li>
-      INSTAGRAM
-    </li>
-    <li>
-        FACEBOOK
-    </li>
+<span style={{paddingRight:"20px"}}>
+      <img src= "\images\refreshed\facebook.svg"/>
+    </span>
+    <span>
+    <img src= "\images\refreshed\insta.svg"/>
+
+    </span>
     
 </StyledList>
 </Item>
