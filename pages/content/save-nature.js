@@ -25,12 +25,19 @@ const ContentPage = () => {
 
 <Grid columns={12} marginTop="2rem">
     <Item colStart={2} colEnd={12}>
-        <span style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "20px", lineHeight: "27px"}}>The most often quoted definition comes from the UN World Commission on Environment and Development: “sustainable development is development that meets the needs of the present without compromising the ability of future generations to meet their own needs.”
-
+        <span style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "20px", lineHeight: "27px"}}>The most often quoted definition comes from the UN World Commission on Environment and Development: “sustainable development is development that meets the needs of the present without compromising the ability of future generations to meet their own needs.”</span>
+        </Item>
+        <Item colStart={2} colEnd={12} display="flex" margin="1rem 0 1rem 0" >
+        <iframe width="100%" height="700px"
+src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
+        </Item>
+        <Item colStart={2} colEnd={12}>
+        <span style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "20px", lineHeight: "27px"}}>
 In the charter for the UCLA Sustainability Committee, sustainability is defined as: “the integration of environmental health, social equity and economic vitality in order to create thriving, healthy, diverse and resilient communities for this generation and generations to come. The practice of sustainability recognizes how these issues are interconnected and requires a systems approach and an acknowledgement of complexity.”
 
 </span>
-    </Item>
+</Item>
 </Grid>
 
 <Grid columns={12} marginTop="2rem">
