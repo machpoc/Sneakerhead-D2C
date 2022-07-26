@@ -115,6 +115,7 @@ async function orderSuccess(orderid) {
 const Success = ({ paymentdata }) => {
 
   const router = useRouter()
+  const query = router.query
   let status = paymentdata.status;
   const cartid =
     typeof window !== "undefined" ? localStorage.getItem("cartid") : null;
@@ -167,7 +168,10 @@ const Success = ({ paymentdata }) => {
                 </Text>
               </Box>
               <button onClick={()=>{
-                router.push("/")
+                router.push({
+                  pathname:'/orderDetails',
+                  query:query
+                })
               }}
                 style={{
                   marginTop: "24px",

@@ -26,6 +26,8 @@ import styled, { css } from "styled-components";
     border:${props=>props.border};
     margin:${props=>props.margin};
     position:relative;
+    padding:${props=>props.padding};
+    border-top:${props=>props.borderTop};
     
   background-size: cover;
   background-position: center center;
@@ -53,6 +55,9 @@ ${props=>props.display &&  `align-items: center;
   z-index:${props=>props.zIndex};
 
   border-right:${props=>props.borderRight};
+  border-top:${props=>props.borderTop};
+  border:${props=>props.border};
+
 
   
 
