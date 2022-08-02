@@ -3,15 +3,15 @@ import CarousalProduct from "../CarousalProduct";
 // import Product from '../components/Molecules/Product';
 
 const Carousal = ({ data }) => {
-  const [productData, setData] = useState(data ? data.results.slice(0, 4) : []);
+  const [productData, setData] = useState(data ? data.slice(0, 4) : []);
   const [isDataChanged, setIsDataChanged] = useState(false);
 
   function dataChangeHandler() {
     if (isDataChanged) {
-      setData(data.results.slice(0, 4));
+      setData(data.slice(0, 4));
       setIsDataChanged(!isDataChanged);
     } else {
-      setData(data.results.slice(4, 8));
+      setData(data.slice(4, 8));
       setIsDataChanged(!isDataChanged);
     }
   }
