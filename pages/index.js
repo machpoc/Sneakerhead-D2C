@@ -28,43 +28,11 @@ import {
 import { clientsecret, clientToken, clientid } from "./Cred";
 import { signOut, useSession } from "next-auth/react";
 
-export async function getServerSideProps() {
-  const auth_res = await fetch(authEndpoint, {
-    method: "POST",
-    headers: {
-      Accept: "*/*",
-      "Content-Type": "application/x-www-form-urlencoded",
-      Authorization:
-        "Basic " +
-        Buffer.from(clientid + ":" + clientsecret).toString("base64"),
-    },
-  });
-
-  let res_auth = await auth_res.json();
-
-  const clientToken = res_auth.access_token;
-  const res = await fetch(defaultEndpointProducts, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + clientToken,
-    },
-  });
-  const data = await res.json();
-
-  return {
-    props: {
-      data,
-    },
-  };
-}
 //  const { data: data } = useSWR(
 //   `/api/getProducts?limit=${pageIndex.pageIndex}`
 // );
-const sample2 = ({ data }) => {
+const sample2 = () => {
 
-  
 const {data:accessToken}= useSWR("/api/getAuthToken")
 
 // accessToken && console.log("accessToken &&",accessToken.access_token)
@@ -77,10 +45,13 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
   const { data: marketingTile } = useSWR("/api/getMarketingTile");
   const { data: marketingBanner } = useSWR("/api/getMarketingBanner");
 
+  productList && console.log("productList2",productList)
+
   const token= typeof window !== "undefined" ? localStorage.getItem("accessToken"):null
 
   const { data: productData } = useSWR(`/api/getProducts?token=${token}`);
 
+  const { data:productList } = useSWR( `/api/getProducts?token=${token}&limit=20`);
 
   const { data: session } = useSession();
   console.log("usersession", session);
@@ -302,10 +273,10 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
       )}
 
       <SubHeader color="#D31424">New arrivals</SubHeader>
-      <Carousal data={data} />
+      {productList && <Carousal data={productList} />}
 
       <SubHeader color="#D31424">Top selling</SubHeader>
-      <Carousal data={data} />
+     { productList && <Carousal data={productList} />}
 
       <ContentBanner
         header="TAKE CARE OF NATURE"

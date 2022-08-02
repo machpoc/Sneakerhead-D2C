@@ -20,51 +20,8 @@ import { useRouter } from 'next/router';
 import useSWR from 'swr';
   
 
-export async function getServerSideProps({ query }) {
-    const auth_res = await fetch(authEndpoint, {
-      method: "POST",
-      headers: {
-        Accept: "*/*",
-        "Content-Type": "application/x-www-form-urlencoded",
-        Authorization:
-          "Basic " +
-          Buffer.from(clientid + ":" + clientsecret).toString("base64"),
-      },
-    });
-  
-    let res_auth = await auth_res.json();
-  
-    const clientToken = res_auth.access_token;
-    let valVal = generateHexString(14);
-  let title = "sadasfdasd" + valVal;
 
-  const client = createClientD({
-    space: "27dvrilv9g9m",
-    accessToken: "7eR1gkrfTTlkiHY0BP-gqdqB3RBm_z6E6EB1xYljiQo",
-  });
- 
-  
-
-    const resProduct = await fetch(defaultEndpointProducts, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + clientToken,
-        },
-      });
-    
-      const productList = await resProduct.json();
-
-    return {
-      props: {
-        
-        productList
-      },
-    };
-  }
-
-const Product = ({productList}) => {
+const Product = () => {
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
   const {id} = router.query
@@ -81,7 +38,9 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
   const token= typeof window !== "undefined" ? localStorage.getItem("accessToken"):null
 
   const { data } = useSWR( mounted ? `/api/getProductDetails?id=${productId}&token=${token}`:null,token);
+  const { data:productList } = useSWR( `/api/getProducts?id=${id}&token=${token}&limit=20`);
 
+  productList && console.log("productList",productList)
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -130,7 +89,7 @@ console.log("arraycolor",arraycolor)
     <Navbar/>
 {   data && <VariantDetails productId={productId} value={data} sizeArray={arraysize} colorArray={arraycolor} variantId={variantId}/>}
     <Grid marginTop="2rem" marginBottom="2rem">
-    <YouMayLike data={productList}/>
+{    productList && <YouMayLike data={productList}/>}
     </Grid>
     <ContactUs/>
     
