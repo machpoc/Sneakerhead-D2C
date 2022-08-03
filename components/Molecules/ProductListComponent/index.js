@@ -184,6 +184,7 @@ if(isVariant){
             h="43px"
             borderRadius={30}
             backgroundColor={colors.primary.dark}
+            color={`${colors.light}`}
             style={{
               display: isHovering ? "block" : "none",
             }}
@@ -197,6 +198,7 @@ if(isVariant){
               lineHeight="19px"
               pt={1}
               pl={1}
+              color={`${colors.light}`}
             >
               Buy Now
             </Text>
