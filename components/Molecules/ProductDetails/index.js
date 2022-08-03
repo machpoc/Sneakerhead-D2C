@@ -11,6 +11,7 @@ import { useState, useEffect, useRef } from "react";
 
 import { authEndpoint1, defaultEndpointCart } from "../../../pages/Property";
 import { clientid, clientsecret } from "../../../pages/Cred";
+import { withTheme } from "styled-components";
 
 
 async function BuyNow(prodid) {
@@ -68,7 +69,7 @@ async function BuyNow(prodid) {
 }
 
 
-const ProductDetails = ({sizeArray,colorArray,productId, ...props}) => {
+const ProductDetails = ({sizeArray,colorArray,productId, theme:{colors}, ...props}) => {
 const router = useRouter()
     let value = props.value;
     // console.log("teh data from commerce",props.value)
@@ -242,4 +243,4 @@ const router = useRouter()
 </> );
 }
  
-export default ProductDetails;
+export default withTheme(ProductDetails);
