@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import React from "react";
 import Grid, { Item } from "../../Atoms/Grid";
 import { signIn } from "next-auth/react";
-const LoginComponent = () => {
+import { withTheme } from "styled-components";
+const LoginComponent = ({theme:{colors}}) => {
   const router = useRouter();
   return (
     <Grid columns={12} gap="30px">
@@ -22,19 +23,18 @@ const LoginComponent = () => {
             alignContent: "end",
             alignItems: "end",
             opacity: 1,
-            backgroundColor: "#D31424",
+            backgroundColor: `${colors.primary.dark}`,
             width: "100%",
             height: "48px",
-
             borderRadius: 50,
             border: "0px",
-            color: "white",
+            color: `${colors.light}`,
           }}
           onClick={() => {
             router.push("/Checkout/ShippingAddress");
           }}
         >
-          <Text>Guest Checkout</Text>
+          <Text color={colors.light}>Guest Checkout</Text>
         </button>
         <button
           style={{
@@ -45,20 +45,20 @@ const LoginComponent = () => {
             alignContent: "end",
             alignItems: "end",
             opacity: 1,
-            backgroundColor: "white",
-            border: "1px solid #D31424",
+            backgroundColor: `${colors.light}`,
+            border: `1px solid ${colors.primary.dark}`,
             width: "100%",
             height: "48px",
 
             borderRadius: 50,
 
-            color: "#D31424",
+            color: `${colors.primary.dark}`,
           }}
           // onClick={() => {
           //   router.push("/Checkout/ShippingAddress");
           // }}
         >
-          <Text color="#D31424">Become a Member</Text>
+          <Text color={colors.primary.dark}>Become a Member</Text>
         </button>
         <Box alignItems="center" justifyContent="center">
           <button
@@ -69,26 +69,26 @@ const LoginComponent = () => {
               });
             }}
             style={{
-              border: "1px solid #D31424",
+              border: `1px solid ${colors.primary.dark}`,
               marginRight: 20,
               cursor: "pointer",
               justifyContent: "end",
               alignContent: "end",
               alignItems: "end",
               opacity: 1,
-              backgroundColor: "white",
+              backgroundColor: `${colors.light}`,
               width: "82px",
               height: "48px",
               marginBottom: 16,
               borderRadius: 30,
 
-              color: "#D31424",
+              color: `${colors.primary.dark}`,
             }}
             // onClick={() => {
             //   router.push("/Checkout/Payment");
             // }}
           >
-            <Text color="#D31424">Login</Text>
+            <Text color={colors.primary.dark}>Login</Text>
           </button>
         </Box>
       </Item>
@@ -96,4 +96,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+export default withTheme(LoginComponent);

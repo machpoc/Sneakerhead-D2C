@@ -11,7 +11,7 @@ line-height: 124%;
 
 text-transform: uppercase;
 
-color: #000000;
+color:${props=>props.theme.colors.tertiary.dark};
 
 `
 
@@ -27,7 +27,7 @@ line-height: 124%;
 
 text-transform: uppercase;
 
-color: #000000;
+color:${props=>props.theme.colors.tertiary.dark};
 `
 
 export {StyledOffer,StyledContent}

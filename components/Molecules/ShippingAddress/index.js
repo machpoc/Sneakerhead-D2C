@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { authEndpoint1, defaultEndpointCart } from "../../../pages/Property";
 import { clientsecret, clientid } from "../../../pages/Cred";
+import { withTheme } from "styled-components";
 
 let states = [
   {
@@ -289,7 +290,7 @@ async function updateShipping() {
 
   // confirmOrder(order);
 }
-const ShippingAddressComponent = () => {
+const ShippingAddressComponent = ({theme:{colors}}) => {
   // console.log(states);
   const [email, setemail] = useState("");
   const [fname, setfname] = useState("");
@@ -360,13 +361,13 @@ const ShippingAddressComponent = () => {
               alignContent: "end",
               alignItems: "end",
               opacity: 1,
-              backgroundColor: "#D31424",
+              backgroundColor: `${colors.primary.dark}`,
               width: "82px",
               height: "48px",
 
               borderRadius: 50,
               border: "0px",
-              color: "white",
+              color: `${colors.light}`,
             }}
             onClick={async () => {
               let data = await updateShipping();
@@ -376,7 +377,7 @@ const ShippingAddressComponent = () => {
               }
             }}
           >
-            <Text>Next</Text>
+            <Text color={colors.light}>Next</Text>
           </button>
         </Box>
       </Box>
@@ -384,4 +385,4 @@ const ShippingAddressComponent = () => {
   );
 };
 
-export default ShippingAddressComponent;
+export default withTheme(ShippingAddressComponent);

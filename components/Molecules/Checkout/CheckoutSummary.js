@@ -1,10 +1,11 @@
 import { Box, Flex, Text } from "native-base";
 import React from "react";
+import { withTheme } from "styled-components";
 import Grid, { Item } from "../../Atoms/Grid";
 import CartItem from "../Cart/cartItem";
 import CartSummary from "../Cart/cartSummary";
 
-const CheckoutSummary = ({ cartdata }) => {
+const CheckoutSummary = ({ cartdata,theme:{colors}}) => {
   return (
     <Box mt="18px" mb="61px">
       <Grid columns={12} gap="30px">
@@ -40,13 +41,13 @@ const CheckoutSummary = ({ cartdata }) => {
                 alignContent: "end",
                 alignItems: "end",
                 opacity: 1,
-                backgroundColor: "#D31424",
+                backgroundColor: `${colors.primary.dark}`,
                 width: "130px",
                 height: "48px",
 
                 borderRadius: 50,
                 border: "0px",
-                color: "white",
+                color: `${colors.light}`,
               }}
               onClick={() => {
                 router.push("/cart");
@@ -61,4 +62,4 @@ const CheckoutSummary = ({ cartdata }) => {
     </Box>
   );
 };
-export default CheckoutSummary;
+export default withTheme(CheckoutSummary);

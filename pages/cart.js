@@ -78,7 +78,7 @@ const cart = ({ productList }) => {
       )}
       {/* <ProductDetails value={data} /> */}
       <Grid marginTop="2rem" marginBottom="2rem">
-        <YouMayLike data={productList.results} />
+     { productList && <YouMayLike data={productList.results} />}
       </Grid>
       <ContactUs />
 

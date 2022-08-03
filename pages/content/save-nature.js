@@ -5,10 +5,11 @@ import ContactUs from '../../components/Molecules/ContactUs';
 import Footer from '../../components/Molecules/Footer';
 import Navbar from '../../components/Molecules/NavBar';
 import ContentBannner from '../../components/Molecules/ContentBanner';
+import { withTheme } from 'styled-components';
 
 
 
-const ContentPage = () => {
+const ContentPage = ({theme:{colors}}) => {
     return ( <>
          <Navbar />
         <ContentBannner
@@ -43,18 +44,18 @@ In the charter for the UCLA Sustainability Committee, sustainability is defined 
 <Grid columns={12} marginTop="2rem">
 <Item colStart={3} colEnd={6} borderRight="1px solid #000000" margin="0 18% 0 0">
 
-<span style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "100px", lineHeight: "136px",color:"#D31424"}}>66%</span>
+<span style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "100px", lineHeight: "136px",color:`${colors.primary.dark}`}}>66%</span>
 <div>Landfill waste material dropped</div>
 </Item>
 <Item colStart={6} colEnd={9} borderRight="1px solid #000000" margin="0 18% 0 0">
-<span style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "100px", lineHeight: "136px",color:"#D31424"}}>72%</span>
+<span style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "100px", lineHeight: "136px",color:`${colors.primary.dark}`}}>72%</span>
 <div>Less energy and water than creating new paper products</div>
 
 </Item>
 <Item colStart={9} colEnd={12}>
 
 
-<span style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "100px", lineHeight: "136px",color:"#D31424"}}>17</span>
+<span style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "100px", lineHeight: "136px",color:`${colors.primary.dark}`}}>17</span>
 <div>We save 17 trees per each tonne of paper</div>
 </Item>
 </Grid>
@@ -68,4 +69,4 @@ In the charter for the UCLA Sustainability Committee, sustainability is defined 
     </> );
 }
  
-export default ContentPage;
+export default withTheme(ContentPage);

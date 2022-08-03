@@ -1,5 +1,6 @@
 import { AspectRatio, Box, Center, Heading, HStack, Stack,Image,Text } from 'native-base'
 import React from 'react'
+import { withTheme } from 'styled-components'
 import Grid, { Item } from '../../Atoms/Grid'
 // import Image from '../../Atoms/Image'
 // import Text from '../../Atoms/Text'
@@ -18,13 +19,13 @@ const Product=({productImage,productName,
         <>
         <Box>
         <Box maxW={196}   maxH={245} minH={245} rounded="lg"  marginBottom={props.marginBottom} marginRight={props.marginRight} marginLeft={props.marginLeft} overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
-        borderColor: "white",
-        backgroundColor: "white"
+        borderColor: `${colors.light}`,
+        backgroundColor: `${colors.light}`
       }} _web={{
         shadow: 2,
         borderWidth: 0
       }} _light={{
-        backgroundColor: "white"
+        backgroundColor: `${colors.light}`
       }}>
         <StyledImage>
           <Box>
@@ -91,4 +92,4 @@ const Product=({productImage,productName,
     )
 }
 
-export default Product
+export default withTheme(Product)

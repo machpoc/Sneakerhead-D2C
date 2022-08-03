@@ -5,8 +5,9 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import { Box, Text } from "native-base";
+import { withTheme } from "styled-components";
 
-export default function CheckoutForm() {
+ function CheckoutForm({theme:{colors}}) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -88,13 +89,13 @@ export default function CheckoutForm() {
             alignContent: "end",
             alignItems: "end",
             opacity: 1,
-            backgroundColor: "#D31424",
+            backgroundColor: `${colors.primary.dark}`,
             width: "82px",
             height: "48px",
 
             borderRadius: 50,
             border: "0px",
-            color: "white",
+            color: `${colors.light}`,
           }}
           disabled={isLoading || !stripe || !elements}
           id="submit"
@@ -106,3 +107,6 @@ export default function CheckoutForm() {
     </form>
   );
 }
+
+
+export default withTheme(CheckoutForm)

@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import router, { useRouter } from 'next/router';
 import React from 'react';
+import { withTheme } from 'styled-components';
 import ButtonComponent from '../../Atoms/Button/Button';
 import Grid, { Item } from '../../Atoms/Grid';
 import {StyledHeader,StyledContent,StyledButton} from './ContentBanner.styled'
-const ContentBanner = ({header,description,buttonName}) => {
+const ContentBanner = ({header,description,buttonName,theme:{colors}}) => {
 
 const router = useRouter()
 
@@ -26,7 +27,7 @@ const router = useRouter()
             <a>
     
 <StyledButton>
-{buttonName && <ButtonComponent  fill="true" bg="#D31424" hoverTextColor="#D31424" hoverBg="#ffffff" >
+{buttonName && <ButtonComponent  fill="true" bg={colors.primary.dark} hoverTextColor={colors.primary.dark} hoverBg={colors.light} >
                 {buttonName}
         </ButtonComponent>}
 </StyledButton>
@@ -44,4 +45,4 @@ const router = useRouter()
     </>  );
 }
  
-export default ContentBanner;
+export default withTheme(ContentBanner);

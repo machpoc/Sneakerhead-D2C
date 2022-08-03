@@ -27,11 +27,12 @@ import {
 
 import { clientsecret, clientToken, clientid } from "./Cred";
 import { signOut, useSession } from "next-auth/react";
+import { withTheme } from "styled-components";
 
 //  const { data: data } = useSWR(
 //   `/api/getProducts?limit=${pageIndex.pageIndex}`
 // );
-const sample2 = () => {
+const sample2 = ({theme:{colors}}) => {
 
 const {data:accessToken}= useSWR("/api/getAuthToken")
 
@@ -75,9 +76,9 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
                 <span
                   style={{
                     fontSize: "42px",
-                    color: "#000000",
                     fontWeight: "700",
                     lineHeight: "44.18px",
+                color: `${colors.tertiary.dark}`
                   }}
                 >
                   {heroBannerData[0].heroTitle.firstPart}{" "}
@@ -85,7 +86,7 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
                 <span
                   style={{
                     fontSize: "42px",
-                    color: "#D31424",
+                    color: `${colors.primary.dark}`,
                     fontWeight: "700",
                     lineHeight: "44.18px",
                   }}
@@ -99,7 +100,7 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
             <span
               style={{
                 fontSize: "20px",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
                 fontWeight: "400",
                 lineHeight: "21.79px",
               }}
@@ -111,10 +112,10 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
             marginBottom="25%"
             width={142}
             marginTop="32px"
-            bg="#D31424"
+            bg={colors.primary.dark}
             fill="true"
-            hoverBg="#FFFFFF"
-            hoverTextColor="#D31424"
+            hoverBg={colors.light}
+            hoverTextColor={colors.primary.dark}
           >
             Shop now
           </ButtonComponent>
@@ -160,7 +161,7 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
       <WaveBanner />
       <WaveRectangle />
 
-      <HeroBanner rows={1} columns={12} gap={10} bgColor="#E2D4F4">
+      <HeroBanner rows={1} columns={12} gap={10} bgColor={colors.secondary.light}>
         <div style={{ position: "absolute", height: "100%", width: "100%" }}>
           <svg
             viewBox="0 0 1024 366"
@@ -169,7 +170,7 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
           >
             <path
               d="M-34 386C-25.9968 338.092 4.45422 293.1 49.0572 263.272C93.6601 233.361 152.025 218.864 208.437 223.613C249.038 227.029 287.688 239.86 327.118 248.942C366.548 258.107 409.199 263.522 447.848 252.108C483.18 241.61 512.069 217.947 548.278 209.949C604.788 197.368 666.862 225.363 721.908 208.782C766.999 195.202 793.448 155.959 812.187 118.465C830.926 80.889 847.616 40.0631 884.801 14.4844C915.35 -6.59506 958.001 -14.177 995.967 -5.42858C1033.93 3.40314 1066.14 28.3986 1080 59.8095V386H-34Z"
-              fill="#CBB5E7"
+              fill={colors.secondary.medium}
             />
           </svg>
         </div>
@@ -188,7 +189,7 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
                   <span
                     style={{
                       fontSize: "16px",
-                      color: "#000000",
+                      color: `${colors.tertiary.dark}`,
                       fontWeight: "400",
                       lineHeight: "21.79px",
                     }}
@@ -196,7 +197,7 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
                     <span
                       style={{
                         fontSize: "30px",
-                        color: "#000000",
+                        color: `${colors.tertiary.dark}`,
                         fontWeight: "700",
                         lineHeight: "37px",
                       }}
@@ -208,7 +209,7 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
                   <span
                     style={{
                       fontSize: "16px",
-                      color: "#000000",
+                      color: `${colors.tertiary.dark}`,
                       fontWeight: "400",
                       lineHeight: "21.79px",
                     }}
@@ -216,7 +217,7 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
                     <span
                       style={{
                         fontSize: "30px",
-                        color: "#D31424",
+                        color: `${colors.primary.dark}`,
                         fontWeight: "700",
                         lineHeight: "37px",
                       }}
@@ -231,7 +232,7 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
             <span
               style={{
                 fontSize: "16px",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
                 fontWeight: "400",
                 lineHeight: "21.79px",
               }}
@@ -241,10 +242,10 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
           </div>
           <ButtonComponent
             width={142}
-            bg="#D31424"
+            bg={colors.primary.dark}
             fill="true"
-            hoverBg="#FFFFFF"
-            hoverTextColor="#D31424"
+            hoverBg={colors.light}
+            hoverTextColor={colors.primary.dark}
             marginTop="32px"
           >
             Explore more
@@ -272,10 +273,10 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
         />
       )}
 
-      <SubHeader color="#D31424">New arrivals</SubHeader>
+      <SubHeader color={colors.primary.dark}>New arrivals</SubHeader>
       {productList && <Carousal data={productList} />}
 
-      <SubHeader color="#D31424">Top selling</SubHeader>
+      <SubHeader color={colors.primary.dark}>Top selling</SubHeader>
      { productList && <Carousal data={productList} />}
 
       <ContentBanner
@@ -293,4 +294,4 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
   );
 };
 
-export default sample2;
+export default withTheme(sample2);

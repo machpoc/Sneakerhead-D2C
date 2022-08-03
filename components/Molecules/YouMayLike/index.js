@@ -8,6 +8,7 @@ import {
   Text,
 } from "native-base";
 import React, { useState } from "react";
+import { withTheme } from "styled-components";
 import Product from "../Product";
 import ProductList from "../productsList";
 // import Product from '../components/Molecules/Product'
@@ -66,7 +67,7 @@ const products = {
   ],
 };
 
-const YouMayLike = ({ data }) => {
+const YouMayLike = ({ data,theme:{colors} }) => {
   const [productData, setData] = useState(data ? data.slice(0, 4) : []);
   const [isDataChanged, setIsDataChanged] = useState(false);
 
@@ -81,7 +82,7 @@ const YouMayLike = ({ data }) => {
   }
   return (
     <>
-      <SubHeader color="#D31424">You may also like</SubHeader>
+      <SubHeader color={colors.primary.dark}>You may also like</SubHeader>
 
       <div
         style={{
@@ -143,4 +144,4 @@ const YouMayLike = ({ data }) => {
   );
 };
 
-export default YouMayLike;
+export default withTheme(YouMayLike);

@@ -4,6 +4,7 @@ import classes from "./filter.module.css";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 
 import { Box, Checkbox, Divider, Flex, Text } from "native-base";
+import { withTheme } from "styled-components";
 function FilterPopup(props) {
   return props.trigger ? (
     <div className={classes.popup}>
@@ -43,7 +44,7 @@ let data = [
     name: "SIZE",
   },
 ];
-const FilterItem = ({ name, data }) => {
+const FilterItem = ({ name, data,theme:{colors} }) => {
   const [groupValues, setGroupValues] = React.useState([]);
   const [expand, setExpand] = useState(false);
   return (
@@ -89,7 +90,7 @@ const FilterItem = ({ name, data }) => {
             >
               {data.map((item) => {
                 return (
-                  <Checkbox bg="white" value={item} my={2}>
+                  <Checkbox bg={colors.light} value={item} my={2}>
                     <Text style={{ color: "black" }}>{item}</Text>
                   </Checkbox>
                 );
@@ -105,7 +106,7 @@ const FilterItem = ({ name, data }) => {
     </div>
   );
 };
-const Filter = () => {
+const Filter = ({theme:{colors}}) => {
   const [trigger, settrigger] = useState(false);
 
   function setFilter() {
@@ -118,13 +119,13 @@ const Filter = () => {
       <button
         style={{
           opacity: 1,
-          backgroundColor: "#D31424",
+          backgroundColor: `${colors.primary.dark}`,
           width: "149px",
           height: "48px",
           cursor: "pointer",
           borderRadius: 50,
           border: "0px",
-          color: "white",
+          color: `${colors.light}`,
           display: trigger ? "none" : "block",
         }}
         onClick={() => {
@@ -166,13 +167,13 @@ const Filter = () => {
             alignContent: "center",
             alignItems: "center",
             opacity: 1,
-            backgroundColor: "#D31424",
+            backgroundColor: `${colors.primary.dark}`,
             width: "149px",
             height: "48px",
 
             borderRadius: 50,
             border: "0px",
-            color: "white",
+            color: `${colors.light}`,
           }}
           onClick={() => {
             setFilter();
@@ -195,4 +196,4 @@ const Filter = () => {
   );
 };
 
-export default Filter;
+export default withTheme(Filter);

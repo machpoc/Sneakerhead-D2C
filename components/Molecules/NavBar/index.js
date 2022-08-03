@@ -3,68 +3,10 @@ import ButtonComponent from "../../Atoms/Button/Button";
 import { useRouter } from "next/router";
 import Grid, { Item } from "../../Atoms/Grid";
 import SearchBar from "../SearchBar";
+import { withTheme } from "styled-components";
 
-const Navbar = () => {
-  const StyledHeading = {
-    color: "#000",
-    margin: "60px",
-    fontSize: "10px",
-    fontWeight: "600",
-    fontFamily: "Arial, Helvetica",
-  };
+const Navbar = ({theme:{colors}}) => {
 
-  const CenterLogo = {
-    width: "55px",
-    height: "auto",
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    marginBottom: "0px",
-  };
-
-  const LoginLink = {
-    color: "#D31424",
-    fontSize: "10px",
-    textAlign: "right",
-    fontWeight: "600",
-    width: "100%",
-    fontFamily: "Arial, Helvetica",
-    padding: "11px",
-  };
-
-  const BookButton = {
-    position: "absolute",
-    right: "15px",
-    background: "#D31424",
-    color: "white",
-    fontFamily: "Arial, Helvetica",
-    fontSize: "8px",
-    border: "none",
-    borderRadius: "15px",
-    fontWeight: "600",
-    padding: "9px",
-  };
-  const NavUl = {
-    listStyleType: "none",
-    margin: "0",
-    padding: "0",
-    overflow: "hidden",
-  };
-
-  const NavLi = {
-    float: "left",
-  };
-
-  const NavLink = {
-    display: "block",
-    textAlign: "center",
-    padding: "14px 16px",
-    textDecoration: "none",
-    color: "#000",
-    fontSize: ".7rem",
-    fontWeight: "600",
-    fontFamily: "Arial, Helvetica",
-  };
   const router = useRouter();
   return (
     <>
@@ -79,9 +21,10 @@ const Navbar = () => {
             <select
               style={{
                 padding: "6px",
-                border: "1px solid #555553",
+                border: `1px solid ${colors.tertiary.dark}`,
                 borderRadius: "30px",
                 marginTop: "14px",
+                color: `${colors.tertiary.dark}`
               }}
             >
               <option
@@ -90,6 +33,7 @@ const Navbar = () => {
                   fontWeight: "400",
                   fontSize: "12px",
                   lineHeight: "16px",
+                  
                 }}
               >
                 English
@@ -134,6 +78,7 @@ const Navbar = () => {
               fontWeight: "800",
               fontSize: "30px",
               lineHeight: "41px",
+              color:`${colors.tertiary.dark}`
             }}
           >
             SneakerHead
@@ -152,7 +97,7 @@ const Navbar = () => {
                 fontSize: "12px",
                 lineHeight: "16px",
                 textTransform: "uppercase",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
               }}
               class="home"
             >
@@ -169,7 +114,7 @@ const Navbar = () => {
                 fontSize: "12px",
                 lineHeight: "16px",
                 textTransform: "uppercase",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
               }}
               class="tutorials"
             >
@@ -197,7 +142,7 @@ const Navbar = () => {
                 fontSize: "12px",
                 lineHeight: "16px",
                 textTransform: "uppercase",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
               }}
               class="contact"
             >
@@ -225,7 +170,7 @@ const Navbar = () => {
                 fontSize: "12px",
                 lineHeight: "16px",
                 textTransform: "uppercase",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
               }}
               class="contact"
             >
@@ -271,7 +216,7 @@ const Navbar = () => {
                 fontSize: "12px",
                 lineHeight: "16px",
                 textTransform: "uppercase",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
               }}
               class="home"
             >
@@ -293,7 +238,7 @@ const Navbar = () => {
                 fontSize: "12px",
                 lineHeight: "16px",
                 textTransform: "uppercase",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
               }}
               class="tutorials"
             >
@@ -315,7 +260,7 @@ const Navbar = () => {
                 fontSize: "12px",
                 lineHeight: "16px",
                 textTransform: "uppercase",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
               }}
               class="about"
             >
@@ -330,7 +275,7 @@ const Navbar = () => {
                 fontSize: "12px",
                 lineHeight: "16px",
                 textTransform: "uppercase",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
               }}
               class="news"
             >
@@ -345,7 +290,7 @@ const Navbar = () => {
                 fontSize: "12px",
                 lineHeight: "16px",
                 textTransform: "uppercase",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
               }}
               class="contact"
             >
@@ -360,7 +305,7 @@ const Navbar = () => {
                 fontSize: "12px",
                 lineHeight: "16px",
                 textTransform: "uppercase",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
               }}
               class="contact"
             >
@@ -375,7 +320,7 @@ const Navbar = () => {
                 fontSize: "12px",
                 lineHeight: "16px",
                 textTransform: "uppercase",
-                color: "#000000",
+                color: `${colors.tertiary.dark}`,
               }}
               class="contact"
             >
@@ -388,4 +333,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default withTheme(Navbar);

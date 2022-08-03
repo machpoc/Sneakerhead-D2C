@@ -17,6 +17,7 @@ import { RiHeartLine } from "react-icons/ri";
 import { useRouter } from "next/router";
 import { authEndpoint1, defaultEndpointCart } from "../../../pages/Property";
 import { clientid, clientsecret } from "../../../pages/Cred";
+import { withTheme } from "styled-components";
 
 const img = require("/public/images/32262551-front-940x529.webp");
 
@@ -81,6 +82,7 @@ const ProductList = ({
   productName,
   productDescription,
   productPrice,
+  theme:{colors},
   ...props
 }) => {
   const [buttonstyle, setbuttonstyle] = useState({ display: "none" });
@@ -181,7 +183,7 @@ if(isVariant){
             w="109px"
             h="43px"
             borderRadius={30}
-            backgroundColor="#D31424"
+            backgroundColor={colors.primary.dark}
             style={{
               display: isHovering ? "block" : "none",
             }}
@@ -205,4 +207,4 @@ if(isVariant){
   );
 };
 
-export default ProductList;
+export default withTheme(ProductList);

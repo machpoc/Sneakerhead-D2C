@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 const StyledRectangleWave=styled.div`
-background:#D31424;
+background:${props=>props.theme.colors.primary.dark};
 padding:3%;
 
 `

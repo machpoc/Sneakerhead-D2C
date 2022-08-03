@@ -6,11 +6,13 @@ import Grid, { Item } from '../../Atoms/Grid'
 // import Image from '../../Atoms/Image'
 // import Text from '../../Atoms/Text'
 import {StyledImage} from './Product.styled'
+import { withTheme } from 'styled-components'
 const img = require('/public/images/32262551-front-940x529.webp')
 
 const CarousalProduct=({productImage,productName,
     productDescription,
     productPrice,id,isVariant,
+    theme:{colors},
     ...props
   })=>{
 
@@ -30,8 +32,8 @@ const CarousalProduct=({productImage,productName,
         borderRadius:"md"
     }} >
         <Box maxW={196}   maxH={245} minH={245} rounded="lg"  marginBottom={props.marginBottom} marginRight={props.marginRight} marginLeft={props.marginLeft} overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
-        borderColor: "white",
-        backgroundColor: "white"
+        borderColor: `${colors.light}`,
+        backgroundColor: `${colors.light}`
       }} >
         <StyledImage>
           <Box>
@@ -53,24 +55,16 @@ const CarousalProduct=({productImage,productName,
           <Box maxW={200}   minH={100} rounded="lg"  marginBottom={props.marginBottom} marginRight={props.marginRight} marginLeft={props.marginLeft} overflow="hidden" >
           <Stack p="4" space={3}>
             <Stack space={2}>
-              <Heading size="md" ml="-1"  _dark={{
-              color: "black.800"
-            }} fontWeight="600">
+              <Heading size="md" ml="-1" fontWeight="600" color={`${colors.tertiary.dark}`}>
                {productName.slice(0,20)}...
               </Heading>
-              <Text fontSize="xs" _light={{
-              color: "black.500"
-            }} _dark={{
-              color: "black.400"
-            }} fontWeight="500" ml="-0.5" mt="-1">
+              <Text fontSize="xs" color={`${colors.tertiary.medium}`}  fontWeight="500" ml="-0.5" mt="-1">
              {productDescription}              </Text>
             </Stack>
            
             <HStack  alignItems="center" space={4} justifyContent="space-between">
               <HStack alignItems="center">
-                <Text color="coolGray.600" _dark={{
-                color: "black.200"
-              }} fontWeight="800">
+                <Text  color={`${colors.tertiary.dark}`} fontWeight="800">
                  ${productPrice}
                 </Text>
               </HStack>
@@ -105,4 +99,4 @@ const CarousalProduct=({productImage,productName,
     )
 }
 
-export default CarousalProduct
+export default withTheme(CarousalProduct)

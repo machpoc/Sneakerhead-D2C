@@ -1,5 +1,6 @@
 import { Box, Heading, HStack, Stack, Text } from 'native-base';
 import React from 'react';
+import { withTheme } from 'styled-components';
 const MarketingFooter = ({productImage,productName,
     productDescription,
     productPrice,
@@ -10,8 +11,8 @@ const MarketingFooter = ({productImage,productName,
   
 
         <Box maxW="320" rounded="lg"  marginBottom={props.marginBottom} marginRight={props.marginRight} overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
-        borderColor: "white",
-        backgroundColor: "white"
+        borderColor: `${colors.light}`,
+        backgroundColor: `${colors.light}`
       }} _web={{
         shadow: 2,
         borderWidth: 0
@@ -62,4 +63,4 @@ const MarketingFooter = ({productImage,productName,
      );
 }
  
-export default MarketingFooter;
+export default withTheme(MarketingFooter);

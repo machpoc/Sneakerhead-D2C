@@ -13,6 +13,7 @@ import { clientsecret, clientToken, clientid } from "./Cred";
 import ProductList from "../components/Molecules/ProductListComponent";
 import Filter from "../components/Molecules/ProductFilter";
 import Navbar from "../components/Molecules/NavBar/index.js";
+import { withTheme } from "styled-components";
 
 function checkCartcreated() {
   if (typeof window !== "undefined") {
@@ -97,7 +98,7 @@ const ProductsComponent = (pageIndex, setPageIndex) => {
   }
 };
 
-const Products = ({}) => {
+const Products = ({theme:{colors}}) => {
   const [pageIndex, setPageIndex] = useState(12);
 
   const {data:accessToken}= useSWR("/api/getAuthToken")
@@ -191,14 +192,14 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
           <Button
             w="109px"
             h="43px"
-            style={{ border: "solid 1px #D31424" }}
+            style={{ border: `solid 1px ${colors.primary.dark}` }}
             borderRadius={30}
-            backgroundColor={"white"}
+            backgroundColor={`${colors.light}`}
             onPress={() => {
               setPageIndex(pageIndex + 12);
             }}
           >
-            <Text color="#D31424">Load More</Text>
+            <Text color={colors.primary.dark}>Load More</Text>
           </Button>
         </Box>
       </Box>
@@ -208,4 +209,4 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
   //   return <div>loading...</div>;
 };
 // };
-export default Products;
+export default withTheme(Products);
