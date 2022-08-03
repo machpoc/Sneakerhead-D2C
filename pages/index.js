@@ -35,7 +35,7 @@ import { withTheme } from "styled-components";
 const sample2 = ({theme:{colors}}) => {
 
 const {data:accessToken}= useSWR("/api/getAuthToken")
-
+accessToken && localStorage.setItem("accessToken", accessToken.access_token);
 // accessToken && console.log("accessToken &&",accessToken.access_token)
 // accessToken && localStorage.setItem("accessToken", accessToken.access_token);
   // localStorage.setItem("refreshToken", refreshToken);
@@ -56,6 +56,7 @@ const {data:accessToken}= useSWR("/api/getAuthToken")
 
   const { data: session } = useSession();
   console.log("usersession", session);
+
 
 
   const header1 = "LIFE IS BETTER IN RUNNING SHOES";
