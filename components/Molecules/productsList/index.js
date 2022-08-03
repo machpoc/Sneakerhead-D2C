@@ -123,6 +123,7 @@ const ProductList = ({
               lineHeight="19px"
               pt={1}
               pl={1}
+              color={`${colors.light}`}
             >
               Buy Now
             </Text>
