@@ -3,13 +3,20 @@ import "../styles/globals.css";
 import { NativeBaseProvider } from "native-base";
 import useSWR, { SWRConfig } from "swr";
 import { SessionProvider, useSession } from "next-auth/react";
-import { theme } from "../components/Atoms/Theme/theme";
+
+import { ThemeProvider } from 'styled-components'
+import {COLORS} from '../styles/theme/properties'
+const theme = {
+  colors: COLORS
+}
+
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
 
 
   return (
-    <NativeBaseProvider theme={theme}>
+    <NativeBaseProvider >
+        <ThemeProvider theme={theme}>
       <SWRConfig
         value={{
           // refreshInterval: 1000,
@@ -21,6 +28,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           <Component {...pageProps} />
         </SessionProvider>
       </SWRConfig>
+      </ThemeProvider>
     </NativeBaseProvider>
   );
 }

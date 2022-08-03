@@ -1,5 +1,6 @@
 import { Box, Button, Text } from "native-base";
 import React, { useState } from "react";
+import { withTheme } from "styled-components";
 import useSWR from "swr";
 import Grid, { Item } from "../../components/Atoms/Grid";
 import CheckoutNavbar from "../../components/Molecules/CheckoutNavbar";
@@ -27,7 +28,7 @@ const PaymentOptions = ({ value, option, setpaymentMethod }) => {
     </Button>
   );
 };
-const Payment = () => {
+const Payment = ({theme:{colors}}) => {
   const [paymentmethod, setpaymentMethod] = useState("");
   const cartid =
     typeof window !== "undefined" ? localStorage.getItem("cartid") : null;
@@ -87,4 +88,4 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default withTheme(Payment);

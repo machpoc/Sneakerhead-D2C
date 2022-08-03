@@ -14,6 +14,7 @@ import {
 import React, { useState } from "react";
 import Grid, { Item } from "../../Atoms/Grid";
 import { RiHeartLine } from "react-icons/ri";
+import { withTheme } from "styled-components";
 
 const img = require("/public/images/32262551-front-940x529.webp");
 
@@ -23,6 +24,7 @@ const ProductList = ({
   productDescription,
   productPrice,
   data,
+  theme:{colors},
   ...props
 }) => {
   const [buttonstyle, setbuttonstyle] = useState({ display: "none" });
@@ -107,7 +109,7 @@ const ProductList = ({
             w="109px"
             h="43px"
             borderRadius={30}
-            backgroundColor="#D31424"
+            backgroundColor={colors.primary.dark}
             style={{
               display: isHovering ? "block" : "none",
             }}
@@ -131,4 +133,4 @@ const ProductList = ({
   );
 };
 
-export default ProductList;
+export default withTheme(ProductList);

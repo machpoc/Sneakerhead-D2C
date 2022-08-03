@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Grid, { Item } from "../../Atoms/Grid";
 import SearchBar from "../SearchBar";
 import { Box, Divider, Flex, Text } from "native-base";
+import { withTheme } from "styled-components";
 const NavStatus = ({ name, status }) => {
   let icon = null;
   if (status === "done") {
@@ -92,7 +93,7 @@ const NavStatus = ({ name, status }) => {
     </li>
   );
 };
-const CheckoutNavbar = ({ page }) => {
+const CheckoutNavbar = ({ page,theme:{colors} }) => {
   let statusbar = null;
   if (page === "login") {
     statusbar = (
@@ -130,66 +131,6 @@ const CheckoutNavbar = ({ page }) => {
       </>
     );
   }
-  const StyledHeading = {
-    color: "#000",
-    margin: "60px",
-    fontSize: "10px",
-    fontWeight: "600",
-    fontFamily: "Arial, Helvetica",
-  };
-
-  const CenterLogo = {
-    width: "55px",
-    height: "auto",
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    marginBottom: "0px",
-  };
-
-  const LoginLink = {
-    color: "#D31424",
-    fontSize: "10px",
-    textAlign: "right",
-    fontWeight: "600",
-    width: "100%",
-    fontFamily: "Arial, Helvetica",
-    padding: "11px",
-  };
-
-  const BookButton = {
-    position: "absolute",
-    right: "15px",
-    background: "#D31424",
-    color: "white",
-    fontFamily: "Arial, Helvetica",
-    fontSize: "8px",
-    border: "none",
-    borderRadius: "15px",
-    fontWeight: "600",
-    padding: "9px",
-  };
-  const NavUl = {
-    listStyleType: "none",
-    margin: "0",
-    padding: "0",
-    overflow: "hidden",
-  };
-
-  const NavLi = {
-    float: "left",
-  };
-
-  const NavLink = {
-    display: "block",
-    textAlign: "center",
-    padding: "14px 16px",
-    textDecoration: "none",
-    color: "#000",
-    fontSize: ".7rem",
-    fontWeight: "600",
-    fontFamily: "Arial, Helvetica",
-  };
   const router = useRouter();
 
   return (
@@ -285,4 +226,4 @@ const CheckoutNavbar = ({ page }) => {
   );
 };
 
-export default CheckoutNavbar;
+export default withTheme(CheckoutNavbar);

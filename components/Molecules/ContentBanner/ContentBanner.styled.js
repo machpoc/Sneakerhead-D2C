@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledHeader = styled.div`
-color:#ffffff;
+color:${props=>props.theme.colors.light};
 font-size:42px;
  font-weight:700;
  line-height:57.2px;
@@ -11,7 +11,7 @@ font-size:42px;
 
 const StyledContent = styled.div`
 
-color:#ffffff;
+color:${props=>props.theme.colors.light};
  font-size:20px;
   font-weight:400;
   line-height:27.24px;
@@ -20,7 +20,7 @@ color:#ffffff;
 
 const StyledButton = styled.div`
 
-color:#ffffff;
+color:${props=>props.theme.colors.light};
  font-size:20px;
   font-weight:400;
   line-height:27.24px;

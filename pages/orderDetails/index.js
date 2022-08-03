@@ -10,9 +10,10 @@ import { clientid, clientsecret } from '../Cred';
 import { authEndpoint, defaultEndpointProducts } from '../Property';
 
 import useSWR from 'swr'
+import { withTheme } from 'styled-components';
 
 
-const OrederDetails = () => {
+const OrederDetails = ({theme:{colors}}) => {
 
 
 const router= useRouter()
@@ -49,7 +50,7 @@ orderData && console.log(orderData)
 <Grid columns={12}>
 <Item  colStart={3} colEnd={12} >
 <div  style={{background: "#B390DF", borderRadius: "10px 10px 0px 0px",width: "904px", height: "55px", left: "60px", top: "494px",display: "flex", alignItems: "center", justifyContent: "center"}}>
-<div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "24px", lineHeight: "33px", color: "#FFFFFF"}}>
+<div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "24px", lineHeight: "33px", color: `${colors.light}`}}>
 Order in progress
     </div>
     </div>
@@ -169,4 +170,4 @@ Standard delivery
     </> );
 }
  
-export default OrederDetails;
+export default withTheme(OrederDetails);

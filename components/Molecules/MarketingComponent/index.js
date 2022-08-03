@@ -4,13 +4,15 @@ import { Box, Button, Center, Icon } from "native-base";
 import ButtonComponent from '../../Atoms/Button/Button';
 import Grid, { Item } from '../../Atoms/Grid';
 import { G, Path } from 'react-native-svg';
+import { withTheme } from 'styled-components';
 
 
 
 const MarketingComponent = (
     { heading,
         description,
-        buttonName
+        buttonName,
+        theme:{colors}
     }
 
 ) => {
@@ -33,7 +35,7 @@ const MarketingComponent = (
          <Item colStart={2} colEnd={4} >
                 <p style={{fontSize:"1.5rem",fontWeight:"700"}}>{heading}</p>
                 <p style={{fontSize:"1rem"}}>{description}</p>
-                <a style={{color:"#D31424",fontWeight:700,textDecoration:"underline"}} href="/home">Find More</a>
+                <a style={{color:`${colors.primary.dark}`,fontWeight:700,textDecoration:"underline"}} href="/home">Find More</a>
             </Item>
           
         </Grid>
@@ -50,4 +52,4 @@ MarketingComponent.defaultProps = {
 }
 
 
-export default MarketingComponent
+export default withTheme(MarketingComponent)

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Button } from "native-base";
+import { withTheme } from 'styled-components';
 
 
 
@@ -23,7 +24,8 @@ height,
 radius,
 fill,marginTop,
 marginBottom,
-hoverTextColor
+hoverTextColor,
+theme:{colors}
 }
 
 ) => {
@@ -32,8 +34,8 @@ hoverTextColor
       const styleObj = {
         marginTop: marginTop,
         marginBottom:marginBottom,
-        borderColor:"rgba(211,20,36,1.00)",
-        // backGroundColor: fill ? "rgba(211,20,36,1.00)":"transparent",
+        borderColor:`${colors.primary.dark}`,
+        // backGroundColor: fill ? `${colors.primary.dark}`:"transparent",
         borderWidth: 1,
         borderRadius: '30px',
       }; //@ts-ignore
@@ -59,13 +61,13 @@ hoverTextColor
                 variant={variant}
                 isDisabled={isDisabled}
                 isAttached={isAttached}
-                bg={fill?bg:"transparent"}
+                bg={fill ? `${bg}`:"transparent"}
                 _text={{
-                    color: fill?"#ffffff":"rgba(211,20,36,1.00)"
+                    color: fill?"#ffffff":`${colors.primary.dark}`
                   }}
                 _hover={{
                     bg: fill?`${hoverBg}`:"#ffffff",
-                    _text: {    color: fill? `${hoverTextColor}`:"rgba(211,20,36,1.00)" },
+                    _text: {    color: fill? `${hoverTextColor}`:`${colors.primary.dark}` },
                   }}
                   _pressed={{
                     bg: fill?`#d31423c7`:"#f7f7f7"
@@ -96,4 +98,4 @@ ButtonComponent.defaultProps = {
 }
 
 
-export default ButtonComponent
+export default withTheme(ButtonComponent)

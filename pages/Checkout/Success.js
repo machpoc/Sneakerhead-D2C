@@ -6,6 +6,7 @@ import Grid, { Item } from "../../components/Atoms/Grid";
 import { authEndpoint1, orderdefaultEndpoint } from "../Property";
 import { clientid, clientsecret } from "../Cred";
 import { useRouter } from "next/router";
+import { withTheme } from "styled-components";
 
 export async function getServerSideProps(context) {
   if (typeof window !== "undefined") {
@@ -112,7 +113,7 @@ async function orderSuccess(orderid) {
   localStorage.removeItem("cartid");
   localStorage.removeItem("cartversion");
 }
-const Success = ({ paymentdata }) => {
+const Success = ({ paymentdata,theme:{colors} }) => {
 
   const router = useRouter()
   const query = router.query
@@ -153,7 +154,7 @@ const Success = ({ paymentdata }) => {
                   <circle cx="60" cy="60" r="45" fill="#3F8728" />
                   <path
                     d="M50.6452 83.318L30 62.6728L33.9631 58.7097L50.6452 75.3917L86.0369 40L90 43.9631L50.6452 83.318Z"
-                    fill="white"
+                    fill={colors.light}
                   />
                 </svg>
               </Box>
@@ -180,13 +181,13 @@ const Success = ({ paymentdata }) => {
                   alignContent: "end",
                   alignItems: "end",
                   opacity: 1,
-                  backgroundColor: "#D31424",
+                  backgroundColor: `${colors.primary.dark}`,
                   width: "100%",
                   height: "48px",
 
                   borderRadius: 50,
                   border: "0px",
-                  color: "white",
+                  color: `${colors.light}`,
                 }}
               >
                 <Text>Okay</Text>
@@ -201,4 +202,4 @@ const Success = ({ paymentdata }) => {
   );
 };
 
-export default Success;
+export default withTheme(Success);

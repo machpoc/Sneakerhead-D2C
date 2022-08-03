@@ -1,9 +1,10 @@
 import { Box, Divider, Flex, Text } from "native-base";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
+import { withTheme } from "styled-components";
 import ButtonGroup from "../ButtonGroup";
 
-const CartSummary = ({ data, button }) => {
+const CartSummary = ({ data, button,theme:{colors} }) => {
   const router = useRouter();
   return (
     <Box m="5px">
@@ -79,16 +80,16 @@ const CartSummary = ({ data, button }) => {
               alignContent: "center",
               alignItems: "center",
               opacity: 1,
-              backgroundColor: "#D31424",
+              backgroundColor: `${colors.primary.dark}`,
               width: "100%",
               height: "48px",
 
               borderRadius: 50,
               border: "0px",
-              color: "white",
+              color: `${colors.light}`,
             }}
           >
-            <Text>Guest Checkout</Text>
+            <Text  color={colors.light}>Guest Checkout</Text>
           </button>
         </Box>
       ) : (
@@ -103,16 +104,16 @@ const CartSummary = ({ data, button }) => {
               alignContent: "center",
               alignItems: "center",
               opacity: 1,
-              backgroundColor: "#D31424",
+              backgroundColor: `${colors.primary.dark}`,
               width: "100%",
               height: "48px",
 
               borderRadius: 50,
               border: "0px",
-              color: "white",
+              color: `${colors.light}`,
             }}
           >
-            <Text>Member Checkout</Text>
+            <Text color={colors.light}>Member Checkout</Text>
           </button>
         </Box>
       ) : (
@@ -121,4 +122,4 @@ const CartSummary = ({ data, button }) => {
     </Box>
   );
 };
-export default CartSummary;
+export default withTheme(CartSummary);

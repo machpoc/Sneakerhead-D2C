@@ -11,6 +11,7 @@ import { route } from "next/dist/server/router";
 import { Button } from "native-base";
 import { authEndpoint1, defaultEndpointCart } from "../../../pages/Property";
 import { clientid, clientsecret } from "../../../pages/Cred";
+import { withTheme } from "styled-components";
 
 
 async function BuyNow(prodid) {
@@ -68,7 +69,7 @@ async function BuyNow(prodid) {
 }
 
 
-const VariantDetails = ({sizeArray,variantId,productId, ...props}) => {
+const VariantDetails = ({sizeArray,variantId,productId, theme:{colors}, ...props}) => {
 
   
   const router = useRouter()
@@ -246,14 +247,14 @@ const [isVariantUpdated, setVariantUpdated]= useState(false)
 
     return(
         <Item margin="9px 0px 9px 0px">
-        <button value={attr.id} onClick={displayProduct} style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK {attr.value}</button>
+        <button value={attr.id} onClick={displayProduct} style={{background: `${colors.light}`, border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK {attr.value}</button>
     </Item>
     
     )
 
 }):
 <Item margin="9px 0px 9px 0px">
-<span style={{background: "#FFFFFF", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> FREE</span>
+<span style={{background: `${colors.light}`, border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> FREE</span>
 </Item>
 }
 
@@ -451,4 +452,4 @@ function sizeInfo(e){
 </> );
 }
  
-export default VariantDetails;
+export default withTheme(VariantDetails);
