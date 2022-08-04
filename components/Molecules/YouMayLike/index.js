@@ -67,7 +67,7 @@ const products = {
   ],
 };
 
-const YouMayLike = ({ data,theme:{colors} }) => {
+const YouMayLike = ({ data }) => {
   const [productData, setData] = useState(data ? data.slice(0, 4) : []);
   const [isDataChanged, setIsDataChanged] = useState(false);
 
@@ -82,7 +82,7 @@ const YouMayLike = ({ data,theme:{colors} }) => {
   }
   return (
     <>
-      <SubHeader color={colors.primary.dark}>You may also like</SubHeader>
+      <SubHeader color={`var(--sneakerhead-red)`}>You may also like</SubHeader>
 
       <div
         style={{

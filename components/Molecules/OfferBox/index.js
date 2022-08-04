@@ -2,12 +2,12 @@ import React from 'react';
 import { withTheme } from 'styled-components';
 import Grid, { Item } from '../../Atoms/Grid';
 import {StyledHeader,StyledContent,StyledSeperator} from './OfferBox.styled'
-const OfferBox = ({header,content,theme:{colors}}) => {
+const OfferBox = ({header,content}) => {
     return (  <>
    {/* <div style={{display:"flex",alignItems:'center',justifyContent:'center'}}> */}
    <Grid alignItems="center" margin="56px auto 56px auto"  >
 
-    <Grid  border = {`1px solid ${colors.primary.dark}`} borderRadius='30px' alignItems="center" justifyContent="center" >
+    <Grid  border = {`1px solid var(--sneakerhead-red)`} borderRadius='30px' alignItems="center" justifyContent="center" >
     <Item display="flex" colStart={1} colEnd={2}>
 <StyledHeader>
     {header}
@@ -15,7 +15,7 @@ const OfferBox = ({header,content,theme:{colors}}) => {
         </Item>
         <Item display="flex" colStart={2} colEnd={3}>
         <StyledSeperator>
-      <div style={{background:`${colors.primary.dark}`,padding:"12px 2px 12px 2px", borderRadius:"30px"}}>
+      <div style={{background:`var(--sneakerhead-red)`,padding:"12px 2px 12px 2px", borderRadius:"30px"}}>
 
       </div>
 </StyledSeperator>

@@ -2,12 +2,12 @@ import React from 'react';
 import { withTheme } from 'styled-components';
 import Grid, { Item } from '../../Atoms/Grid';
 import {StyledOffer,StyledContent} from './contactMode.styled'
-const ContactMode = ({theme:{colors}}) => {
+const ContactMode = ({}) => {
     return (  <>
    {/* <div style={{display:"flex",alignItems:'center',justifyContent:'center'}}> */}
    <Grid alignItems="center" margin="29px auto 29px auto"  >
 
-    <Grid  border={`1px solid ${colors.primary.dark}`} borderRadius='30px' alignItems="center" justifyContent="center" >
+    <Grid  border={`1px solid var(--sneakerhead-red)`} borderRadius='30px' alignItems="center" justifyContent="center" >
     <Item display="flex" colStart={1} colEnd={2}>
 <StyledOffer>
 

@@ -11,8 +11,8 @@ const MarketingFooter = ({productImage,productName,
   
 
         <Box maxW="320" rounded="lg"  marginBottom={props.marginBottom} marginRight={props.marginRight} overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
-        borderColor: `${colors.light}`,
-        backgroundColor: `${colors.light}`
+        borderColor: "var(--sneakerhead-white)",
+        backgroundColor: "var(--sneakerhead-white)"
       }} _web={{
         shadow: 2,
         borderWidth: 0

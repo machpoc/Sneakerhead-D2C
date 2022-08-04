@@ -44,7 +44,7 @@ let data = [
     name: "SIZE",
   },
 ];
-const FilterItem = ({ name, data,theme:{colors} }) => {
+const FilterItem = ({ name, data}) => {
   const [groupValues, setGroupValues] = React.useState([]);
   const [expand, setExpand] = useState(false);
   return (
@@ -90,7 +90,7 @@ const FilterItem = ({ name, data,theme:{colors} }) => {
             >
               {data.map((item) => {
                 return (
-                  <Checkbox bg={colors.light} value={item} my={2}>
+                  <Checkbox bg={"var(--sneakerhead-white)"} value={item} my={2}>
                     <Text style={{ color: "black" }}>{item}</Text>
                   </Checkbox>
                 );
@@ -106,7 +106,7 @@ const FilterItem = ({ name, data,theme:{colors} }) => {
     </div>
   );
 };
-const Filter = ({theme:{colors}}) => {
+const Filter = ({}) => {
   const [trigger, settrigger] = useState(false);
 
   function setFilter() {
@@ -119,13 +119,13 @@ const Filter = ({theme:{colors}}) => {
       <button
         style={{
           opacity: 1,
-          backgroundColor: `${colors.primary.dark}`,
+          backgroundColor: `var(--sneakerhead-red)`,
           width: "149px",
           height: "48px",
           cursor: "pointer",
           borderRadius: 50,
           border: "0px",
-          color: `${colors.light}`,
+          color: "var(--sneakerhead-white)",
           display: trigger ? "none" : "block",
         }}
         onClick={() => {
@@ -167,13 +167,13 @@ const Filter = ({theme:{colors}}) => {
             alignContent: "center",
             alignItems: "center",
             opacity: 1,
-            backgroundColor: `${colors.primary.dark}`,
+            backgroundColor: `var(--sneakerhead-red)`,
             width: "149px",
             height: "48px",
 
             borderRadius: 50,
             border: "0px",
-            color: `${colors.light}`,
+            color: "var(--sneakerhead-white)",
           }}
           onClick={() => {
             setFilter();

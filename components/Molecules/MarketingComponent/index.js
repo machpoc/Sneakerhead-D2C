@@ -12,7 +12,7 @@ const MarketingComponent = (
     { heading,
         description,
         buttonName,
-        theme:{colors}
+        
     }
 
 ) => {
@@ -35,7 +35,7 @@ const MarketingComponent = (
          <Item colStart={2} colEnd={4} >
                 <p style={{fontSize:"1.5rem",fontWeight:"700"}}>{heading}</p>
                 <p style={{fontSize:"1rem"}}>{description}</p>
-                <a style={{color:`${colors.primary.dark}`,fontWeight:700,textDecoration:"underline"}} href="/home">Find More</a>
+                <a style={{color:`var(--sneakerhead-red)`,fontWeight:700,textDecoration:"underline"}} href="/home">Find More</a>
             </Item>
           
         </Grid>

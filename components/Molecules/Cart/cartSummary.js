@@ -4,7 +4,7 @@ import React from "react";
 import { withTheme } from "styled-components";
 import ButtonGroup from "../ButtonGroup";
 
-const CartSummary = ({ data, button,theme:{colors} }) => {
+const CartSummary = ({ data, button }) => {
   const router = useRouter();
   return (
     <Box m="5px">
@@ -80,16 +80,16 @@ const CartSummary = ({ data, button,theme:{colors} }) => {
               alignContent: "center",
               alignItems: "center",
               opacity: 1,
-              backgroundColor: `${colors.primary.dark}`,
+              backgroundColor: `var(--sneakerhead-red)`,
               width: "100%",
               height: "48px",
 
               borderRadius: 50,
               border: "0px",
-              color: `${colors.light}`,
+              color: "var(--sneakerhead-white)",
             }}
           >
-            <Text  color={colors.light}>Guest Checkout</Text>
+            <Text  color={"var(--sneakerhead-white)"}>Guest Checkout</Text>
           </button>
         </Box>
       ) : (
@@ -104,16 +104,16 @@ const CartSummary = ({ data, button,theme:{colors} }) => {
               alignContent: "center",
               alignItems: "center",
               opacity: 1,
-              backgroundColor: `${colors.primary.dark}`,
+              backgroundColor: `var(--sneakerhead-red)`,
               width: "100%",
               height: "48px",
 
               borderRadius: 50,
               border: "0px",
-              color: `${colors.light}`,
+              color: "var(--sneakerhead-white)",
             }}
           >
-            <Text color={colors.light}>Member Checkout</Text>
+            <Text color={"var(--sneakerhead-white)"}>Member Checkout</Text>
           </button>
         </Box>
       ) : (

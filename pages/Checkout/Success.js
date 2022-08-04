@@ -113,7 +113,7 @@ async function orderSuccess(orderid) {
   localStorage.removeItem("cartid");
   localStorage.removeItem("cartversion");
 }
-const Success = ({ paymentdata,theme:{colors} }) => {
+const Success = ({ paymentdata }) => {
 
   const router = useRouter()
   const query = router.query
@@ -154,7 +154,7 @@ const Success = ({ paymentdata,theme:{colors} }) => {
                   <circle cx="60" cy="60" r="45" fill="#3F8728" />
                   <path
                     d="M50.6452 83.318L30 62.6728L33.9631 58.7097L50.6452 75.3917L86.0369 40L90 43.9631L50.6452 83.318Z"
-                    fill={colors.light}
+                    fill={"var(--sneakerhead-white)"}
                   />
                 </svg>
               </Box>
@@ -181,13 +181,13 @@ const Success = ({ paymentdata,theme:{colors} }) => {
                   alignContent: "end",
                   alignItems: "end",
                   opacity: 1,
-                  backgroundColor: `${colors.primary.dark}`,
+                  backgroundColor: `var(--sneakerhead-red)`,
                   width: "100%",
                   height: "48px",
 
                   borderRadius: 50,
                   border: "0px",
-                  color: `${colors.light}`,
+                  color: "var(--sneakerhead-white)",
                 }}
               >
                 <Text>Okay</Text>

@@ -5,7 +5,7 @@ import { withTheme } from 'styled-components';
 import ButtonComponent from '../../Atoms/Button/Button';
 import Grid, { Item } from '../../Atoms/Grid';
 import {StyledHeader,StyledContent,StyledButton} from './ContentBanner.styled'
-const ContentBanner = ({header,description,buttonName,theme:{colors}}) => {
+const ContentBanner = ({header,description,buttonName}) => {
 
 const router = useRouter()
 
@@ -27,7 +27,7 @@ const router = useRouter()
             <a>
     
 <StyledButton>
-{buttonName && <ButtonComponent  fill="true" bg={colors.primary.dark} hoverTextColor={colors.primary.dark} hoverBg={colors.light} >
+{buttonName && <ButtonComponent  fill="true" bg={`var(--sneakerhead-red)`} hoverTextColor={`var(--sneakerhead-red)`} hoverBg={"var(--sneakerhead-white)"} >
                 {buttonName}
         </ButtonComponent>}
 </StyledButton>

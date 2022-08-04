@@ -11,7 +11,7 @@ line-height: 124%;
 
 text-transform: uppercase;
 
-color:${props=>props.theme.colors.tertiary.dark};
+color:var(--sneakerhead-charcoal-black);
 
 `
 
@@ -27,7 +27,7 @@ line-height: 124%;
 
 text-transform: uppercase;
 
-color:${props=>props.theme.colors.tertiary.dark};
+color:var(--sneakerhead-charcoal-black);
 `
 
 export {StyledOffer,StyledContent}
