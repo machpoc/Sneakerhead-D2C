@@ -58,7 +58,7 @@ import { withTheme } from "styled-components";
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "/Checkout/Success",
+        return_url: "https://sneakerhead-d2c.vercel.app/Checkout/Success",
         // return_url: "http://localhost:3000/Checkout/Success",
         receipt_email: email,
       },
