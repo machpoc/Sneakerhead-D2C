@@ -7,7 +7,7 @@ import {
 import { Box, Text } from "native-base";
 import { withTheme } from "styled-components";
 
- function CheckoutForm({theme:{colors}}) {
+ function CheckoutForm({}) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -58,7 +58,7 @@ import { withTheme } from "styled-components";
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "https://sneakerhead-d2c.vercel.app/Checkout/Success",
+        return_url: "/Checkout/Success",
         // return_url: "http://localhost:3000/Checkout/Success",
         receipt_email: email,
       },
@@ -89,13 +89,13 @@ import { withTheme } from "styled-components";
             alignContent: "end",
             alignItems: "end",
             opacity: 1,
-            backgroundColor: `${colors.primary.dark}`,
+            backgroundColor: `var(--sneakerhead-red)`,
             width: "82px",
             height: "48px",
 
             borderRadius: 50,
             border: "0px",
-            color: `${colors.light}`,
+            color: "var(--sneakerhead-white)",
           }}
           disabled={isLoading || !stripe || !elements}
           id="submit"

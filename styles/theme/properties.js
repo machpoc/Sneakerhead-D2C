@@ -7,7 +7,7 @@ export const COLORS = {
   danger: "#F13F4A",
   black:"#000000",
   
-light:"#ffffff",
+light:"#ffffff", 
 dark:"#000000",
 
   primary:{

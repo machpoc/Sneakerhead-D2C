@@ -98,7 +98,7 @@ const ProductsComponent = (pageIndex, setPageIndex) => {
   }
 };
 
-const Products = ({theme:{colors}}) => {
+const Products = ({}) => {
   const [pageIndex, setPageIndex] = useState(12);
 
   const {data:accessToken}= useSWR("/api/getAuthToken")
@@ -192,14 +192,14 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
           <Button
             w="109px"
             h="43px"
-            style={{ border: `solid 1px ${colors.primary.dark}` }}
+            style={{ border: `solid 1px var(--sneakerhead-red)` }}
             borderRadius={30}
-            backgroundColor={`${colors.light}`}
+            backgroundColor={"var(--sneakerhead-white)"}
             onPress={() => {
               setPageIndex(pageIndex + 12);
             }}
           >
-            <Text color={colors.primary.dark}>Load More</Text>
+            <Text color={`var(--sneakerhead-red)`}>Load More</Text>
           </Button>
         </Box>
       </Box>

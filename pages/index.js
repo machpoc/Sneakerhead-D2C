@@ -32,7 +32,7 @@ import { withTheme } from "styled-components";
 //  const { data: data } = useSWR(
 //   `/api/getProducts?limit=${pageIndex.pageIndex}`
 // );
-const sample2 = ({theme:{colors}}) => {
+const sample2 = ({}) => {
 
 const {data:accessToken}= useSWR("/api/getAuthToken")
 accessToken && localStorage.setItem("accessToken", accessToken.access_token);
@@ -79,7 +79,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
                     fontSize: "42px",
                     fontWeight: "700",
                     lineHeight: "44.18px",
-                color: `${colors.tertiary.dark}`
+                color: `var(--sneakerhead-charcoal-black)`
                   }}
                 >
                   {heroBannerData[0].heroTitle.firstPart}{" "}
@@ -87,7 +87,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
                 <span
                   style={{
                     fontSize: "42px",
-                    color: `${colors.primary.dark}`,
+                    color: `var(--sneakerhead-red)`,
                     fontWeight: "700",
                     lineHeight: "44.18px",
                   }}
@@ -101,7 +101,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
             <span
               style={{
                 fontSize: "20px",
-                color: `${colors.tertiary.dark}`,
+                color: `var(--sneakerhead-charcoal-black)`,
                 fontWeight: "400",
                 lineHeight: "21.79px",
               }}
@@ -113,10 +113,10 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
             marginBottom="25%"
             width={142}
             marginTop="32px"
-            bg={colors.primary.dark}
+            bg={`var(--sneakerhead-red)`}
             fill="true"
-            hoverBg={colors.light}
-            hoverTextColor={colors.primary.dark}
+            hoverBg={"var(--sneakerhead-white)"}
+            hoverTextColor={`var(--sneakerhead-red)`}
           >
             Shop now
           </ButtonComponent>
@@ -162,7 +162,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
       <WaveBanner />
       <WaveRectangle />
 
-      <HeroBanner rows={1} columns={12} gap={10} bgColor={colors.secondary.light}>
+      <HeroBanner rows={1} columns={12} gap={10} bgColor={`var(--sneakerhead-thistle-purple)`}>
         <div style={{ position: "absolute", height: "100%", width: "100%" }}>
           <svg
             viewBox="0 0 1024 366"
@@ -171,7 +171,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
           >
             <path
               d="M-34 386C-25.9968 338.092 4.45422 293.1 49.0572 263.272C93.6601 233.361 152.025 218.864 208.437 223.613C249.038 227.029 287.688 239.86 327.118 248.942C366.548 258.107 409.199 263.522 447.848 252.108C483.18 241.61 512.069 217.947 548.278 209.949C604.788 197.368 666.862 225.363 721.908 208.782C766.999 195.202 793.448 155.959 812.187 118.465C830.926 80.889 847.616 40.0631 884.801 14.4844C915.35 -6.59506 958.001 -14.177 995.967 -5.42858C1033.93 3.40314 1066.14 28.3986 1080 59.8095V386H-34Z"
-              fill={colors.secondary.medium}
+              fill={`var(--sneakerhead-floral-purple)`}
             />
           </svg>
         </div>
@@ -190,7 +190,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
                   <span
                     style={{
                       fontSize: "16px",
-                      color: `${colors.tertiary.dark}`,
+                      color: `var(--sneakerhead-charcoal-black)`,
                       fontWeight: "400",
                       lineHeight: "21.79px",
                     }}
@@ -198,7 +198,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
                     <span
                       style={{
                         fontSize: "30px",
-                        color: `${colors.tertiary.dark}`,
+                        color: `var(--sneakerhead-charcoal-black)`,
                         fontWeight: "700",
                         lineHeight: "37px",
                       }}
@@ -210,7 +210,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
                   <span
                     style={{
                       fontSize: "16px",
-                      color: `${colors.tertiary.dark}`,
+                      color: `var(--sneakerhead-charcoal-black)`,
                       fontWeight: "400",
                       lineHeight: "21.79px",
                     }}
@@ -218,7 +218,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
                     <span
                       style={{
                         fontSize: "30px",
-                        color: `${colors.primary.dark}`,
+                        color: `var(--sneakerhead-red)`,
                         fontWeight: "700",
                         lineHeight: "37px",
                       }}
@@ -233,7 +233,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
             <span
               style={{
                 fontSize: "16px",
-                color: `${colors.tertiary.dark}`,
+                color: `var(--sneakerhead-charcoal-black)`,
                 fontWeight: "400",
                 lineHeight: "21.79px",
               }}
@@ -243,10 +243,10 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
           </div>
           <ButtonComponent
             width={142}
-            bg={colors.primary.dark}
+            bg={`var(--sneakerhead-red)`}
             fill="true"
-            hoverBg={colors.light}
-            hoverTextColor={colors.primary.dark}
+            hoverBg={"var(--sneakerhead-white)"}
+            hoverTextColor={`var(--sneakerhead-red)`}
             marginTop="32px"
           >
             Explore more
@@ -274,10 +274,10 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
         />
       )}
 
-      <SubHeader color={colors.primary.dark}>New arrivals</SubHeader>
+      <SubHeader color={`var(--sneakerhead-red)`}>New arrivals</SubHeader>
       {productList && <Carousal data={productList} />}
 
-      <SubHeader color={colors.primary.dark}>Top selling</SubHeader>
+      <SubHeader color={`var(--sneakerhead-red)`}>Top selling</SubHeader>
      { productList && <Carousal data={productList} />}
 
       <ContentBanner

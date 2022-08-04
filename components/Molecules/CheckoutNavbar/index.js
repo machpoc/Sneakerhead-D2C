@@ -93,7 +93,7 @@ const NavStatus = ({ name, status }) => {
     </li>
   );
 };
-const CheckoutNavbar = ({ page,theme:{colors} }) => {
+const CheckoutNavbar = ({ page }) => {
   let statusbar = null;
   if (page === "login") {
     statusbar = (

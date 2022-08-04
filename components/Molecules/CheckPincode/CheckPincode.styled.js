@@ -26,11 +26,11 @@ const StyledButton = styled.button`
 
 height: 40px;
 position: absolute;
-border: 2px solid ${props=>props.theme.colors.primary.dark};
+border: 2px solid var(--sneakerhead-red);
 width: 100px;
 border: none;
-color: ${props=>props.theme.colors.light};
-background-color: ${props=>props.theme.colors.primary.dark};
+color: var(--sneakerhead-white);
+background-color: var(--sneakerhead-red);
 border-radius: 0em .5em .5em 0em;
 right: 4px;
 font-size: 12px;

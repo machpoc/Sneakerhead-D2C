@@ -82,7 +82,6 @@ const ProductList = ({
   productName,
   productDescription,
   productPrice,
-  theme:{colors},
   ...props
 }) => {
   const [buttonstyle, setbuttonstyle] = useState({ display: "none" });
@@ -183,8 +182,8 @@ if(isVariant){
             w="109px"
             h="43px"
             borderRadius={30}
-            backgroundColor={colors.primary.dark}
-            color={`${colors.light}`}
+            backgroundColor={`var(--sneakerhead-red)`}
+            color={"var(--sneakerhead-white)"}
             style={{
               display: isHovering ? "block" : "none",
             }}
@@ -198,7 +197,7 @@ if(isVariant){
               lineHeight="19px"
               pt={1}
               pl={1}
-              color={`${colors.light}`}
+              color={"var(--sneakerhead-white)"}
             >
               Buy Now
             </Text>

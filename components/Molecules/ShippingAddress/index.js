@@ -290,7 +290,7 @@ async function updateShipping() {
 
   // confirmOrder(order);
 }
-const ShippingAddressComponent = ({theme:{colors}}) => {
+const ShippingAddressComponent = ({}) => {
   // console.log(states);
   const [email, setemail] = useState("");
   const [fname, setfname] = useState("");
@@ -361,13 +361,13 @@ const ShippingAddressComponent = ({theme:{colors}}) => {
               alignContent: "end",
               alignItems: "end",
               opacity: 1,
-              backgroundColor: `${colors.primary.dark}`,
+              backgroundColor: `var(--sneakerhead-red)`,
               width: "82px",
               height: "48px",
 
               borderRadius: 50,
               border: "0px",
-              color: `${colors.light}`,
+              color: "var(--sneakerhead-white)",
             }}
             onClick={async () => {
               let data = await updateShipping();
@@ -377,7 +377,7 @@ const ShippingAddressComponent = ({theme:{colors}}) => {
               }
             }}
           >
-            <Text color={colors.light}>Next</Text>
+            <Text color={"var(--sneakerhead-white)"}>Next</Text>
           </button>
         </Box>
       </Box>

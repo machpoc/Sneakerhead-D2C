@@ -4,7 +4,7 @@ import React from "react";
 import Grid, { Item } from "../../Atoms/Grid";
 import { signIn } from "next-auth/react";
 import { withTheme } from "styled-components";
-const LoginComponent = ({theme:{colors}}) => {
+const LoginComponent = ({}) => {
   const router = useRouter();
   return (
     <Grid columns={12} gap="30px">
@@ -23,18 +23,18 @@ const LoginComponent = ({theme:{colors}}) => {
             alignContent: "end",
             alignItems: "end",
             opacity: 1,
-            backgroundColor: `${colors.primary.dark}`,
+            backgroundColor: `var(--sneakerhead-red)`,
             width: "100%",
             height: "48px",
             borderRadius: 50,
             border: "0px",
-            color: `${colors.light}`,
+            color: "var(--sneakerhead-white)",
           }}
           onClick={() => {
             router.push("/Checkout/ShippingAddress");
           }}
         >
-          <Text color={colors.light}>Guest Checkout</Text>
+          <Text color={"var(--sneakerhead-white)"}>Guest Checkout</Text>
         </button>
         <button
           style={{
@@ -45,20 +45,20 @@ const LoginComponent = ({theme:{colors}}) => {
             alignContent: "end",
             alignItems: "end",
             opacity: 1,
-            backgroundColor: `${colors.light}`,
-            border: `1px solid ${colors.primary.dark}`,
+            backgroundColor: "var(--sneakerhead-white)",
+            border: `1px solid var(--sneakerhead-red)`,
             width: "100%",
             height: "48px",
 
             borderRadius: 50,
 
-            color: `${colors.primary.dark}`,
+            color: `var(--sneakerhead-red)`,
           }}
           // onClick={() => {
           //   router.push("/Checkout/ShippingAddress");
           // }}
         >
-          <Text color={colors.primary.dark}>Become a Member</Text>
+          <Text color={`var(--sneakerhead-red)`}>Become a Member</Text>
         </button>
         <Box alignItems="center" justifyContent="center">
           <button
@@ -69,26 +69,26 @@ const LoginComponent = ({theme:{colors}}) => {
               });
             }}
             style={{
-              border: `1px solid ${colors.primary.dark}`,
+              border: `1px solid var(--sneakerhead-red)`,
               marginRight: 20,
               cursor: "pointer",
               justifyContent: "end",
               alignContent: "end",
               alignItems: "end",
               opacity: 1,
-              backgroundColor: `${colors.light}`,
+              backgroundColor: "var(--sneakerhead-white)",
               width: "82px",
               height: "48px",
               marginBottom: 16,
               borderRadius: 30,
 
-              color: `${colors.primary.dark}`,
+              color: `var(--sneakerhead-red)`,
             }}
             // onClick={() => {
             //   router.push("/Checkout/Payment");
             // }}
           >
-            <Text color={colors.primary.dark}>Login</Text>
+            <Text color={`var(--sneakerhead-red)`}>Login</Text>
           </button>
         </Box>
       </Item>

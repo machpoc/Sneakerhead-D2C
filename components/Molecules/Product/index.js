@@ -19,13 +19,13 @@ const Product=({productImage,productName,
         <>
         <Box>
         <Box maxW={196}   maxH={245} minH={245} rounded="lg"  marginBottom={props.marginBottom} marginRight={props.marginRight} marginLeft={props.marginLeft} overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
-        borderColor: `${colors.light}`,
-        backgroundColor: `${colors.light}`
+        borderColor: "var(--sneakerhead-white)",
+        backgroundColor: "var(--sneakerhead-white)"
       }} _web={{
         shadow: 2,
         borderWidth: 0
       }} _light={{
-        backgroundColor: `${colors.light}`
+        backgroundColor: "var(--sneakerhead-white)"
       }}>
         <StyledImage>
           <Box>

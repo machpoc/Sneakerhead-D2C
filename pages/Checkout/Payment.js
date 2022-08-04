@@ -28,7 +28,7 @@ const PaymentOptions = ({ value, option, setpaymentMethod }) => {
     </Button>
   );
 };
-const Payment = ({theme:{colors}}) => {
+const Payment = ({}) => {
   const [paymentmethod, setpaymentMethod] = useState("");
   const cartid =
     typeof window !== "undefined" ? localStorage.getItem("cartid") : null;

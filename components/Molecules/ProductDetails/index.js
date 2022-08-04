@@ -67,9 +67,9 @@ async function BuyNow(prodid) {
   }
   return data;
 }
+ 
 
-
-const ProductDetails = ({sizeArray,colorArray,productId, theme:{colors}, ...props}) => {
+const ProductDetails = ({sizeArray,colorArray,productId, ...props}) => {
 const router = useRouter()
     let value = props.value;
     // console.log("teh data from commerce",props.value)
@@ -188,14 +188,14 @@ const router = useRouter()
 
         return(
             <Item margin="9px 0px 9px 0px">
-            <span style={{background: `${colors.light}`, border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK {size}</span>
+            <span style={{background: "var(--sneakerhead-white)", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK {size}</span>
         </Item>
         
         )
 
     }):
     <Item margin="9px 0px 9px 0px">
-    <span style={{background: `${colors.light}`, border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> FREE</span>
+    <span style={{background: "var(--sneakerhead-white)", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> FREE</span>
 </Item>
     }
 
@@ -219,7 +219,7 @@ const router = useRouter()
               if (data) {
                 router.push("/cart");
               }
-            }}   fill={true} bg ="#db2727" hoverBg="#db2727"  marginBottom="5%"  marginTop="10%">ADD TO CART</ButtonComponent>
+            }}   fill={true} bg ="var(--sneakerhead-red)" hoverBg="var(--sneakerhead-red)"  marginBottom="5%"  marginTop="10%">ADD TO CART</ButtonComponent>
 
 <ButtonComponent onPress={async () => {
               let data = await BuyNow(productId);

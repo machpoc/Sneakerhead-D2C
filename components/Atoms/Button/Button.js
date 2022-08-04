@@ -24,8 +24,7 @@ height,
 radius,
 fill,marginTop,
 marginBottom,
-hoverTextColor,
-theme:{colors}
+hoverTextColor
 }
 
 ) => {
@@ -34,8 +33,8 @@ theme:{colors}
       const styleObj = {
         marginTop: marginTop,
         marginBottom:marginBottom,
-        borderColor:`${colors.primary.dark}`,
-        // backGroundColor: fill ? `${colors.primary.dark}`:"transparent",
+        borderColor:`var(--sneakerhead-red)`,
+        // backGroundColor: fill ? `var(--sneakerhead-red)`:"transparent",
         borderWidth: 1,
         borderRadius: '30px',
       }; //@ts-ignore
@@ -63,11 +62,11 @@ theme:{colors}
                 isAttached={isAttached}
                 bg={fill ? `${bg}`:"transparent"}
                 _text={{
-                    color: fill?"#ffffff":`${colors.primary.dark}`
+                    color: fill?"#ffffff":`var(--sneakerhead-red)`
                   }}
                 _hover={{
                     bg: fill?`${hoverBg}`:"#ffffff",
-                    _text: {    color: fill? `${hoverTextColor}`:`${colors.primary.dark}` },
+                    _text: {    color: fill? `${hoverTextColor}`:`var(--sneakerhead-red)` },
                   }}
                   _pressed={{
                     bg: fill?`#d31423c7`:"#f7f7f7"

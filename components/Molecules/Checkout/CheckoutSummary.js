@@ -5,7 +5,7 @@ import Grid, { Item } from "../../Atoms/Grid";
 import CartItem from "../Cart/cartItem";
 import CartSummary from "../Cart/cartSummary";
 
-const CheckoutSummary = ({ cartdata,theme:{colors}}) => {
+const CheckoutSummary = ({ cartdata}) => {
   return (
     <Box mt="18px" mb="61px">
       <Grid columns={12} gap="30px">
@@ -41,13 +41,13 @@ const CheckoutSummary = ({ cartdata,theme:{colors}}) => {
                 alignContent: "end",
                 alignItems: "end",
                 opacity: 1,
-                backgroundColor: `${colors.primary.dark}`,
+                backgroundColor: `var(--sneakerhead-red)`,
                 width: "130px",
                 height: "48px",
 
                 borderRadius: 50,
                 border: "0px",
-                color: `${colors.light}`,
+                color: "var(--sneakerhead-white)",
               }}
               onClick={() => {
                 router.push("/cart");
