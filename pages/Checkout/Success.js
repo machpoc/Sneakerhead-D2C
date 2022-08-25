@@ -161,7 +161,7 @@ const Success = ({ paymentdata }) => {
               <Box>
                 <Text
                   color="black"
-                  fontSize="24px"
+                  fontSize="var(--fs-sneakerhead-700)"
                   fontWeight="bold"
                   lineHeight="33px"
                 >

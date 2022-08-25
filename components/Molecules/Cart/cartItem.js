@@ -14,29 +14,29 @@ const CartItem = ({ data, divider }) => {
           <Text
             pb="8px"
             color="black"
-            fontSize="16px"
+            fontSize="var(--fs-sneakerhead-400)"
             lineHeight="22px"
             fontWeight="bold"
           >
             {data.name.en}
           </Text>
-          <Text pb="4px" fontSize="12px" lineHeight="16px" color="#555553">
+          <Text pb="4px" fontSize="var(--fs-sneakerhead-300)" lineHeight="16px" color="#555553">
             Men's Hard Court Tennis Shoes
           </Text>
-          <Text pb="4px" fontSize="12px" lineHeight="16px" color="#555553">
+          <Text pb="4px" fontSize="var(--fs-sneakerhead-300)" lineHeight="16px" color="#555553">
             Color- {data.variant.attributes[0].value}
           </Text>
           <Flex direction="row">
             <Text
               pb="4px"
               pr="16px"
-              fontSize="12px"
+              fontSize="var(--fs-sneakerhead-300)"
               lineHeight="16px"
               color="#555553"
             >
               Size - UK {data.variant.attributes[1].value}
             </Text>
-            <Text pb="4px" fontSize="12px" lineHeight="16px" color="#555553">
+            <Text pb="4px" fontSize="var(--fs-sneakerhead-300)" lineHeight="16px" color="#555553">
               Quantity - {data.quantity}
             </Text>
           </Flex>
@@ -45,7 +45,7 @@ const CartItem = ({ data, divider }) => {
           <Text
             pb="8px"
             color="black"
-            fontSize="16px"
+            fontSize="var(--fs-sneakerhead-400)"
             lineHeight="22px"
             fontWeight="bold"
           >

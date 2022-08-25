@@ -21,7 +21,7 @@ const BannerCardComponent = (
         <Box>
             <Box marginLeft="4rem">
             <Text fontSize="30px">{heading}</Text>
-               <Text fontSize="16px">{description}</Text>
+               <Text fontSize="var(--fs-sneakerhead-400)">{description}</Text>
                 <ButtonComponent
                 // size="xs"
                 width={100}

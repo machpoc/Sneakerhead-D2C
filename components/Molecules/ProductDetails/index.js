@@ -149,8 +149,8 @@ const router = useRouter()
             </Item>
           </Grid>
         </Item>
-
-        <Item colStart={3} colEnd={7} margin="10% 0 0 0">
+{/* '%' needs to convert to 'rem' */}
+        <Item colStart={3} colEnd={7} marginTop="10%" >
           <img src={value.masterVariant.images[0].url} />
         </Item>
         <Item colStart={8} colEnd={11}>
@@ -187,15 +187,15 @@ const router = useRouter()
     { value.variants !=false ? sizeArray.map(size=>{
 
         return(
-            <Item margin="9px 0px 9px 0px">
-            <span style={{background: "var(--sneakerhead-white)", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK {size}</span>
+            <Item marginTop="9px"  marginBottom="9px" marginLeft="auto">
+            <span style={{background: "var(--sneakerhead-white)", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "var(--fs-sneakerhead-400)", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> UK {size}</span>
         </Item>
         
         )
 
     }):
-    <Item margin="9px 0px 9px 0px">
-    <span style={{background: "var(--sneakerhead-white)", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "16px", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> FREE</span>
+    <Item marginTop="--size-sneakerhead-200" marginBottom="--size-sneakerhead-200">
+    <span style={{background: "var(--sneakerhead-white)", border: "1px solid #C1C3C4", borderRadius: "10px",fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "var(--fs-sneakerhead-400)", lineHeight: "22px",padding:"8px 31px 8px 31px"}}> FREE</span>
 </Item>
     }
 
@@ -228,11 +228,11 @@ const router = useRouter()
               }
             }}  >BUY NOW</ButtonComponent>
 <CheckPincode/>
-<p style={{"fontFamily":"'Open Sans'","fontStyle":"normal","fontWeight":"400","fontSize":"12px","lineHeight":"16px"}}> ={">"} 5% additional OFF on Prepaid orders<br/>
+<p style={{"fontFamily":"'Open Sans'","fontStyle":"normal","fontWeight":"400","fontSize":"var(--fs-sneakerhead-300)","lineHeight":"16px"}}> ={">"} 5% additional OFF on Prepaid orders<br/>
   ={'>'} Mfg.By- Bata India Limited<br/>
  ={'>'} Mkd./Cust Care:- Bata House, 418/02, Sector 17, Gurgaon Mehrauli Road, Gurgaon, Haryana 122002 </p>
 
- <p  style={{"fontFamily":"'Open Sans'","fontStyle":"normal","fontWeight":"400","fontSize":"16px","lineHeight":"22px","color":"#000000",textDecoration: "underline"}}>View product details</p>
+ <p  style={{"fontFamily":"'Open Sans'","fontStyle":"normal","fontWeight":"400","fontSize":"var(--fs-sneakerhead-400)","lineHeight":"22px","color":"#000000",textDecoration: "underline"}}>View product details</p>
 
 
 </Item>

@@ -29,20 +29,20 @@ orderData && console.log(orderData)
     return ( <>
     <Navbar/>
    { orderData && <>
-    <Grid columns={12} border="1px solid #C1C3C4" padding="1rem 0 1rem 0">
+    <Grid columns={12} border="1px solid #C1C3C4" paddingTop="1rem" paddingBottom="1rem">
     <Item colStart={3} colEnd={5}>
-        <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "24px", lineHeight: "33px"}}>Order ID</div>
-{    orderId &&    <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "20px", lineHeight: "33px"}}>{orderId.slice(3,-1)}</div>}
+        <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "var(--fs-sneakerhead-700)", lineHeight: "33px"}}>Order ID</div>
+{    orderId &&    <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "var(--fs-sneakerhead-600)", lineHeight: "33px"}}>{orderId.slice(3,-1)}</div>}
     </Item>
     <Item colStart={11} colEnd={13}>
 
-    <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "24px", lineHeight: "33px"}}>Placed on</div>
-{    orderId &&    <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "20px", lineHeight: "33px"}}>Friday, 6 June</div>}
+    <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "var(--fs-sneakerhead-700)", lineHeight: "33px"}}>Placed on</div>
+{    orderId &&    <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "var(--fs-sneakerhead-600)", lineHeight: "33px"}}>Friday, 6 June</div>}
  
     </Item>
 </Grid>
 <Grid columns={12}>
-    <Item  colStart={3} colEnd={5} margin="1rem 0 1rem 0">
+    <Item  colStart={3} colEnd={5} marginTop="1rem" marginBottom="1rem">
         <span style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "30px", lineHeight: "41px"}}>Shipment 1 of 1</span>
     </Item>
 </Grid>
@@ -50,22 +50,22 @@ orderData && console.log(orderData)
 <Grid columns={12}>
 <Item  colStart={3} colEnd={12} >
 <div  style={{background: "#B390DF", borderRadius: "10px 10px 0px 0px",width: "904px", height: "55px", left: "60px", top: "494px",display: "flex", alignItems: "center", justifyContent: "center"}}>
-<div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "24px", lineHeight: "33px", color: "var(--sneakerhead-white)"}}>
+<div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "var(--fs-sneakerhead-700)", lineHeight: "33px", color: "var(--sneakerhead-white)"}}>
 Order in progress
     </div>
     </div>
     <div  style={{ width: "906px", height: "144px", left: "59px" ,display: "flex", alignItems: "center", justifyContent: "center",flexDirection:"column"}}>
-<div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "24px", lineHeight: "33px"}}>
+<div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "var(--fs-sneakerhead-700)", lineHeight: "33px"}}>
 Standard delivery
     </div>
 
-    <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "24px", lineHeight: "33px"}}>
+    <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "var(--fs-sneakerhead-700)", lineHeight: "33px"}}>
 2-3 days
     </div>
     </div>
 
     <div  style={{ background: "#E2E2E2", width: "906px", height: "144px", left: "59px" ,display: "flex", alignItems: "center", justifyContent: "center",flexDirection:"column"}}>
-<div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "24px", lineHeight: "33px"}}>
+<div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "var(--fs-sneakerhead-700)", lineHeight: "33px"}}>
 <span style={{paddingRight:"10px"}}><img  src="\images\refreshed\invoice.svg"/></span>Your invoice is prepared. Order will be shipped shortly
     </div>
 
@@ -79,7 +79,7 @@ Standard delivery
         </Item>
         <Item colStart={6} colEnd={12}>
         <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "30px", lineHeight: "41px",paddingBottom:"10px"}}>{item.name.en}</div>
-        <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "20px", lineHeight: "27px", color: "#555553",paddingBottom:"10px"}}>Men's Hard Court Tennis Shoes</div>
+        <div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "var(--fs-sneakerhead-600)", lineHeight: "27px", color: "#555553",paddingBottom:"10px"}}>Men's Hard Court Tennis Shoes</div>
         <div style={{paddingBottom:"10px"}}>{item.variant.attributes[0].name} : {item.variant.attributes[0].value}</div>
         
         <div>{item.variant.attributes[1].name} : {item.variant.attributes[1].value} Quantity  1</div>
@@ -95,8 +95,8 @@ Standard delivery
     
     <Grid columns={12}  >
     <Item colStart={1} colEnd={3} >
-<div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "24px", lineHeight: "33px"}}>Shipment Total</div>
-<div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "24px", lineHeight: "33px",}}>${orderData.totalPrice.centAmount}</div>
+<div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "400", fontSize: "var(--fs-sneakerhead-700)", lineHeight: "33px"}}>Shipment Total</div>
+<div style={{fontFamily: "'Open Sans'", fontStyle: "normal", fontWeight: "700", fontSize: "var(--fs-sneakerhead-700)", lineHeight: "33px",}}>${orderData.totalPrice.centAmount}</div>
     </Item>
     <Item colStart={10} colEnd={13}>
 <div>View details</div>
@@ -116,7 +116,7 @@ Standard delivery
         >
           Cart Value
         </Text>
-        <Text pb="4px" fontSize="16px" lineHeight="22px" color="#555553">
+        <Text pb="4px" fontSize="var(--fs-sneakerhead-400)" lineHeight="22px" color="#555553">
         ${orderData.totalPrice.centAmount}
         </Text>
       </Flex>
@@ -130,7 +130,7 @@ Standard delivery
         >
          Delivery Charges
         </Text>
-        <Text pb="4px" fontSize="16px" lineHeight="22px" color="#555553">
+        <Text pb="4px" fontSize="var(--fs-sneakerhead-400)" lineHeight="22px" color="#555553">
           $0
         </Text>
       </Flex>
@@ -139,7 +139,7 @@ Standard delivery
         <Text
           pb="4px"
           pr="16px"
-          fontSize="16px"
+          fontSize="var(--fs-sneakerhead-400)"
           lineHeight="22px"
           color="black"
           fontWeight="bold"
@@ -148,7 +148,7 @@ Standard delivery
         </Text>
         <Text
           pb="4px"
-          fontSize="16px"
+          fontSize="var(--fs-sneakerhead-400)"
           lineHeight="22px"
           color="black"
           fontWeight="bold"

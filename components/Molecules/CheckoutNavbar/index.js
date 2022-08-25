@@ -66,7 +66,7 @@ const NavStatus = ({ name, status }) => {
         padding: "16px",
         fontStyle: "normal",
         fontWeight: "400",
-        fontSize: "12px",
+        fontSize: "var(--fs-sneakerhead-300)",
         lineHeight: "16px",
         alignContent: "center",
         alignItems: "center",
@@ -81,7 +81,7 @@ const NavStatus = ({ name, status }) => {
         <Text
           mt="4px"
           ml="2"
-          fontSize="12px"
+          fontSize="var(--fs-sneakerhead-300)"
           lineHeight="16px"
           color="#000000"
           alignContent="center"
@@ -155,7 +155,7 @@ const CheckoutNavbar = ({ page }) => {
                 value="volvo"
                 style={{
                   fontWeight: "400",
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sneakerhead-300)",
                   lineHeight: "16px",
                 }}
               >
@@ -165,7 +165,7 @@ const CheckoutNavbar = ({ page }) => {
                 value="saab"
                 style={{
                   fontWeight: "400",
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sneakerhead-300)",
                   lineHeight: "16px",
                 }}
               >
@@ -175,7 +175,7 @@ const CheckoutNavbar = ({ page }) => {
                 value="mercedes"
                 style={{
                   fontWeight: "400",
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sneakerhead-300)",
                   lineHeight: "16px",
                 }}
               >
@@ -185,7 +185,7 @@ const CheckoutNavbar = ({ page }) => {
                 value="audi"
                 style={{
                   fontWeight: "400",
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sneakerhead-300)",
                   lineHeight: "16px",
                 }}
               >
@@ -199,7 +199,7 @@ const CheckoutNavbar = ({ page }) => {
             style={{
               fontStyle: "normal",
               fontWeight: "800",
-              fontSize: "30px",
+              fontSize: "var(--fs-sneakerhead-300)",
               lineHeight: "41px",
             }}
           >

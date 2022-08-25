@@ -16,7 +16,7 @@ const ShippingAddress = () => {
         <Box mt="48px" mb="48px" alignItems="center" justifyContent="center">
           <Text
             color="black"
-            fontSize="24px"
+            fontSize="var(--fs-sneakerhead-700)"
             lineHeight="33px"
             fontWeight="bold"
           >

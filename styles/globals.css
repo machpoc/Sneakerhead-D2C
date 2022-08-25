@@ -12,6 +12,41 @@
   --sneakerhead-green:#3F8728;
   --sneakerhead-river-grey:#E2D4F4;
   --sneakerhead-pearl-grey:#E2D4F4;
+
+
+
+  --fw-sneakerhead-regular: 400;
+  --fw-sneakerhead-semi-bold: 500;
+  --fw-bold: 700;
+
+  --fs-sneakerhead-300: 120px;
+  --fs-sneakerhead-400: 16px;
+  --fs-sneakerhead-500: 18px;
+  --fs-sneakerhead-600: 20px;
+  --fs-sneakerhead-700: 24px;
+  --fs-sneakerhead-800: 32px;
+  --fs-sneakerhead-900: 2.5rem;
+
+
+  --fs-sneakerhead-body: var(--fs-400);
+  --fs-sneakerhead-primary-heading: var(--fs-800);
+  --fs-sneakerhead-secondary-heading: var(--fs-700);
+  --fs-sneakerhead-nav: var(--fs-500);
+  --fs-sneakerhead-button: var(--fs-300);
+
+  
+    --size-sneakerhead-100: 0.25rem;
+    --size-sneakerhead-200: 0.5rem;
+    --size-sneakerhead-300: 0.75rem;
+    --size-sneakerhead-400: 1rem;
+    --size-sneakerhead-500: 1.5rem;
+    --size-sneakerhead-600: 2rem;
+    --size-sneakerhead-700: 3rem;
+    --size-sneakerhead-800: 4rem;
+    --size-sneakerhead-900: 5rem;
+    --size-sneakerhead-auto: auto;
+
+
   
 }
 

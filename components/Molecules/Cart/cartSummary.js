@@ -11,7 +11,7 @@ const CartSummary = ({ data, button }) => {
       <Text
         mb="8px"
         color="black"
-        fontSize="24px"
+        fontSize="var(--fs-sneakerhead-400)"
         lineHeight="33px"
         fontWeight="bold"
       >
@@ -21,13 +21,13 @@ const CartSummary = ({ data, button }) => {
         <Text
           pb="4px"
           pr="16px"
-          fontSize="16px"
+          fontSize="var(--fs-sneakerhead-400)"
           lineHeight="22px"
           color="#555553"
         >
           Subtotal
         </Text>
-        <Text pb="4px" fontSize="16px" lineHeight="22px" color="#555553">
+        <Text pb="4px" fontSize="var(--fs-sneakerhead-400)" lineHeight="22px" color="#555553">
           ${data.totalPrice.centAmount}
         </Text>
       </Flex>
@@ -35,13 +35,13 @@ const CartSummary = ({ data, button }) => {
         <Text
           pb="4px"
           pr="16px"
-          fontSize="16px"
+          fontSize="var(--fs-sneakerhead-400)"
           lineHeight="22px"
           color="#555553"
         >
           Estimated delivery & handling
         </Text>
-        <Text pb="4px" fontSize="16px" lineHeight="22px" color="#555553">
+        <Text pb="4px" fontSize="var(--fs-sneakerhead-400)" lineHeight="22px" color="#555553">
           $00
         </Text>
       </Flex>
@@ -50,7 +50,7 @@ const CartSummary = ({ data, button }) => {
         <Text
           pb="4px"
           pr="16px"
-          fontSize="16px"
+          fontSize="var(--fs-sneakerhead-400)"
           lineHeight="22px"
           color="black"
           fontWeight="bold"
@@ -59,7 +59,7 @@ const CartSummary = ({ data, button }) => {
         </Text>
         <Text
           pb="4px"
-          fontSize="16px"
+          fontSize="var(--fs-sneakerhead-400)"
           lineHeight="22px"
           color="black"
           fontWeight="bold"

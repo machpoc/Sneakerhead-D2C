@@ -100,7 +100,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
           <div style={{ paddingTop: "12px" }}>
             <span
               style={{
-                fontSize: "20px",
+                fontSize: "var(--fs-sneakerhead-600)",
                 color: `var(--sneakerhead-charcoal-black)`,
                 fontWeight: "400",
                 lineHeight: "21.79px",
@@ -109,6 +109,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
               {heroBannerData && heroBannerData[0].heroDescription}
             </span>
           </div>
+{/* '%' values needs to convert to 'rem' */}
           <ButtonComponent
             marginBottom="25%"
             width={142}
@@ -189,7 +190,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
                 return item != heroBannerData2[0].heroTitle.titleArray[2] ? (
                   <span
                     style={{
-                      fontSize: "16px",
+                      fontSize: "var(--fs-sneakerhead-400)",
                       color: `var(--sneakerhead-charcoal-black)`,
                       fontWeight: "400",
                       lineHeight: "21.79px",
@@ -209,7 +210,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
                 ) : (
                   <span
                     style={{
-                      fontSize: "16px",
+                      fontSize: "var(--fs-sneakerhead-400)",
                       color: `var(--sneakerhead-charcoal-black)`,
                       fontWeight: "400",
                       lineHeight: "21.79px",
@@ -285,7 +286,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
         description="Start recycling today and help us improve our environment"
         buttonName=" Click here"
       />
-      <Grid marginTop="16px" marginBottom="16px">
+      <Grid marginTop="--size-sneakerhead-400" marginBottom="--size-sneakerhead-400">
         <ContactUs />
       </Grid>
       <ContactMode />
