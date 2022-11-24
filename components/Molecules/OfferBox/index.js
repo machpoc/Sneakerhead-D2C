@@ -5,7 +5,7 @@ import {StyledHeader,StyledContent,StyledSeperator} from './OfferBox.styled'
 const OfferBox = ({header,content}) => {
     return (  <>
    {/* <div style={{display:"flex",alignItems:'center',justifyContent:'center'}}> */}
-   <Grid alignItems="center" margin="56px auto 56px auto"  >
+   <Grid alignItems="center" marginTop="--size-sneakerhead-700" marginRight="--size-sneakerhead-auto" marginBottom="--size-sneakerhead-700" marginLeft="--size-sneakerhead-auto">
 
     <Grid  border = {`1px solid var(--sneakerhead-red)`} borderRadius='30px' alignItems="center" justifyContent="center" >
     <Item display="flex" colStart={1} colEnd={2}>

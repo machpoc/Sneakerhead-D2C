@@ -43,7 +43,7 @@ const Product=({productImage,productName,
           <Box maxW={200}   minH={100} rounded="lg"  marginBottom={props.marginBottom} marginRight={props.marginRight} marginLeft={props.marginLeft} overflow="hidden" >
           <Stack p="4" space={3}>
             <Stack space={2}>
-              <Heading size="md" ml="-1"  _dark={{
+              <Heading size="var(--fs-sneakerhead-400)" ml="-1"  _dark={{
               color: "black.800"
             }} fontWeight="600">
                {productName.slice(0,20)}...

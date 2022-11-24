@@ -15,10 +15,17 @@ import styled, { css } from "styled-components";
     grid-template-rows:  ${props=>  props.rows ? `repeat(${props.rows},1fr)` : "auto"  };
 
     background-image:url(${props=>props.backgroundImage});
-    padding-top:${props=>props.paddingTop};
-    padding-bottom:${props=>props.paddingBottom};
-    margin-bottom:${props=>props.marginBottom};
-    margin-top:${props=>props.marginTop};
+
+    padding-top:var(${props=>props.paddingTop});
+    padding-bottom:var(${props=>props.paddingBottom});
+    padding-left:var(${props=>props.paddingLeft});
+    padding-right:var(${props=>props.paddingRight});
+
+    margin-bottom:var(${props=>props.marginBottom});
+    margin-top:var(${props=>props.marginTop});
+    margin-left:var(${props=>props.marginLeft});
+    margin-right:var(${props=>props.marginRight});
+
     justify-items:${props=>props.justifyItems};
     justify-content: ${props=>props.justifyContent};;
     align-content: ${props=>props.alignContent};;
@@ -48,8 +55,12 @@ grid-column-end: ${props=> props.colEnd ? props.colEnd : "auto"};
 ${props=>props.display &&  `align-items: center;
   justify-content: center;`}
   flex-direction:column;
-  padding-top:${props=>props.paddingTop};
-  padding-bottom:${props=>props.paddingBottom};
+  
+  padding-top:var(${props=>props.paddingTop});
+  padding-bottom:var(${props=>props.paddingBottom});
+  padding-left:var(${props=>props.paddingLeft});
+  padding-right:var(${props=>props.paddingRight});
+
   position:${props=> props.position ? props.position : "unset"};
   margin:${props=>props.margin};
   z-index:${props=>props.zIndex};

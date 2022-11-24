@@ -128,7 +128,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
             justifyContent="center"
           >
             <Text
-              fontSize="12px"
+              fontSize="var(--fs-sneakerhead-300)"
               lineHeight="16px"
               fontWeight="400"
               color="black"
@@ -145,7 +145,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
           >
             <Flex direction="row">
               <Text
-                fontSize="12px"
+                fontSize="var(--fs-sneakerhead-300)"
                 lineHeight="16px"
                 fontWeight="400"
                 color="black"

@@ -5,7 +5,7 @@ import {StyledOffer,StyledContent} from './contactMode.styled'
 const ContactMode = ({}) => {
     return (  <>
    {/* <div style={{display:"flex",alignItems:'center',justifyContent:'center'}}> */}
-   <Grid alignItems="center" margin="29px auto 29px auto"  >
+   <Grid alignItems="center" marginTop="--size-sneakerhead-600" marginRight="--size-sneakerhead-auto" marginBottom="--size-sneakerhead-600" marginLeft="--size-sneakerhead-auto" >
 
     <Grid  border={`1px solid var(--sneakerhead-red)`} borderRadius='30px' alignItems="center" justifyContent="center" >
     <Item display="flex" colStart={1} colEnd={2}>

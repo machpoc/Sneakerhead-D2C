@@ -52,7 +52,7 @@ const FilterItem = ({ name, data}) => {
       {" "}
       <Box>
         <Flex pb="8px" pt="8px" direction="row" justifyContent="space-between">
-          <Text fontSize="12px" lineHeight="16px" color="black">
+          <Text fontSize="var(--fs-sneakerhead-300)" lineHeight="16px" color="black">
             {name}{" "}
           </Text>
           <Box
@@ -63,7 +63,7 @@ const FilterItem = ({ name, data}) => {
             {expand && data ? (
               <Text
                 style={{ cursor: "pointer" }}
-                fontSize="20px"
+                fontSize="var(--fs-sneakerhead-600)"
                 lineHeight="16px"
                 color="black"
               >
@@ -72,7 +72,7 @@ const FilterItem = ({ name, data}) => {
             ) : (
               <Text
                 style={{ cursor: "pointer" }}
-                fontSize="20px"
+                fontSize="var(--fs-sneakerhead-600)"
                 lineHeight="16px"
                 color="black"
               >

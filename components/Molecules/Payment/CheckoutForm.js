@@ -75,7 +75,7 @@ import { withTheme } from "styled-components";
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <Box justifyContent="center" alignItems="center" mb="32px" mt="56px">
-        <Text color="black" fontSize="24px" fontWeight="bold" lineHeight="33px">
+        <Text color="black" fontSize="var(--fs-sneakerhead-700)" fontWeight="bold" lineHeight="33px">
           Enter new card
         </Text>
       </Box>
