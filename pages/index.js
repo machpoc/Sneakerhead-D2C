@@ -33,31 +33,32 @@ import { withTheme } from "styled-components";
 //   `/api/getProducts?limit=${pageIndex.pageIndex}`
 // );
 const sample2 = ({}) => {
-
-const {data:accessToken}= useSWR("/api/getAuthToken")
-accessToken && localStorage.setItem("accessToken", accessToken.access_token);
-// accessToken && console.log("accessToken &&",accessToken.access_token)
-// accessToken && localStorage.setItem("accessToken", accessToken.access_token);
+  const { data: accessToken } = useSWR("/api/getAuthToken");
+  accessToken && localStorage.setItem("accessToken", accessToken.access_token);
+  // accessToken && console.log("accessToken &&",accessToken.access_token)
+  // accessToken && localStorage.setItem("accessToken", accessToken.access_token);
   // localStorage.setItem("refreshToken", refreshToken);
 
   const { data: heroBannerData } = useSWR("/api/getHeroBanner");
   const { data: heroBannerData2 } = useSWR("/api/getHeroBanner2");
+  const { data: natureBanner } = useSWR("/api/natureBanner");
   const { data: offerDetails } = useSWR("/api/getOffer");
   const { data: marketingTile } = useSWR("/api/getMarketingTile");
   const { data: marketingBanner } = useSWR("/api/getMarketingBanner");
 
-  productList && console.log("productList2",productList)
+  productList && console.log("productList2", productList);
 
-  const token= typeof window !== "undefined" ? localStorage.getItem("accessToken"):null
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("accessToken") : null;
 
   const { data: productData } = useSWR(`/api/getProducts?token=${token}`);
 
-  const { data:productList } = useSWR( `/api/getProducts?token=${token}&limit=20`);
+  const { data: productList } = useSWR(
+    `/api/getProducts?token=${token}&limit=20`
+  );
 
   const { data: session } = useSession();
   console.log("usersession", session);
-
-
 
   const header1 = "LIFE IS BETTER IN RUNNING SHOES";
 
@@ -79,7 +80,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
                     fontSize: "42px",
                     fontWeight: "700",
                     lineHeight: "44.18px",
-                color: `var(--sneakerhead-charcoal-black)`
+                    color: `var(--sneakerhead-charcoal-black)`,
                   }}
                 >
                   {heroBannerData[0].heroTitle.firstPart}{" "}
@@ -109,7 +110,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
               {heroBannerData && heroBannerData[0].heroDescription}
             </span>
           </div>
-{/* '%' values needs to convert to 'rem' */}
+          {/* '%' values needs to convert to 'rem' */}
           <ButtonComponent
             marginBottom="25%"
             width={142}
@@ -128,7 +129,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
             style={{ position: "absolute", top: "-2%", right: "14%" }}
             width={489}
             height={511}
-            src="images/refreshed/bannerImage1.png"
+            src={heroBannerData && heroBannerData[0].heroImage}
           />
         </Item>
         <Item
@@ -163,7 +164,12 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
       <WaveBanner />
       <WaveRectangle />
 
-      <HeroBanner rows={1} columns={12} gap={10} bgColor={`var(--sneakerhead-thistle-purple)`}>
+      <HeroBanner
+        rows={1}
+        columns={12}
+        gap={10}
+        bgColor={`var(--sneakerhead-thistle-purple)`}
+      >
         <div style={{ position: "absolute", height: "100%", width: "100%" }}>
           <svg
             viewBox="0 0 1024 366"
@@ -242,6 +248,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
               {heroBannerData2 && heroBannerData2[0].heroDescription}
             </span>
           </div>
+          {console.log("HERROOO IMAGE DATA @", heroBannerData2)}
           <ButtonComponent
             width={142}
             bg={`var(--sneakerhead-red)`}
@@ -263,7 +270,7 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
         >
           <img
             width={350}
-            src="\images\refreshed\Adidas-Shoes-Free-PNG-Image.png"
+            src={heroBannerData2 && heroBannerData2[0].HeroImage}
           />
         </Item>
       </HeroBanner>
@@ -279,14 +286,18 @@ accessToken && localStorage.setItem("accessToken", accessToken.access_token);
       {productList && <Carousal data={productList} />}
 
       <SubHeader color={`var(--sneakerhead-red)`}>Top selling</SubHeader>
-     { productList && <Carousal data={productList} />}
+      {productList && <Carousal data={productList} />}
 
       <ContentBanner
-        header="TAKE CARE OF NATURE"
-        description="Start recycling today and help us improve our environment"
+        header={natureBanner && natureBanner[0].heroTitle}
+        description={natureBanner && natureBanner[0].heroDescription}
         buttonName=" Click here"
+        image={natureBanner && natureBanner[0].HeroImage}
       />
-      <Grid marginTop="--size-sneakerhead-400" marginBottom="--size-sneakerhead-400">
+      <Grid
+        marginTop="--size-sneakerhead-400"
+        marginBottom="--size-sneakerhead-400"
+      >
         <ContactUs />
       </Grid>
       <ContactMode />
